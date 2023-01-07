@@ -882,3 +882,35 @@ sound.Add(
     soundlevel = 80,
     sound = "snow/battle_rifle/battle_rifle_zoom_out.wav"
 })
+
+	-- Plasma Rifle
+
+sound.Add(
+{
+    name = "suburb.h3pr.fire",
+    channel = CHAN_STATIC,
+    volume = 0.7,
+	pitch = {99.4,101.5},
+    soundlevel = 100,
+    sound =  { "snow/plasma_rifle/plas_rifle_fire.wav" }
+})
+
+sound.Add(
+{
+    name = "suburb.h3pr.fire_ext",
+    channel = CHAN_STATIC,
+    volume = 0.6,
+	pitch = {99.4,101.5},
+    soundlevel = 100,
+    sound =  { "snow/plasma_rifle/plas_rifle_tail_ext1.wav","snow/plasma_rifle/plas_rifle_tail_ext2.wav","snow/plasma_rifle/plas_rifle_tail_ext3.wav" }
+})
+
+sound.Add(
+{
+    name = "suburb.h3pr.fire_int",
+    channel = CHAN_STATIC,
+    volume = 1,
+	pitch = {99.4,101.5},
+    soundlevel = 100,
+    sound =  { "snow/plasma_rifle/plas_rifle_tail_int1.wav","snow/plasma_rifle/plas_rifle_tail_int2.wav","snow/plasma_rifle/plas_rifle_tail_int3.wav" }
+})

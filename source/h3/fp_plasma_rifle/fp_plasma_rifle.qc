@@ -4,9 +4,17 @@ $bodygroup "body"
 {
 	studio "battery.smd"
 }
+$bodygroup "body1"
+{
+	studio "battery_luminous.smd"
+}
 $bodygroup "br"
 {
 	studio "plasmarifle.smd"
+}
+$bodygroup "br1"
+{
+	studio "plasmarifle_luminous.smd"
 }
 $bodygroup "h"
 {
@@ -22,12 +30,18 @@ $illumposition 0 0 0
 
 $cdmaterials "snowysnowtime/h3/rifles/plasmarifle"
 
+$texturegroup "skinfamilies"
+{
+    { "shell" }
+    { "shell_brute" }
+}
+
 $cbox 0 0 0 0 0 0
 
 $bbox -19.114 -19.847 -47.532 41.111 68.876 20.054
 
 $attachment "muzzle1" "gun" 9.25 0.00 1.25 rotate 0 0 0	
-$attachment "muzzle2" "gun" 9.25 0.00 -1.25 rotate 0 0 0	
+$attachment "muzzle2" "gun" 9.25 0.00 -1.25 rotate 0 0 0
 
 $poseparameter "move_x" -1 1 loop 0
 

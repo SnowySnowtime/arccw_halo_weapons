@@ -1,0 +1,33 @@
+UnlitGeneric
+{
+	"$basetexture"	"models\vuthakral\halo\weapons\PlasmaRifle\heat_gauge_flip"
+	$translucent 1
+	$additive 1
+
+	$translate	"[ 0 0 ]"
+
+	$flipscroll		1
+	$scrollmult	1
+	$scroll_ls		5
+
+	$colourfrom	"[ 0 0.7 10 ]"
+	$colourto		"[ 1 0.3 0 ]"
+	$colourmul	0.9
+
+	Proxies
+	{
+		drc_ScrollHeat
+		{
+			resultVar $translate
+		}
+		drc_CurHeat
+		{
+			resultVar $color2
+		}
+		TextureTransform
+		{
+			translateVar $translate
+			resultVar $basetexturetransform
+		}
+	}
+}

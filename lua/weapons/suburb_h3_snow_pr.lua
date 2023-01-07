@@ -36,7 +36,7 @@ SWEP.NeverPhysBullet = true
 SWEP.TracerNum = 1 -- tracer every X
 SWEP.Tracer 	= "effect_arc9_halo3_tracer_plasmarifle"
 SWEP.MuzzleFlashColor = Color(0, 80, 255)
-SWEP.ImpactEffect = "effect_astw2_halo3_impact_plasmarifle"
+SWEP.ImpactEffect = "effect_arc9_halo3_impact_plasmarifle"
 
 SWEP.Recoil = 0.2
 SWEP.RecoilSide = 0.2
@@ -196,17 +196,9 @@ SWEP.CustomizeAng = Angle(12.149, 30.547, 0)
 
 SWEP.BarrelLength = 30
 SWEP.AttachmentElements = {
-	["schism"] = {
+	["brute"] = {
         VMSkin = 1,
         WMSkin = 1,
-    },
-	["lines"] = {
-        VMSkin = 2,
-        WMSkin = 2,
-    },
-	["mcc"] = {
-        VMSkin = 3,
-        WMSkin = 3,
     },
 }
 
@@ -272,8 +264,8 @@ SWEP.Attachments = {
         },
     },
 	{
-        PrintName = "Skin",
-        Slot = {"skin_h3pr","skin_halouniversal"},
+        PrintName = "Conversion",
+        Slot = {"h3pr"},
         DefaultAttName = "Factory Default",
         FreeSlot = true
     },
@@ -296,6 +288,21 @@ SWEP.Animations = {
     ["draw"] = {
         Source = "ready",
         Time = 20/30,
+		SoundTable = {
+            {
+                s = "suburb.h3pr.draw",
+                p = 100,
+                v = 1,
+                t = 0,
+                c = CHAN_STATIC,
+
+                e = "", -- effect name
+                att = nil, -- attachment, defaults to shell attachment
+                mag = 100,
+                ind = 0,
+                bg = 0,
+            },
+        },
         LHIK = true,
         LHIKIn = 0,
         LHIKOut = 0.25,
@@ -329,6 +336,21 @@ SWEP.Animations = {
         Source = "oh_start",
         TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2,
         Time = 59/30,
+		SoundTable = {
+            {
+                s = "suburb.h3pr.oh",
+                p = 100,
+                v = 1,
+                t = 0,
+                c = CHAN_STATIC,
+
+                e = "arc9ce_halo_2_impact_plasma_rifle", -- effect name
+                att = 3, -- attachment, defaults to shell attachment
+                mag = 100,
+                ind = 0,
+                bg = 0,
+            },
+        },
         LHIK = true,
         LHIKIn = 0.5,
         LHIKOut = 0,
@@ -343,6 +365,21 @@ SWEP.Animations = {
     ["exit_vent"] = {
         Source = "oh_exit",
         Time = 35/30,
+		SoundTable = {
+            {
+                s = "suburb.h3pr.oh_exit",
+                p = 100,
+                v = 1,
+                t = 0,
+                c = CHAN_STATIC,
+				-- ???
+                -- e = "effect_arc9_halo3_impact_plasmarifle",
+                -- att = 2,
+                -- mag = 100,
+                -- ind = 0,
+                -- bg = 0,
+            },
+        },
         LHIK = true,
         LHIKIn = 0,
         LHIKOut = 0.5,

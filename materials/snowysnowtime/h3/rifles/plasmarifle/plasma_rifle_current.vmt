@@ -1,0 +1,19 @@
+UnlitGeneric
+{
+	"$basetexture"	"models\vuthakral\halo\weapons\PlasmaRifle\heat_gauge_flip"
+	$translucent 1
+
+	$translate	"[ 0 0 ]"
+
+	$flipscroll		1
+	$scrollmult	1
+	$scroll_ls		5
+
+	$colourfrom	"[ 0 5 0 ]"
+	$colourto		"[ 1 0 0 ]"
+	$colourmul	0.9
+
+	Proxies
+	{
+	}
+}

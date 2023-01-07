@@ -8,8 +8,8 @@ EFFECT.Length				= 400;
 //EFFECT.WhizSound			= Sound( "nomad/whiz.wav" );		-- by Robinhood76 (http:--www.freesound.org/people/Robinhood76/sounds/96556/)
 EFFECT.WhizDistance			= 72;
 
-local MaterialMain			= Material( "effects/arc9ce/halo_reach/trail_blue" );
-local MaterialFront			= Material( "effects/arc9ce/halo3/plasma_impact_medium_blue" );
+local MaterialMain			= Material( "effects/arc9ce/halo3/trails/trail_plasmarifle" );
+local MaterialFront			= Material( "effects/arc9ce/halo3/muzzle_plasmarifle2" );
 
 function EFFECT:GetTracerOrigin( data )
 

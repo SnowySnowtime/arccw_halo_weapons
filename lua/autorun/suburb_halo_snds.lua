@@ -914,3 +914,30 @@ sound.Add(
     soundlevel = 100,
     sound =  { "snow/plasma_rifle/plas_rifle_tail_int1.wav","snow/plasma_rifle/plas_rifle_tail_int2.wav","snow/plasma_rifle/plas_rifle_tail_int3.wav" }
 })
+
+sound.Add(
+{
+    name = "suburb.h3pr.draw",
+    channel = CHAN_STATIC,
+    volume = 1.0,
+    soundlevel = 80,
+    sound = {"snow/plasma_rifle/plasrifle_ready.wav"}
+})
+
+sound.Add(
+{
+    name = "suburb.h3pr.oh",
+    channel = CHAN_WEAPON,
+    volume = 1.0,
+    soundlevel = 80,
+    sound = {"snow/plasma_rifle/plasrifle_overheat.wav"}
+})
+
+sound.Add(
+{
+    name = "suburb.h3pr.oh_exit",
+    channel = CHAN_WEAPON,
+    volume = 1.0,
+    soundlevel = 80,
+    sound = {"snow/plasma_rifle/plasrifle_oh_exit.wav"}
+})

@@ -1,0 +1,142 @@
+$modelname "c_fp_cesg.mdl"
+
+$bodygroup "studio"
+{
+	studio "c_fp_sg.smd"
+	studio "c_fp_sg_camo.smd"
+	studio "c_fp_sg_gj.smd"
+}
+$bodygroup "hi"
+{
+	studio "shotshell.smd"
+}
+
+$surfaceprop "default"
+
+$contents "solid"
+
+$illumposition -2.073 -5.096 -10.058
+
+$cdmaterials "snowysnowtime/hce/rifles/shotgun"
+$cdmaterials "snowysnowtime/hcea/rifles/shotgun"
+
+$texturegroup "skinfamilies"
+{
+	{ "shotgun" "shotdull" "shotshell" } 
+	{ "shotgun" "desertdull" "shotshell" }
+	{ "gold" "shotdull" "shotshell" }
+	{ "shotgun" "hunterdull" "shotshell" }
+	{ "wl" "wldull" "shotshell" }
+	{ "cheese" "cheese" "shotshell"}
+	{ "og" "ogdull" "ogshell" }
+}
+
+$attachment "muzzle" "frame gun" 18 0 0.9 rotate 0 0 0
+$attachment "1" "frame gun" 0 0 3.5 rotate 0 90 -180
+
+$cbox 0 0 0 0 0 0
+
+$bbox -10.175 -15.883 -17.155 20.363 11.732 -2.96
+
+$include "bonemerge.qci"
+$include "sg_coll.qci"
+
+$sectionframes 30 132
+
+$sequence "neutral" {
+	"anims\neutral.smd"
+	snap
+	rotate -90
+}
+
+$sequence "idle" {
+	"anims\idle.smd"
+	activity "ACT_VM_IDLE" 1
+	fadein 0.2
+	fadeout 0.2
+	node "0"
+	rotate -90
+	fps 30
+	loop
+}
+
+$sequence "lel" {
+	"anims\idle.smd"
+	activity "ACT_VM_IDLE" 1
+	frame 1 1
+	loop
+}
+
+$sequence "fidget" {
+	"anims\fidget.smd"
+	activity "ACT_VM_FIDGET" 1
+	fadein 0.2
+	fadeout 0.2
+	node "0"
+	rotate -90
+	fps 30
+}
+
+$sequence "fire" {
+	"anims\fire.smd"
+	activity "ACT_VM_PRIMARYATTACK" 1
+	fadein 0.2
+	fadeout 0.2
+	node "2"
+	rotate -90
+	snap
+	fps 30
+}
+
+$sequence "draw" {
+	"anims\deploy.smd"
+	activity "ACT_VM_DRAW" 1
+	fadein 0.2
+	fadeout 0.2
+	node "0"
+	rotate -90
+	snap
+	fps 30
+}
+
+$sequence "reload1" {
+	"anims\reloadstart.smd"
+	activity "ACT_SHOTGUN_RELOAD_START" 1
+	fadein 0.2
+	fadeout 0.2
+	node "0"
+	snap
+	rotate -90
+	fps 30
+}
+
+$sequence "reload2" {
+	"anims\reloadloop.smd"
+	activity "ACT_VM_RELOAD" 1
+	fadein 0.06
+	fadeout 0.06
+	node "0"
+	snap
+	rotate -90
+	fps 30
+}
+
+$sequence "reloadempty" {
+	"anims\reloadexit.smd"
+	activity "ACT_SHOTGUN_RELOAD_FINISH" 1
+	fadein 0.2
+	fadeout 0.2
+	node "0"
+	snap
+	rotate -90
+	fps 30
+}
+
+$sequence "melee" {
+	"anims\melee.smd"
+	activity "ACT_VM_HITCENTER" 1
+	fadein 0.0
+	fadeout 0.2
+	rotate -90
+	fps 30
+}

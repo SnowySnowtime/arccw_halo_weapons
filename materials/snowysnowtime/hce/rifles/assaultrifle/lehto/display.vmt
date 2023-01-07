@@ -1,0 +1,19 @@
+"UnlitGeneric"
+{
+	"$basetexture" "snowysnowtime/hce/rifles/assaultrifle/lehto/screen"
+	"$color2" "[2 2 2]"
+	"$detail" "snowysnowtime/hce/rifles/assaultrifle/lehto/illum"
+	"$detailblendmode" "0"
+	"$detailblendfactor" "1"
+	"$detailscale" "1.25"
+	$model 1
+	Proxies
+	{
+		"TextureScroll"
+		{
+			"texturescrollvar" "$detailtexturetransform"
+			"texturescrollrate" 0.03
+		    "texturescrollangle" -270.00
+		}
+	}
+}

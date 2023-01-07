@@ -1,0 +1,11 @@
+"UnlitGeneric"
+{
+	"$basetexture" "snowysnowtime/hce/rifles/assaultrifle/ar_data_firemode"
+	"$color2" "[.3294117647058824 1.333333333333333 1.662745098039216]"
+	"$additive" "1"
+	$model 1
+	Proxies
+	{
+		drc_Firemode{}
+	}
+}

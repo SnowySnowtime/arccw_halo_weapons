@@ -1,0 +1,43 @@
+"UnlitGeneric"
+{
+	"$basetexture" "snowysnowtime/hce/rifles/assaultrifle/lehto/info/compass"
+	"$additive" "1"
+	$decal 1
+	
+	$model 1
+
+	$angle		 0
+	$translate		 "[0 0]"
+	$center		 "[.5 .5]"
+	$scale		"[0.6 0.6]"
+
+	$nocull 1
+	$compassSnap 45
+	
+	"$detail" "snowysnowtime/hce/rifles/assaultrifle/lehto/ammocounter_illum"
+	"$detailblendmode" "0"
+	"$detailblendfactor" "2"
+	"$detailscale" "0.4"
+
+	Proxies
+	{
+		drc_Compass
+		{
+			resultVar $angle
+		}
+		TextureTransform
+		{
+			"translateVar" "$translate"
+            "rotateVar" "$angle"
+            "centerVar" "$center"
+			"scaleVar" "$scale"
+            "resultVar" "$basetexturetransform"
+		}
+		"TextureScroll"
+		{
+			"texturescrollvar" "$detailtexturetransform"
+			"texturescrollrate" 0.03
+		    "texturescrollangle" -270.00
+		}
+	}
+}

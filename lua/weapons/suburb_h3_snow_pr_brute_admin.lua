@@ -1,8 +1,8 @@
 SWEP.Base = "suburb_halo_battery_subbase"
-SWEP.Spawnable = true -- this obviously has to be set to true
+SWEP.Spawnable = false -- this obviously has to be set to false, its an admin gun, no clutter allowed!
 SWEP.Category = "ArcCW - Halo Coalition"
 SWEP.HC_CategoryPack = "2Halo 3"
-SWEP.AdminOnly = false
+SWEP.AdminOnly = true
 -- Custom Crosshair Malarkey, cry at the amount of stuff for it!
 SWEP.CrosshairMat = "snowysnowtime/reticles/ret_pr"
 SWEP.SizeX = 127 -- Microadjustments for different crosshair sizes/types.
@@ -49,29 +49,29 @@ SWEP.Tracer 	= "effect_arc9_halo3_tracer_plasmarifle"
 SWEP.MuzzleFlashColor = Color(0, 80, 255)
 SWEP.ImpactEffect = "effect_arc9_halo3_impact_plasmarifle"
 
-SWEP.Recoil = 0.2
-SWEP.RecoilSide = 0.2
+SWEP.Recoil = 2
+SWEP.RecoilSide = 0
 
 -- Fesiug's Plasma subbase
 SWEP.ArcCW_Halo_Heat    = true
 SWEP.ArcCW_Halo_Battery = true
 SWEP.ArcCW_Halo_Accel   = true
 
-SWEP.Delay_Accel        = 0.8
-SWEP.Delay_Decel        = 0.6
+SWEP.Delay_Accel        = 15
+SWEP.Delay_Decel        = 0.3
 
-SWEP.Heat_Accel     = 0.15
+SWEP.Heat_Accel     = 0.007
 SWEP.Heat_Decel     = 0.8525
 SWEP.Heat_DecelOH   = 0.35
 
-SWEP.Delay_Min          = 60 / 360
-SWEP.Delay_Max          = 60 / 540
+SWEP.Delay_Min          = 60 / 200
+SWEP.Delay_Max          = 60 / 1500
 
-SWEP.BatteryConsumption     = 0.0025
+SWEP.BatteryConsumption     = 0
 SWEP.Heat_Threshold     = 0.1
 
 SWEP.Delay = 60 / 360 -- 60 / RPM.
-SWEP.Num = 1 -- number of shots per trigger pull.
+SWEP.Num = 6 -- number of shots per trigger pull.
 SWEP.Firemodes = {
     {
         Mode = -2,
@@ -91,8 +91,8 @@ SWEP.NPCWeight = 25
 
 SWEP.ManualAction = false
 
-SWEP.AccuracyMOA = 15 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
-SWEP.HipDispersion = 80 -- inaccuracy added by hip firing.
+SWEP.AccuracyMOA = 60 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
+SWEP.HipDispersion = 0 -- inaccuracy added by hip firing.
 SWEP.MoveDispersion = 0
 
 SWEP.Primary.Ammo = "arccwhce_plasmabattery" -- what ammo type the gun uses

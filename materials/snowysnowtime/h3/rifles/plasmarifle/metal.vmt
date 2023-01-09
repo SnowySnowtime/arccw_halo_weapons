@@ -9,6 +9,7 @@
 	"$detailblendfactor" "0.5"
 	"$color2" "[0.87 0.87 0.87]"
 	"$phong" "1" 
+	"$phongboost" "1"
 	"$phongexponenttexture" "snowysnowtime/h3/rifles/plasmarifle/pr_exp"
 	"$phongalbedotint" "1"
 	"$phongfresnelranges" "[4 0.5 8]"

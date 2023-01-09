@@ -1,19 +1,47 @@
-UnlitGeneric
+"UnLitGeneric"
 {
-	"$basetexture"	"models\vuthakral\halo\weapons\PlasmaRifle\heat_gauge_flip"
-	$translucent 1
-
-	$translate	"[ 0 0 ]"
-
-	$flipscroll		1
-	$scrollmult	1
-	$scroll_ls		5
-
-	$colourfrom	"[ 0 5 0 ]"
-	$colourto		"[ 1 0 0 ]"
-	$colourmul	0.9
+	"$basetexture" "snowysnowtime/h3/rifles/plasmarifle/plasma_current_noise_a"
+	"$detail" "snowysnowtime/h3/rifles/plasmarifle/cloud_1"
+	"$additive" "1"
+	"$detailscale" "2"
+	"$detailblendfactor" "1"
+	"$detailblendmode" "4"
+	"$color2" "[ 2 4 10 ]"
+	"$detailtint" "[ 0 0.7 10 ]"
+	"$angle" 0.0
+	"$baseangle" 0.0
+	"$scale" "[1 1]"
+	"$basescale" "[1 1]"
+	"$center" "[8 9]"
+	"$basecenter" "[60 70]"
 
 	Proxies
 	{
+		LinearRamp
+		{
+			"rate" -1
+			"initialValue" 0.0
+			"resultVar" "$angle"
+		}
+		LinearRamp
+		{
+			"rate" 20
+			"initialValue" 0.0
+			"resultVar" "$baseangle"
+		}
+        "TextureTransform"
+		{
+			"translateVar" "[0 0]"
+            "rotateVar" "$angle"
+            "centerVar" "$center"
+			"scaleVar"	"$scale"
+            "resultVar" "$detailtexturetransform"
+        }
+		TextureScroll
+		{
+			"textureScrollRate" 1
+			"textureScrollAngle" -90
+			"textureScrollVar" "$basetexturetransform"
+		}
 	}
 }

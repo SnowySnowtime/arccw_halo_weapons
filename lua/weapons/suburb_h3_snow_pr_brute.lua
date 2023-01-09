@@ -15,8 +15,8 @@ SWEP.FixOutlineX = 64
 SWEP.FixOutlineY = 63
 SWEP.Precise = false -- Enables the center dot.
 
-SWEP.PrintName = "Type-25 Plasma Rifle"
-SWEP.Trivia_Class = "Plasma Rifle"
+SWEP.PrintName = "Type-25 Brute Plasma Rifle"
+SWEP.Trivia_Class = "Brute Plasma Rifle"
 SWEP.Trivia_Desc = "This is a Type-25 Directed Energy Rifle"
 SWEP.Trivia_Manufacturer = "Iruiru Armory"
 SWEP.Trivia_Calibre = "Plasma"
@@ -45,9 +45,9 @@ SWEP.MuzzleVelocity = 126 -- projectile or phys bullet muzzle velocity -- IN M/S
 SWEP.NeverPhysBullet = true
 
 SWEP.TracerNum = 1 -- tracer every X
-SWEP.Tracer 	= "effect_arc9_halo3_tracer_plasmarifle"
-SWEP.MuzzleFlashColor = Color(0, 80, 255)
-SWEP.ImpactEffect = "effect_arc9_halo3_impact_plasmarifle"
+SWEP.Tracer 	= "effect_arc9_halo3_tracer_plasmarifle_brute"
+SWEP.MuzzleFlashColor = Color(255, 20, 10)
+SWEP.ImpactEffect = "effect_arc9_halo3_impact_plasmarifle_brute"
 
 SWEP.Recoil = 0.2
 SWEP.RecoilSide = 0.2
@@ -58,19 +58,19 @@ SWEP.ArcCW_Halo_Battery = true
 SWEP.ArcCW_Halo_Accel   = true
 
 SWEP.Delay_Accel        = 0.8
-SWEP.Delay_Decel        = 0.6
+SWEP.Delay_Decel        = 0.8
 
-SWEP.Heat_Accel     = 0.15
+SWEP.Heat_Accel     = 0.125
 SWEP.Heat_Decel     = 0.8525
 SWEP.Heat_DecelOH   = 0.35
 
-SWEP.Delay_Min          = 60 / 360
-SWEP.Delay_Max          = 60 / 540
+SWEP.Delay_Min          = 60 / 400
+SWEP.Delay_Max          = 60 / 800
 
-SWEP.BatteryConsumption     = 0.0025
+SWEP.BatteryConsumption     = 0.003
 SWEP.Heat_Threshold     = 0.1
 
-SWEP.Delay = 60 / 360 -- 60 / RPM.
+SWEP.Delay = 60 / 400 -- 60 / RPM.
 SWEP.Num = 1 -- number of shots per trigger pull.
 SWEP.Firemodes = {
     {
@@ -91,8 +91,8 @@ SWEP.NPCWeight = 25
 
 SWEP.ManualAction = false
 
-SWEP.AccuracyMOA = 15 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
-SWEP.HipDispersion = 80 -- inaccuracy added by hip firing.
+SWEP.AccuracyMOA = 30 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
+SWEP.HipDispersion = 85 -- inaccuracy added by hip firing.
 SWEP.MoveDispersion = 0
 
 SWEP.Primary.Ammo = "arccwhce_plasmabattery" -- what ammo type the gun uses
@@ -144,7 +144,7 @@ SWEP.DistantShootSoundOutdoorsVolume = 0.4
 SWEP.DistantShootSoundIndoorsVolume = 1
 SWEP.Hook_AddShootSound = ArcCW.UC.InnyOuty
 
-SWEP.MuzzleEffect = "arc9ce_halo_3_muzzle_plasma_rifle"
+SWEP.MuzzleEffect = "arc9ce_halo_3_muzzle_brute_plasma_rifle"
 SWEP.ShellModel = "models/shells/shell_338mag.mdl"
 SWEP.ShellPitch = 80
 SWEP.ShellScale = 1.5
@@ -275,10 +275,10 @@ SWEP.Attachments = {
         },
     },
 	{
-        PrintName = "Conversion",
+        PrintName = "Forced Conversion",
         Slot = {"h3pr"},
-        DefaultAttName = "Factory Default",
-        FreeSlot = true
+        Installed = "bruteprh3",
+		Integral = true
     },
 	{
         PrintName = "Passive",

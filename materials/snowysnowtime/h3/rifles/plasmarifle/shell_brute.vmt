@@ -1,9 +1,7 @@
 "VertexLitGeneric"
 {
-	"$basetexture" "snowysnowtime/hce/rifles/pr/pr"
-	"$bumpmap" "snowysnowtime/hce/rifles/pr/pr_n"
-	"$selfillum" "1"
-	"$selfillummask" "snowysnowtime/hce/rifles/pr/pr_illum"
+	"$basetexture" "snowysnowtime/h3/rifles/plasmarifle/brute"
+	"$bumpmap" "snowysnowtime/h3/rifles/plasmarifle/pr_n"
 	"$lightwarptexture"	"snowysnowtime/phongwarps/lightwarp_metallic"
 	"$detail"   "snowysnowtime/details/cyborg_detail"
 	"$detailscale" "16"
@@ -11,9 +9,8 @@
 	"$detailblendfactor" "0.5"
 	"$color2" "[0.87 0.87 0.87]"
 	"$phong" "1" 
-	"$phongboost" "80"
-	"$phongexponenttexture" "snowysnowtime/hce/rifles/pr/pr_exp"
-	"$phongwarptexture" "snowysnowtime/phongwarps/phongwarp_sheen"
+	"$phongboost" "12"
+	"$phongexponenttexture" "snowysnowtime/h3/rifles/plasmarifle/pr_exp"
 	"$phongalbedotint" "1"
 	"$phongfresnelranges" "[4 0.5 8]"
 	"$phongdisablehalflambert" "1"
@@ -22,7 +19,7 @@
 	"$rimmask"	1
 	"$envmap" "snowysnowtime/envmaps/mw_envmap_fallback"
 	"$envmaptint" "[ 1 1 1 ]"
-	"$cubemaptint"	"[ 0.3 0.6 1 ]"
+	"$cubemaptint"	"[ 1 0.1 0.1 ]"
 	"$basetexturealphaenvmapmask"	"1"
 	"$envmapfresnel"	"0.15"
 	"$cubemappower"	0.7

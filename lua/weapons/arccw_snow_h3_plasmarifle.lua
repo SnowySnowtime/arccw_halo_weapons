@@ -4,7 +4,7 @@ SWEP.Category = "ArcCW - Halo"
 SWEP.HC_CategoryPack = "2Halo 3"
 SWEP.AdminOnly = false
 -- Custom Crosshair Malarkey, cry at the amount of stuff for it!
-SWEP.CrosshairMat = "snowysnowtime/reticles/ret_pr"
+SWEP.CrosshairMat = "snowysnowtime/reticles/uc/ret_pr"
 SWEP.SizeX = 127 -- Microadjustments for different crosshair sizes/types.
 SWEP.SizeY = 127
 SWEP.FixX = 62

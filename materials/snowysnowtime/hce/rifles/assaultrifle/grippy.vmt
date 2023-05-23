@@ -1,28 +1,22 @@
 "VertexLitGeneric"
 {
-	"$basetexture" "snowysnowtime/hce/rifles/assaultrifle/ar"
-	"$bumpmap" "snowysnowtime/hce/rifles/assaultrifle/ar_n"
-	"$lightwarptexture"	"snowysnowtime/phongwarps/mw_lightwarp"
-	"$detail"   "snowysnowtime/details/cyborg_detail"
-	"$detailscale" "16"
-	"$detailblendmode" "0"
-	"$detailblendfactor" "0.5"
-	"$color2" "[1 1 1]"
+	"$basetexture" "snowysnowtime/hce/rifles/assaultrifle/og"
+	"$bumpmap" "snowysnowtime/hce/rifles/assaultrifle/og_n"
 	"$phong" "1" 
-	"$phongboost" "30"
-	"$phongexponenttexture" "snowysnowtime/hce/rifles/assaultrifle/ar_exp"
-	"$phongwarptexture" "snowysnowtime/phongwarps/mw_phongwarp_sheen"
+	"$phongexponenttexture" "snowysnowtime/hce/rifles/assaultrifle/og_exp"
+	"$phongboost" "0.25"
 	"$phongalbedotint" "1"
-	"$phongfresnelranges" "[3 5 8]"
+	"$phongfresnelranges" "[4 0.5 8]"
 	"$phongdisablehalflambert" "1"
 	"$rimlight"	1
 	"$rimlightpower"	10
 	"$rimmask"	1
-	"$envmap" "snowysnowtime/envmaps/mw_envmap_fallback"
+	"$envmap" "snowysnowtime/envmaps/cube"
 	"$envmaptint" "[ 1 1 1 ]"
 	"$cubemaptint"	"[ 1 1 1 ]"
 	"$basetexturealphaenvmapmask"	"1"
-	"$cubemappower"	0.15
+	"$envmapfresnel"	"0.15"
+	"$cubemappower"	0.03
 
 	Proxies
 	{

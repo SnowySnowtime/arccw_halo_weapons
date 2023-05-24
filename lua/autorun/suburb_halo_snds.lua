@@ -213,6 +213,46 @@ sound.Add( {
 
 sound.Add(
 {
+    name = "suburb.shared.meleehitweapon",
+    channel = CHAN_STATIC,
+    volume = 1.0,
+	pitch = {99.4,101.5},
+    soundlevel = 100,
+    sound = {"shared/weapon_shake.wav"}
+})
+
+sound.Add(
+{
+    name = "suburb.shared.meleehitpistol",
+    channel = CHAN_STATIC,
+    volume = 1.0,
+	pitch = {99.4,101.5},
+    soundlevel = 100,
+    sound = {"shared/pistolshake.wav"}
+})
+
+sound.Add(
+{
+    name = "suburb.shared.meleeworld",
+    channel = CHAN_STATIC,
+    volume = 1.0,
+	pitch = {99.4,101.5},
+    soundlevel = 100,
+    sound = {"shared/worldslap1.wav","shared/worldslap2.wav","shared/worldslap3.wav","shared/worldslap4.wav"}
+})
+
+sound.Add(
+{
+    name = "suburb.shared.meleeslap",
+    channel = CHAN_STATIC,
+    volume = 1.0,
+	pitch = {99.4,101.5},
+    soundlevel = 100,
+    sound = {"shared/slap1.wav","shared/slap2.wav","shared/slap3.wav","shared/slap4.wav","shared/slap5.wav"}
+})
+
+sound.Add(
+{
     name = "suburb.cear.fire",
     channel = CHAN_STATIC,
     volume = 1.0,
@@ -236,7 +276,7 @@ sound.Add(
     channel = CHAN_STATIC,
     volume = 1.0,
     soundlevel = 80,
-    sound = "hce/ar_melee.wav"
+    sound = "vuth/ma5b/melee.wav"
 })
 
 sound.Add(
@@ -422,7 +462,7 @@ sound.Add(
     channel = CHAN_STATIC,
     volume = 1.0,
     soundlevel = 80,
-    sound = "hce/m6_reload.wav"
+    sound = "vuth/m6d/reload.wav"
 })
 
 sound.Add(
@@ -449,7 +489,16 @@ sound.Add(
     channel = CHAN_STATIC,
     volume = 1.0,
     soundlevel = 80,
-    sound = "hce/m6_deploy.wav"
+    sound = "vuth/m6d/ready.wav"
+})
+
+sound.Add(
+{
+    name = "suburb.m6d.melee",
+    channel = CHAN_STATIC,
+    volume = 1.0,
+    soundlevel = 80,
+    sound = {"vuth/m6d/whip.wav","vuth/m6d/whip2.wav"}
 })
 
 sound.Add(
@@ -458,7 +507,7 @@ sound.Add(
     channel = CHAN_STATIC,
     volume = 1.0,
     soundlevel = 80,
-    sound = "hce/m6_fidget.wav"
+    sound = "vuth/m6d/pose.wav"
 })
 
 sound.Add(

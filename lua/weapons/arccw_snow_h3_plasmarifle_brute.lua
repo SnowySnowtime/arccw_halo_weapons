@@ -1,7 +1,7 @@
 SWEP.Base = "arccw_snow_battery_subbase"
 SWEP.Spawnable = true -- this obviously has to be set to true
 SWEP.Category = "ArcCW - Halo"
-SWEP.HC_CategoryPack = "2Halo 3"
+SWEP.UC_CategoryPack = "2Halo 3"
 SWEP.AdminOnly = false
 -- Custom Crosshair Malarkey, cry at the amount of stuff for it!
 SWEP.CrosshairMat = "snowysnowtime/reticles/uc/ret_pr"

@@ -1,4 +1,5 @@
-$collisionmodel "c_fp_sg.smd"
+
+$collisionmodel "model.smd"
 {
 	$mass 1.008045
 	$inertia 1

@@ -80,19 +80,30 @@ $sequence "fire" {
 	"anims\fire.smd"
 	activity "ACT_VM_PRIMARYATTACK" 1
 	{ event AE_MUZZLEFLASH 0 "PISTOL MUZZLE" }
-	{ event 5004 0 "arc9.cear.bolt1" }
-	{ event 5004 0 "arc9.cear.bolt2" }
-	fadein 0.2
-	fadeout 0.2
+	{ event 5004 0 "suburb.cear.bolt1" }
+	{ event 5004 0 "suburb.cear.bolt2" }
+	fadein 0.15
+	fadeout 0.25
 	node "2"
 	rotate -90
-	snap
 	fps 30
 }
 
 $sequence "draw" {
 	"anims\deploy.smd"
 	activity "ACT_VM_DRAW" 1
+	{ event 5004 9 "suburb.cear.deploy" }
+	fadein 0.2
+	fadeout 0.2
+	node "0"
+	rotate -90
+	snap
+	fps 30
+}
+
+$sequence "draw_e" {
+	"anims\deploy.smd"
+	{ event 5004 9 "suburb.cear.deployhd" }
 	fadein 0.2
 	fadeout 0.2
 	node "0"
@@ -114,7 +125,8 @@ $sequence "reload" {
 $sequence "melee" {
 	"anims\melee.smd"
 	activity "ACT_VM_HITCENTER" 1
-	fadein 0.0
+	{ event 5004 0 "suburb.cear.melee" }
+	fadein 0.05
 	fadeout 0.2
 	rotate -90
 	fps 30

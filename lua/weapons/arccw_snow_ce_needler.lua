@@ -1,10 +1,11 @@
-SWEP.Base = "suburb_halo_subbase"
+SWEP.Base = "arccw_base"
 SWEP.Spawnable = true -- this obviously has to be set to true
-SWEP.Category = "ArcCW - Halo"
-SWEP.HC_CategoryPack = "1Halo: Combat Evolved"
+SWEP.Category = "ArcCW - Halo" -- Not the final name but idk what to name it ~Snowy
+SWEP.UC_CategoryPack = "1Halo: Combat Evolved"
 SWEP.AdminOnly = false
 -- Custom Crosshair Malarkey, cry at the amount of stuff for it!
-SWEP.CrosshairMat = "snowysnowtime/reticles/ret_smg"
+SWEP.CrosshairMat = "snowysnowtime/reticles/uc/ret_smg"
+SWEP.CrosshairMatOutline = "snowysnowtime/reticles/uc/ret_smg_o"
 SWEP.SizeX = 127 -- Microadjustments for different crosshair sizes/types.
 SWEP.SizeY = 127
 SWEP.FixX = 62
@@ -15,8 +16,8 @@ SWEP.FixOutlineX = 64
 SWEP.FixOutlineY = 63
 SWEP.Precise = false -- Enables the center dot.
 
-SWEP.PrintName = "Assault Rifle (Alt)"
-SWEP.Trivia_Class = "MA5B ICWS"
+SWEP.PrintName = "Needler"
+SWEP.Trivia_Class = "M90 Mk.I"
 SWEP.Trivia_Desc = "The MA5B was in service to some extent during the Insurrection, being considered a standard weapon in September of 2525, and played a significant role in the Covenant War that followed. MA5Bs were employed by various SPARTAN-IIs during Operation: SILENT STORM and the ensuing Netherop engagement in 2526. In 2531, the marine compliment of the UNSC Spirit of Fire made use of the MA5B on Harvest, Arcadia and Etran Harborage, while members of Blue Team deployed with it on their mission to the decommissioned Platform 966A the same year, and again during the Battle of Jericho VII in 2535. The MA5B saw particularly heavy use in 2552. On Reach, it was wielded by Orbital Drop Shock Troopers sent to engage John-117 during the live-fire test of MJOLNIR Mark V and Cortana, and by the Spartans of Red Team during the defense of Orbital Defense Generators. John-117 and the marine compliment of the UNSC Pillar of Autumn utilized the MA5B throughout the Battle of Halo Alpha, and in the skirmish over Threshold that followed. Spartan personnel during the Onyx conflict also made use of the weapon."
 SWEP.Trivia_Manufacturer = "Misriah Armory"
 SWEP.Trivia_Calibre = "7.62x51mm M118 FMJ-AP"
@@ -28,8 +29,8 @@ SWEP.Slot = 2
 
 SWEP.UseHands = true
 
-SWEP.ViewModel = "models/snowysnowtime/suburb/hce/rifles/c_fp_cear_reanim.mdl"
-SWEP.WorldModel = "models/snowysnowtime/suburb/hce/rifles/c_fp_cear_reanim.mdl"
+SWEP.ViewModel = "models/snowysnowtime/suburb/hce/rifles/c_fp_cear.mdl"
+SWEP.WorldModel = "models/snowysnowtime/suburb/hce/rifles/c_fp_cear.mdl"
 SWEP.ViewModelFOV = 70
 
 --  You will need this for the journey ahead
@@ -91,7 +92,7 @@ local balance = {
 }
 
 function SWEP:ArcCW_Halo_Setup()
-    local val = GetConVar("arccw_hce_bal"):GetInt()
+    local val = GetConVar("arccw_ce_bal"):GetInt()
     for i, v in pairs(balance[val]) do
         self[i] = v
     end
@@ -106,8 +107,16 @@ end
 
 SWEP.MeleeSwingSound = ""
 SWEP.MeleeMissSound = ""
-SWEP.MeleeHitSound = "hceworld"
-SWEP.MeleeHitNPCSound = "hceslap"
+SWEP.WeaponHitSound = "suburb.shared.meleehitweapon"
+SWEP.MeleeHitSound = "suburb.shared.meleeworld"
+SWEP.MeleeHitNPCSound = "suburb.shared.meleeslap"
+SWEP.MeleeDamage = 25
+SWEP.MeleeRange = 48 -- Shared between the Needler, Plasma Rifle/Pistol, and Shotgun
+SWEP.Backstab = true
+SWEP.BackstabMultiplier = 10
+SWEP.Lunge = false -- Whether to allow the bash/melee to lunge a short distance
+SWEP.LungeLength = 64 -- Maximum distance for lunging
+SWEP.MeleeTime = 1.5
 
 SWEP.Range =  100 -- in METRES
 SWEP.Penetration = 25
@@ -129,14 +138,6 @@ SWEP.Firemodes = {
     {
         Mode = 2,
     },
-	{
-        Mode = -2,
-		RunawayBurst = true,
-		PostBurstDelay = 0.2,
-    },
-	{
-        Mode = 1,
-    },
     {
         Mode = 0,
     }
@@ -157,18 +158,17 @@ SWEP.ShootSound = "suburb.cear.fire"
 SWEP.ShootSoundSilenced = "suburb.cear.fire_sup"
 SWEP.DistantShootSound = "ar_lod"
 
-SWEP.MuzzleEffect = "arc9ce_halo_spv3_muzzle_assault_rifle"
+SWEP.MuzzleEffect = "arc9ce_halo_ce_muzzle_assault_rifle"
 SWEP.ShellModel = "models/shells/shell_338mag.mdl"
 SWEP.ShellPitch = 80
 SWEP.ShellScale = 1.5
 
-SWEP.MuzzleEffectAttachment = 2 -- which attachment to put the muzzle on
+SWEP.MuzzleEffectAttachment = 1 -- which attachment to put the muzzle on
 SWEP.CaseEffectAttachment = 4 -- which attachment to put the case effect on
 
 SWEP.SightTime = 0.35
 SWEP.SpeedMult = 0.85
 SWEP.SightedSpeedMult = 0.25
-SWEP.MeleeTime = 1
 
 SWEP.BulletBones = { -- the bone that represents bullets in gun/mag
     -- [0] = "bulletchamber",
@@ -193,7 +193,7 @@ SWEP.HoldtypeSights = "rpg"
 
 SWEP.AnimShoot = ACT_HL2MP_GESTURE_RANGE_ATTACK_AR2
 
-SWEP.ActivePos = Vector(0.25, -4, 0)
+SWEP.ActivePos = Vector(0, -0.1, 1)
 SWEP.ActiveAng = Angle(1.5, 1, 1.5)
 
 SWEP.HolsterPos = Vector(3, -3, -0.5)
@@ -208,60 +208,11 @@ SWEP.CustomizeAng = Angle(12.149, 30.547, 0)
 SWEP.CrouchPos = Vector(-8, -5, 2)
 SWEP.CrouchAng = Angle(0, 0, -45)
 
-SWEP.BarrelLength = 30
+SWEP.BarrelLength = 0
 SWEP.AttachmentElements = {
-	["corrosion"] = {
+	["mcc"] = {
         VMSkin = 1,
         WMSkin = 1,
-    },
-    ["gold"] = {
-        VMSkin = 2,
-        WMSkin = 2,
-    },
-    ["greatjourney"] = {
-        VMSkin = 3,
-        WMSkin = 3,
-    },
-	["luckyshot"] = {
-        VMSkin = 4,
-        WMSkin = 4,
-    },
-	["squirtgun"] = {
-        VMSkin = 5,
-        WMSkin = 5,
-    },
-	["desert"] = {
-        VMSkin = 6,
-        WMSkin = 6,
-    },
-	["e32000"] = {
-        VMSkin = 7,
-        WMSkin = 7,
-    },
-	["mcc"] = {
-        VMSkin = 8,
-        WMSkin = 8,
-    },
-	["anniv"] = {
-        VMBodygroups = {{ind = 0, bg = 1}},
-        WMBodygroups = {{ind = 0, bg = 1}},
-    },
-	
-	["auto"] = {
-        VMBodygroups = {{ind = 2, bg = 0}},
-        WMBodygroups = {{ind = 2, bg = 0}},
-    },
-	["burst"] = {
-        VMBodygroups = {{ind = 2, bg = 1}},
-        WMBodygroups = {{ind = 2, bg = 1}},
-    },
-	["semi"] = {
-        VMBodygroups = {{ind = 2, bg = 2}},
-        WMBodygroups = {{ind = 2, bg = 2}},
-    },
-	["safe"] = {
-        VMBodygroups = {{ind = 2, bg = 3}},
-        WMBodygroups = {{ind = 2, bg = 3}},
     },
 }
 
@@ -299,32 +250,10 @@ SWEP.Attachments = {
     },
 }
 
-
-SWEP.Hook_TranslateAnimation = function(wep, anim)
-    if wep.Attachments[11].Installed == "hce_anniv" or wep.Attachments[11].Installed == "hce_annivsound" then
-		local annivtag = (
-			anim == "bash" or
-			anim == "reload_empty" or
-			anim == "reload" or
-			anim == "draw"
-		)
-		
-		if annivtag then
-			return anim .. "_anniv" 
-		end
-    end
-end
-
-SWEP.Hook_GetShootSound = function(wep, sound)
-    if wep.Attachments[11].Installed == "hce_anniv" or wep.Attachments[11].Installed == "hce_annivsound" then
-		return "ar_hcea_fire"
-    end
-end
-
 SWEP.Animations = {
     ["idle"] = {
         Source = "idle",
-        Time = 79/30
+        Time = 60/30
     },
 	["exit_inspect"] = {
 		Source = "fidget",
@@ -334,14 +263,14 @@ SWEP.Animations = {
     },
     ["draw"] = {
         Source = "draw",
-        Time = 35/30,
+        Time = 28/30,
         LHIK = true,
         LHIKIn = 0,
         LHIKOut = 0.25,
     },
 	["holster"] = {
         Source = "draw",
-        Time = 35/30,
+        Time = 10/30,
         LHIK = true,
         LHIKIn = 0,
         LHIKOut = 0.25,
@@ -359,7 +288,7 @@ SWEP.Animations = {
     },
     ["reload"] = {
         Source = "reload",
-        Time = 108/30,
+        Time = 86/30,
         TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2,
 		SoundTable = {
 			-- The Main Shit
@@ -397,7 +326,7 @@ SWEP.Animations = {
                 s = "arccw.cear.reload2", -- sound; can be string or table
                 p = 100, -- pitch
                 v = 0, -- volume
-                t = 1.825, -- time at which to play relative to Animations.Time
+                t = 1.45, -- time at which to play relative to Animations.Time
                 c = CHAN_STATIC, -- channel to play the sound
 
                 -- Can also play an effect at the same time
@@ -412,7 +341,7 @@ SWEP.Animations = {
                 s = "arccw.cear.reload3", -- sound; can be string or table
                 p = 100, -- pitch
                 v = 0, -- volume
-                t = 2.05, -- time at which to play relative to Animations.Time
+                t = 1.625, -- time at which to play relative to Animations.Time
                 c = CHAN_STATIC, -- channel to play the sound
 
                 -- Can also play an effect at the same time
@@ -427,7 +356,7 @@ SWEP.Animations = {
                 s = "arccw.cear.reload4", -- sound; can be string or table
                 p = 100, -- pitch
                 v = 0, -- volume
-                t = 2.5, -- time at which to play relative to Animations.Time
+                t = 2.1, -- time at which to play relative to Animations.Time
                 c = CHAN_STATIC, -- channel to play the sound
 
                 -- Can also play an effect at the same time
@@ -503,37 +432,7 @@ SWEP.Animations = {
                 s = "arccw.cear.foley4", -- sound; can be string or table
                 p = 100, -- pitch
                 v = 100, -- volume
-                t = 1.65, -- time at which to play relative to Animations.Time
-                c = CHAN_STATIC, -- channel to play the sound
-
-                -- Can also play an effect at the same time
-                e = "", -- effect name
-                att = nil, -- attachment, defaults to shell attachment
-                mag = 100, -- magnitude
-                -- also capable of modifying bodygroups
-                ind = 0,
-                bg = 0,
-            },
-			{
-                s = "arccw.cear.foley5", -- sound; can be string or table
-                p = 100, -- pitch
-                v = 100, -- volume
-                t = 2, -- time at which to play relative to Animations.Time
-                c = CHAN_STATIC, -- channel to play the sound
-
-                -- Can also play an effect at the same time
-                e = "", -- effect name
-                att = nil, -- attachment, defaults to shell attachment
-                mag = 100, -- magnitude
-                -- also capable of modifying bodygroups
-                ind = 0,
-                bg = 0,
-            },
-			{
-                s = "arccw.cear.foley6", -- sound; can be string or table
-                p = 100, -- pitch
-                v = 100, -- volume
-                t = 2.3, -- time at which to play relative to Animations.Time
+                t = 1.35, -- time at which to play relative to Animations.Time
                 c = CHAN_STATIC, -- channel to play the sound
 
                 -- Can also play an effect at the same time
@@ -548,7 +447,7 @@ SWEP.Animations = {
                 s = "arccw.cear.foley7", -- sound; can be string or table
                 p = 100, -- pitch
                 v = 100, -- volume
-                t = 2.48, -- time at which to play relative to Animations.Time
+                t = 2.1, -- time at which to play relative to Animations.Time
                 c = CHAN_STATIC, -- channel to play the sound
 
                 -- Can also play an effect at the same time
@@ -563,7 +462,7 @@ SWEP.Animations = {
                 s = "arccw.cear.foley8", -- sound; can be string or table
                 p = 100, -- pitch
                 v = 100, -- volume
-                t = 2.9, -- time at which to play relative to Animations.Time
+                t = 2.2, -- time at which to play relative to Animations.Time
                 c = CHAN_STATIC, -- channel to play the sound
 
                 -- Can also play an effect at the same time
@@ -578,7 +477,7 @@ SWEP.Animations = {
                 s = "arccw.cear.foley0", -- sound; can be string or table
                 p = 100, -- pitch
                 v = 100, -- volume
-                t = 2.8, -- time at which to play relative to Animations.Time
+                t = 2.2, -- time at which to play relative to Animations.Time
                 c = CHAN_STATIC, -- channel to play the sound
 
                 -- Can also play an effect at the same time
@@ -597,8 +496,207 @@ SWEP.Animations = {
     },
     ["reload_empty"] = {
         Source = "reload",
-        Time = 108/30,
+        Time = 86/30,
         TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2,
+		SoundTable = {
+			-- The Main Shit
+            {
+                s = "arccw.cear.reload0", -- sound; can be string or table
+                p = 100, -- pitch
+                v = 0, -- volume
+                t = 0.125, -- time at which to play relative to Animations.Time
+                c = CHAN_STATIC, -- channel to play the sound
+
+                -- Can also play an effect at the same time
+                e = "", -- effect name
+                att = nil, -- attachment, defaults to shell attachment
+                mag = 100, -- magnitude
+                -- also capable of modifying bodygroups
+                ind = 0,
+                bg = 0,
+            },
+			{
+                s = "arccw.cear.reload1", -- sound; can be string or table
+                p = 100, -- pitch
+                v = 0, -- volume
+                t = 0.9, -- time at which to play relative to Animations.Time
+                c = CHAN_STATIC, -- channel to play the sound
+
+                -- Can also play an effect at the same time
+                e = "", -- effect name
+                att = nil, -- attachment, defaults to shell attachment
+                mag = 100, -- magnitude
+                -- also capable of modifying bodygroups
+                ind = 0,
+                bg = 0,
+            },
+			{
+                s = "arccw.cear.reload2", -- sound; can be string or table
+                p = 100, -- pitch
+                v = 0, -- volume
+                t = 1.45, -- time at which to play relative to Animations.Time
+                c = CHAN_STATIC, -- channel to play the sound
+
+                -- Can also play an effect at the same time
+                e = "", -- effect name
+                att = nil, -- attachment, defaults to shell attachment
+                mag = 100, -- magnitude
+                -- also capable of modifying bodygroups
+                ind = 0,
+                bg = 0,
+            },
+			{
+                s = "arccw.cear.reload3", -- sound; can be string or table
+                p = 100, -- pitch
+                v = 0, -- volume
+                t = 1.625, -- time at which to play relative to Animations.Time
+                c = CHAN_STATIC, -- channel to play the sound
+
+                -- Can also play an effect at the same time
+                e = "", -- effect name
+                att = nil, -- attachment, defaults to shell attachment
+                mag = 100, -- magnitude
+                -- also capable of modifying bodygroups
+                ind = 0,
+                bg = 0,
+            },
+			{
+                s = "arccw.cear.reload4", -- sound; can be string or table
+                p = 100, -- pitch
+                v = 0, -- volume
+                t = 2.1, -- time at which to play relative to Animations.Time
+                c = CHAN_STATIC, -- channel to play the sound
+
+                -- Can also play an effect at the same time
+                e = "", -- effect name
+                att = nil, -- attachment, defaults to shell attachment
+                mag = 100, -- magnitude
+                -- also capable of modifying bodygroups
+                ind = 0,
+                bg = 0,
+            },
+			-- Foley
+			{
+                s = "arccw.cear.foley0", -- sound; can be string or table
+                p = 100, -- pitch
+                v = 100, -- volume
+                t = 0, -- time at which to play relative to Animations.Time
+                c = CHAN_STATIC, -- channel to play the sound
+
+                -- Can also play an effect at the same time
+                e = "", -- effect name
+                att = nil, -- attachment, defaults to shell attachment
+                mag = 100, -- magnitude
+                -- also capable of modifying bodygroups
+                ind = 0,
+                bg = 0,
+            },
+			{
+                s = "arccw.cear.foley3", -- sound; can be string or table
+                p = 100, -- pitch
+                v = 100, -- volume
+                t = 0.1, -- time at which to play relative to Animations.Time
+                c = CHAN_STATIC, -- channel to play the sound
+
+                -- Can also play an effect at the same time
+                e = "", -- effect name
+                att = nil, -- attachment, defaults to shell attachment
+                mag = 100, -- magnitude
+                -- also capable of modifying bodygroups
+                ind = 0,
+                bg = 0,
+            },
+			{
+                s = "arccw.cear.foley1", -- sound; can be string or table
+                p = 100, -- pitch
+                v = 100, -- volume
+                t = 0.8, -- time at which to play relative to Animations.Time
+                c = CHAN_STATIC, -- channel to play the sound
+
+                -- Can also play an effect at the same time
+                e = "", -- effect name
+                att = nil, -- attachment, defaults to shell attachment
+                mag = 100, -- magnitude
+                -- also capable of modifying bodygroups
+                ind = 0,
+                bg = 0,
+            },
+			{
+                s = "arccw.cear.foley2", -- sound; can be string or table
+                p = 100, -- pitch
+                v = 100, -- volume
+                t = 1, -- time at which to play relative to Animations.Time
+                c = CHAN_STATIC, -- channel to play the sound
+
+                -- Can also play an effect at the same time
+                e = "", -- effect name
+                att = nil, -- attachment, defaults to shell attachment
+                mag = 100, -- magnitude
+                -- also capable of modifying bodygroups
+                ind = 0,
+                bg = 0,
+            },
+			{
+                s = "arccw.cear.foley4", -- sound; can be string or table
+                p = 100, -- pitch
+                v = 100, -- volume
+                t = 1.35, -- time at which to play relative to Animations.Time
+                c = CHAN_STATIC, -- channel to play the sound
+
+                -- Can also play an effect at the same time
+                e = "", -- effect name
+                att = nil, -- attachment, defaults to shell attachment
+                mag = 100, -- magnitude
+                -- also capable of modifying bodygroups
+                ind = 0,
+                bg = 0,
+            },
+			{
+                s = "arccw.cear.foley7", -- sound; can be string or table
+                p = 100, -- pitch
+                v = 100, -- volume
+                t = 2.1, -- time at which to play relative to Animations.Time
+                c = CHAN_STATIC, -- channel to play the sound
+
+                -- Can also play an effect at the same time
+                e = "", -- effect name
+                att = nil, -- attachment, defaults to shell attachment
+                mag = 100, -- magnitude
+                -- also capable of modifying bodygroups
+                ind = 0,
+                bg = 0,
+            },
+			{
+                s = "arccw.cear.foley8", -- sound; can be string or table
+                p = 100, -- pitch
+                v = 100, -- volume
+                t = 2.2, -- time at which to play relative to Animations.Time
+                c = CHAN_STATIC, -- channel to play the sound
+
+                -- Can also play an effect at the same time
+                e = "", -- effect name
+                att = nil, -- attachment, defaults to shell attachment
+                mag = 100, -- magnitude
+                -- also capable of modifying bodygroups
+                ind = 0,
+                bg = 0,
+            },
+			{
+                s = "arccw.cear.foley0", -- sound; can be string or table
+                p = 100, -- pitch
+                v = 100, -- volume
+                t = 2.2, -- time at which to play relative to Animations.Time
+                c = CHAN_STATIC, -- channel to play the sound
+
+                -- Can also play an effect at the same time
+                e = "", -- effect name
+                att = nil, -- attachment, defaults to shell attachment
+                mag = 100, -- magnitude
+                -- also capable of modifying bodygroups
+                ind = 0,
+                bg = 0,
+            },
+        },
         Checkpoints = {24, 33, 51, 58, 62, 74, 80},
         LHIK = true,
         LHIKIn = 0.5,
@@ -801,9 +899,9 @@ function SWEP:DoDrawCrosshair(x, y)
     end
 	
 	-- Main Crosshair Shit
-	surface.SetTexture(surface.GetTextureID(self.CrosshairMat))
-	surface.SetDrawColor(outlineClr.r, outlineClr.g, outlineClr.b, outlineClr.a * self.CrosshairDelta * self.CrosshairDelta / 2)
-	surface.DrawTexturedRect(x - p_w / 2 - self.FixOutlineX, y - p_w / 2 - self.FixOutlineY, self.SizeOutlineX, self.SizeOutlineY)
+	surface.SetTexture(surface.GetTextureID(self.CrosshairMatOutline))
+	surface.SetDrawColor(outlineClr.r, outlineClr.g, outlineClr.b, outlineClr.a * self.CrosshairDelta * self.CrosshairDelta / 1.75)
+	surface.DrawTexturedRect(x - p_w / 2 - self.FixX, y - p_w / 2 - self.FixY, self.SizeX, self.SizeY)
 	
 	surface.SetTexture(surface.GetTextureID(self.CrosshairMat))
 	surface.SetDrawColor(clr.r, clr.g, clr.b, clr.a * self.CrosshairDelta)
@@ -831,4 +929,122 @@ function SWEP:DoDrawCrosshair(x, y)
     self:GetBuff_Hook("Hook_PostDrawCrosshair", w2s)
 
     return true
+end
+
+function SWEP:MeleeAttack(melee2)
+    local reach = 32 + self:GetBuff_Add("Add_MeleeRange") + self.MeleeRange
+    local dmg = self:GetBuff_Override("Override_MeleeDamage", self.MeleeDamage) or 20
+
+    if melee2 then
+        reach = 32 + self:GetBuff_Add("Add_MeleeRange") + self.Melee2Range
+        dmg = self:GetBuff_Override("Override_MeleeDamage", self.Melee2Damage) or 20
+    end
+
+    dmg = dmg * self:GetBuff_Mult("Mult_MeleeDamage")
+
+    self:GetOwner():LagCompensation(true)
+
+    local filter = {self:GetOwner()}
+
+    table.Add(filter, self.Shields)
+
+    local tr = util.TraceLine({
+        start = self:GetOwner():GetShootPos(),
+        endpos = self:GetOwner():GetShootPos() + self:GetOwner():GetAimVector() * reach,
+        filter = filter,
+        mask = MASK_SHOT_HULL
+    })
+
+    if (!IsValid(tr.Entity)) then
+        tr = util.TraceHull({
+            start = self:GetOwner():GetShootPos(),
+            endpos = self:GetOwner():GetShootPos() + self:GetOwner():GetAimVector() * reach,
+            filter = filter,
+            mins = Vector(-16, -16, -8),
+            maxs = Vector(16, 16, 8),
+            mask = MASK_SHOT_HULL
+        })
+    end
+
+    -- Backstab damage if applicable
+    local backstab = tr.Hit and self:CanBackstab(melee2, tr.Entity)
+    if backstab then
+        if melee2 then
+            local bs_dmg = self:GetBuff_Override("Override_Melee2DamageBackstab", self.Melee2DamageBackstab)
+            if bs_dmg then
+                dmg = bs_dmg * self:GetBuff_Mult("Mult_MeleeDamage")
+            else
+                dmg = dmg * self:GetBuff("BackstabMultiplier") * self:GetBuff_Mult("Mult_MeleeDamage")
+            end
+        else
+            local bs_dmg = self:GetBuff_Override("Override_MeleeDamageBackstab", self.MeleeDamageBackstab)
+            if bs_dmg then
+                dmg = bs_dmg * self:GetBuff_Mult("Mult_MeleeDamage")
+            else
+                dmg = dmg * self:GetBuff("BackstabMultiplier") * self:GetBuff_Mult("Mult_MeleeDamage")
+            end
+        end
+    end
+
+    -- We need the second part for single player because SWEP:Think is ran shared in SP
+    if !(game.SinglePlayer() and CLIENT) then
+        if tr.Hit then
+            if tr.Entity:IsNPC() or tr.Entity:IsNextBot() or tr.Entity:IsPlayer() then
+                self:MyEmitSound(self.MeleeHitNPCSound, 75, 100, 1, CHAN_USER_BASE + 2)
+                self:MyEmitSound(self.WeaponHitSound, 75, 100, 1, CHAN_USER_BASE + 2)
+            else
+                self:MyEmitSound(self.MeleeHitSound, 75, 100, 1, CHAN_USER_BASE + 2)
+				self:MyEmitSound(self.WeaponHitSound, 75, 100, 1, CHAN_USER_BASE + 2)
+            end
+
+            if tr.MatType == MAT_FLESH or tr.MatType == MAT_ALIENFLESH or tr.MatType == MAT_ANTLION or tr.MatType == MAT_BLOODYFLESH then
+                local fx = EffectData()
+                fx:SetOrigin(tr.HitPos)
+
+                util.Effect("BloodImpact", fx)
+            end
+        else
+            self:MyEmitSound(self.MeleeMissSound, 75, 100, 1, CHAN_USER_BASE + 3)
+        end
+    end
+
+    if SERVER and IsValid(tr.Entity) and (tr.Entity:IsNPC() or tr.Entity:IsPlayer() or tr.Entity:Health() > 0) then
+        local dmginfo = DamageInfo()
+
+        local attacker = self:GetOwner()
+        if !IsValid(attacker) then attacker = self end
+        dmginfo:SetAttacker(attacker)
+
+        local relspeed = (tr.Entity:GetVelocity() - self:GetOwner():GetAbsVelocity()):Length()
+
+        relspeed = relspeed / 225
+
+        relspeed = math.Clamp(relspeed, 1, 1.5)
+
+        dmginfo:SetInflictor(self)
+        dmginfo:SetDamage(dmg * relspeed)
+        dmginfo:SetDamageType(self:GetBuff_Override("Override_MeleeDamageType") or self.MeleeDamageType or DMG_CLUB)
+
+        dmginfo:SetDamageForce(self:GetOwner():GetRight() * -4912 + self:GetOwner():GetForward() * 9989)
+
+        SuppressHostEvents(NULL)
+        tr.Entity:TakeDamageInfo(dmginfo)
+        SuppressHostEvents(self:GetOwner())
+
+        if tr.Entity:GetClass() == "func_breakable_surf" then
+            tr.Entity:Fire("Shatter", "0.5 0.5 256")
+        end
+
+    end
+
+    if SERVER and IsValid(tr.Entity) then
+        local phys = tr.Entity:GetPhysicsObject()
+        if IsValid(phys) then
+            phys:ApplyForceOffset(self:GetOwner():GetAimVector() * 80 * phys:GetMass(), tr.HitPos)
+        end
+    end
+
+    self:GetBuff_Hook("Hook_PostBash", {tr = tr, dmg = dmg})
+
+    self:GetOwner():LagCompensation(false)
 end

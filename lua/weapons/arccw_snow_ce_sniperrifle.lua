@@ -1,7 +1,7 @@
 SWEP.Base = "arccw_base"
 SWEP.Spawnable = true -- this obviously has to be set to true
 SWEP.Category = "ArcCW - Halo" -- Not the final name but idk what to name it ~Snowy
-SWEP.HC_CategoryPack = "1Halo: Combat Evolved"
+SWEP.UC_CategoryPack = "1Halo: Combat Evolved"
 SWEP.AdminOnly = false
 -- Custom Crosshair Malarkey, cry at the amount of stuff for it!
 SWEP.CrosshairMat = "snowysnowtime/reticles/uc/ret_smg"
@@ -201,7 +201,7 @@ SWEP.CustomizeAng = Angle(12.149, 30.547, 0)
 SWEP.CrouchPos = Vector(-8, -5, 2)
 SWEP.CrouchAng = Angle(0, 0, -45)
 
-SWEP.BarrelLength = 30
+SWEP.BarrelLength = 0
 SWEP.AttachmentElements = {
 	["mcc"] = {
         VMSkin = 1,
@@ -922,4 +922,126 @@ function SWEP:DoDrawCrosshair(x, y)
     self:GetBuff_Hook("Hook_PostDrawCrosshair", w2s)
 
     return true
+end
+
+function SWEP:MeleeAttack(melee2)
+    local reach = 32 + self:GetBuff_Add("Add_MeleeRange") + self.MeleeRange
+    local dmg = self:GetBuff_Override("Override_MeleeDamage", self.MeleeDamage) or 20
+
+    if melee2 then
+        reach = 32 + self:GetBuff_Add("Add_MeleeRange") + self.Melee2Range
+        dmg = self:GetBuff_Override("Override_MeleeDamage", self.Melee2Damage) or 20
+    end
+
+    dmg = dmg * self:GetBuff_Mult("Mult_MeleeDamage")
+
+    self:GetOwner():LagCompensation(true)
+
+    local filter = {self:GetOwner()}
+
+    table.Add(filter, self.Shields)
+
+    local tr = util.TraceLine({
+        start = self:GetOwner():GetShootPos(),
+        endpos = self:GetOwner():GetShootPos() + self:GetOwner():GetAimVector() * reach,
+        filter = filter,
+        mask = MASK_SHOT_HULL
+    })
+
+    if (!IsValid(tr.Entity)) then
+        tr = util.TraceHull({
+            start = self:GetOwner():GetShootPos(),
+            endpos = self:GetOwner():GetShootPos() + self:GetOwner():GetAimVector() * reach,
+            filter = filter,
+            mins = Vector(-16, -16, -8),
+            maxs = Vector(16, 16, 8),
+            mask = MASK_SHOT_HULL
+        })
+    end
+
+    -- Backstab damage if applicable
+    local backstab = tr.Hit and self:CanBackstab(melee2, tr.Entity)
+    if backstab then
+        if melee2 then
+            local bs_dmg = self:GetBuff_Override("Override_Melee2DamageBackstab", self.Melee2DamageBackstab)
+            if bs_dmg then
+                dmg = bs_dmg * self:GetBuff_Mult("Mult_MeleeDamage")
+            else
+                dmg = dmg * self:GetBuff("BackstabMultiplier") * self:GetBuff_Mult("Mult_MeleeDamage")
+            end
+        else
+            local bs_dmg = self:GetBuff_Override("Override_MeleeDamageBackstab", self.MeleeDamageBackstab)
+            if bs_dmg then
+                dmg = bs_dmg * self:GetBuff_Mult("Mult_MeleeDamage")
+            else
+                dmg = dmg * self:GetBuff("BackstabMultiplier") * self:GetBuff_Mult("Mult_MeleeDamage")
+            end
+        end
+    end
+
+    -- We need the second part for single player because SWEP:Think is ran shared in SP
+    if !(game.SinglePlayer() and CLIENT) then
+        if tr.Hit then
+            if tr.Entity:IsNPC() or tr.Entity:IsNextBot() or tr.Entity:IsPlayer() then
+                self:MyEmitSound(self.MeleeHitNPCSound, 75, 100, 1, CHAN_USER_BASE + 2)
+                self:MyEmitSound(self.WeaponHitSound, 75, 100, 1, CHAN_USER_BASE + 2)
+            else
+                self:MyEmitSound(self.MeleeHitSound, 75, 100, 1, CHAN_USER_BASE + 2)
+				self:MyEmitSound(self.WeaponHitSound, 75, 100, 1, CHAN_USER_BASE + 2)
+            end
+
+            if tr.MatType == MAT_FLESH or tr.MatType == MAT_ALIENFLESH or tr.MatType == MAT_ANTLION or tr.MatType == MAT_BLOODYFLESH then
+                local fx = EffectData()
+                fx:SetOrigin(tr.HitPos)
+
+                util.Effect("BloodImpact", fx)
+            end
+        else
+            self:MyEmitSound(self.MeleeMissSound, 75, 100, 1, CHAN_USER_BASE + 3)
+        end
+    end
+
+    if SERVER and IsValid(tr.Entity) and (tr.Entity:IsNPC() or tr.Entity:IsPlayer() or tr.Entity:Health() > 0) then
+        local dmginfo = DamageInfo()
+
+        local attacker = self:GetOwner()
+        if !IsValid(attacker) then attacker = self end
+        dmginfo:SetAttacker(attacker)
+
+        local relspeed = (tr.Entity:GetVelocity() - self:GetOwner():GetAbsVelocity()):Length()
+
+        relspeed = relspeed / 225
+
+        relspeed = math.Clamp(relspeed, 1, 1.5)
+
+        dmginfo:SetInflictor(self)
+        dmginfo:SetDamage(dmg * relspeed)
+        dmginfo:SetDamageType(self:GetBuff_Override("Override_MeleeDamageType") or self.MeleeDamageType or DMG_CLUB)
+		
+		if backstab then
+			dmginfo:SetDamageForce(self:GetOwner():GetRight() * -4912 + self:GetOwner():GetForward() * 32000)
+		else
+			dmginfo:SetDamageForce(self:GetOwner():GetRight() * -4912 + self:GetOwner():GetForward() * 9884)
+		end
+
+        SuppressHostEvents(NULL)
+        tr.Entity:TakeDamageInfo(dmginfo)
+        SuppressHostEvents(self:GetOwner())
+
+        if tr.Entity:GetClass() == "func_breakable_surf" then
+            tr.Entity:Fire("Shatter", "0.5 0.5 256")
+        end
+
+    end
+
+    if SERVER and IsValid(tr.Entity) then
+        local phys = tr.Entity:GetPhysicsObject()
+        if IsValid(phys) then
+            phys:ApplyForceOffset(self:GetOwner():GetAimVector() * 80 * phys:GetMass(), tr.HitPos)
+        end
+    end
+
+    self:GetBuff_Hook("Hook_PostBash", {tr = tr, dmg = dmg})
+
+    self:GetOwner():LagCompensation(false)
 end

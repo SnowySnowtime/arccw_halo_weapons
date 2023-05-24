@@ -1,11 +1,10 @@
-SWEP.Base = "arccw_snow_battery_subbase"
-SWEP.Spawnable = true
+SWEP.Base = "suburb_halo_battery_subbase"
+SWEP.Spawnable = true -- this obviously has to be set to true
 SWEP.Category = "ArcCW - Halo"
-SWEP.UC_CategoryPack = "3Halo: Admin Armory"
-SWEP.AdminOnly = true
-SWEP.AutoSpawnable = false
+SWEP.UC_CategoryPack = "1Halo: Combat Evolved"
+SWEP.AdminOnly = false
 -- Custom Crosshair Malarkey, cry at the amount of stuff for it!
-SWEP.CrosshairMat = "snowysnowtime/reticles/uc/ret_pr"
+SWEP.CrosshairMat = "snowysnowtime/reticles/ret_pr"
 SWEP.SizeX = 127 -- Microadjustments for different crosshair sizes/types.
 SWEP.SizeY = 127
 SWEP.FixX = 62
@@ -16,8 +15,8 @@ SWEP.FixOutlineX = 64
 SWEP.FixOutlineY = 63
 SWEP.Precise = false -- Enables the center dot.
 
-SWEP.PrintName = "Super Plasma Rifle"
-SWEP.Trivia_Class = "Plasma Rifle"
+SWEP.PrintName = "Plasma Pistol"
+SWEP.Trivia_Class = "Type-25 Directed Energy Rifle"
 SWEP.Trivia_Desc = "This is a Type-25 Directed Energy Rifle"
 SWEP.Trivia_Manufacturer = "Iruiru Armory"
 SWEP.Trivia_Calibre = "Plasma"
@@ -26,61 +25,98 @@ SWEP.MeleeTime = 1
 
 SWEP.Slot = 2
 
+if GetConVar("arccw_ce_bal"):GetInt() == 0 then -- HaloCW
+    SWEP.Recoil = 0.2
+	SWEP.RecoilSide = 0.2
+	SWEP.Damage = 20
+	SWEP.DamageMin = 20
+	SWEP.AccuracyMOA = 15 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
+	SWEP.HipDispersion = 80 -- inaccuracy added by hip firing.
+	SWEP.MoveDispersion = 0
+	SWEP.JumpDispersion = 0
+	SWEP.ChamberSize = 0
+elseif GetConVar("arccw_ce_bal"):GetInt() == 1 then -- halo purist
+	SWEP.Recoil = 0
+	SWEP.RecoilSide = 0
+	SWEP.Damage = 14
+	SWEP.DamageMin = 12
+	SWEP.AccuracyMOA = 15 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
+	SWEP.HipDispersion = 80 -- inaccuracy added by hip firing.
+	SWEP.MoveDispersion = 0
+	SWEP.JumpDispersion = 0
+	SWEP.ChamberSize = 0
+elseif GetConVar("arccw_ce_bal"):GetInt() == 2 then -- arccw
+    SWEP.Recoil = 0.2
+	SWEP.RecoilSide = 0.2
+	SWEP.Damage = 18
+	SWEP.DamageMin = 18
+	SWEP.AccuracyMOA = 15 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
+	SWEP.HipDispersion = 80 -- inaccuracy added by hip firing.
+	SWEP.MoveDispersion = 0
+end
+
 SWEP.UseHands = true
 
 SWEP.MeleeSwingSound = ""
 SWEP.MeleeMissSound = ""
-SWEP.MeleeHitSound = "hceworld"
-SWEP.MeleeHitNPCSound = "hceslap"
+SWEP.WeaponHitSound = "suburb.shared.meleehitweapon"
+SWEP.MeleeHitSound = "suburb.shared.meleeworld"
+SWEP.MeleeHitNPCSound = "suburb.shared.meleeslap"
+SWEP.MeleeDamage = 25
+SWEP.MeleeRange = 48 -- Shared between the Needler, Plasma Rifle/Pistol, and Shotgun
+SWEP.Backstab = true
+SWEP.BackstabMultiplier = 10
+SWEP.Lunge = false -- Whether to allow the bash/melee to lunge a short distance
+SWEP.LungeLength = 64 -- Maximum distance for lunging
+SWEP.MeleeTime = 1.5
 
-SWEP.ViewModel = "models/snowysnowtime/suburb/h3/rifles/fp_plasmarifle.mdl"
+SWEP.ViewModel = "models/snowysnowtime/suburb/hce/rifles/c_fp_pr.mdl"
 SWEP.WorldModel = "models/snowysnowtime/vuthakral/w_plasmarifle.mdl"
-SWEP.ViewModelFOV = 74
+SWEP.ViewModelFOV = 70
 
-SWEP.Damage = 20
-SWEP.DamageMin = 20 -- damage done at maximum range
 SWEP.Range =  700 -- in METRES
 SWEP.Penetration = 0
 SWEP.DamageType = DMG_BULLET
-SWEP.MuzzleVelocity = 126 -- projectile or phys bullet muzzle velocity -- IN M/S
-SWEP.NeverPhysBullet = true
+SWEP.ShootEntity = "plasmarifle_hce" -- entity to fire, if any
+SWEP.MuzzleVelocity = 126 -- projectile or phys bullet muzzle velocity
+-- IN M/S
+SWEP.PhysBulletMuzzleVelocity = 80 -- override phys bullet muzzle velocity
+SWEP.PhysBulletDrag = 0
+SWEP.PhysBulletGravity = 0
+
+SWEP.AlwaysPhysBullet = false
+SWEP.PhysTracerProfile = 3 -- color for phys tracer.
 
 SWEP.TracerNum = 1 -- tracer every X
-SWEP.Tracer 	= "effect_arc9_halo3_tracer_plasmarifle"
-SWEP.MuzzleFlashColor = Color(0, 80, 255)
-SWEP.ImpactEffect = "effect_arc9_halo3_impact_plasmarifle"
-
-SWEP.Recoil = 2
-SWEP.RecoilSide = 0
+SWEP.Tracer 	= "effect_astw2_halo_ce_tracer_pr"
+SWEP.ImpactEffect = "effect_astw2_halo_ce_impact_pr"
 
 -- Fesiug's Plasma subbase
 SWEP.ArcCW_Halo_Heat    = true
 SWEP.ArcCW_Halo_Battery = true
 SWEP.ArcCW_Halo_Accel   = true
 
-SWEP.Delay_Accel        = 15
-SWEP.Delay_Decel        = 0.3
+SWEP.Delay_Accel        = 1.8
+SWEP.Delay_Decel        = 0.25
+SWEP.Delay_Min      = 60 / 420
+SWEP.Delay_Max      = 60 / 600
 
-SWEP.Heat_Accel     = 0.007
-SWEP.Heat_Decel     = 0.8525
-SWEP.Heat_DecelOH   = 0.35
+SWEP.Heat_Accel         = 0.08
+SWEP.Heat_Decel         = 0.3
+SWEP.BatteryConsumption     = 0.005
 
-SWEP.Delay_Min          = 60 / 200
-SWEP.Delay_Max          = 60 / 1500
-
-SWEP.BatteryConsumption     = 0
-SWEP.Heat_Threshold     = 0.1
+SWEP.Delay_Penalty      = 0.2
+SWEP.Heat_Penalty       = 0.2
+SWEP.Misfire_Threshold  = 0.9
+SWEP.Misfire_Chance     = 0.5
 
 SWEP.Delay = 60 / 360 -- 60 / RPM.
-SWEP.Num = 6 -- number of shots per trigger pull.
+SWEP.Num = 1 -- number of shots per trigger pull.
 SWEP.Firemodes = {
     {
-        Mode = -2,
-		RunawayBurst = true,
-		AutoBurst = true,
+        Mode = 2,
         PrintName = "PLAS",
         CustomBars = "--!--"
-        
     },
     {
         Mode = 0
@@ -92,66 +128,23 @@ SWEP.NPCWeight = 25
 
 SWEP.ManualAction = false
 
-SWEP.AccuracyMOA = 60 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
-SWEP.HipDispersion = 0 -- inaccuracy added by hip firing.
-SWEP.MoveDispersion = 0
-
 SWEP.Primary.Ammo = "arccwhce_plasmabattery" -- what ammo type the gun uses
 SWEP.MagID = "hs338" -- the magazine pool this gun draws from
 
 SWEP.ShootVol = 140 -- volume of shoot sound
 SWEP.ShootPitch = 100 -- pitch of shoot sound
 
-local path = ")^weapons/arccw_ur/ak/"
-local path2 = ")^snow/plasma_rifle/"
-local path1 = ")^weapons/arccw_ur/mp5/"
-local common = ")^/arccw_uc/common/"
-local rottle = {common .. "cloth_1.ogg", common .. "cloth_2.ogg", common .. "cloth_3.ogg", common .. "cloth_4.ogg", common .. "cloth_6.ogg", common .. "rattle.ogg"}
-local ratel = {common .. "rattle1.ogg", common .. "rattle2.ogg", common .. "rattle3.ogg"}
-local rutle = {common .. "movement-rifle-01.ogg",common .. "movement-rifle-02.ogg",common .. "movement-rifle-03.ogg",common .. "movement-rifle-04.ogg"}
---SWEP.FirstShootSound = path .. "fire_first.ogg"
+SWEP.ShootSound = Sound("plasma_fire")
+SWEP.ShootSoundSilenced = nil
+SWEP.DistantShootSound = "h3_pr_lod"
 
-SWEP.ShootSound = {
-    "suburb.h3pr.fire"
-}
-SWEP.ShootSoundSilenced = {
-    path2 .. "plas_rifle_fire.wav"
-}
-SWEP.DistantShootSound = nil
-SWEP.DistantShootSoundSilenced = nil
-SWEP.ShootDrySound = path .. "dryfire.ogg"
-
-SWEP.DistantShootSoundOutdoors = {
-    path2 .. "plas_rifle_tail_ext1.wav",
-    path2 .. "plas_rifle_tail_ext2.wav",
-    path2 .. "plas_rifle_tail_ext3.wav"
-}
-SWEP.DistantShootSoundIndoors = {
-    path2 .. "plas_rifle_tail_int1.wav",
-    path2 .. "plas_rifle_tail_int2.wav",
-    path2 .. "plas_rifle_tail_int3.wav"
-}
-SWEP.DistantShootSoundOutdoorsSilenced = {
-    path2 .. "plas_rifle_tail_ext1.wav",
-    path2 .. "plas_rifle_tail_ext2.wav",
-    path2 .. "plas_rifle_tail_ext3.wav"
-}
-SWEP.DistantShootSoundIndoorsSilenced = {
-    path2 .. "plas_rifle_tail_int1.wav",
-    path2 .. "plas_rifle_tail_int2.wav",
-    path2 .. "plas_rifle_tail_int3.wav"
-}
-SWEP.DistantShootSoundOutdoorsVolume = 0.4
-SWEP.DistantShootSoundIndoorsVolume = 1
-SWEP.Hook_AddShootSound = ArcCW.UC.InnyOuty
-
-SWEP.MuzzleEffect = "arc9ce_halo_3_muzzle_plasma_rifle"
+SWEP.MuzzleEffect = "astw2_halo_ce_muzzle_plasma_rifle"
 SWEP.ShellModel = "models/shells/shell_338mag.mdl"
 SWEP.ShellPitch = 80
 SWEP.ShellScale = 1.5
 
 SWEP.MuzzleEffectAttachment = 1 -- which attachment to put the muzzle on
-SWEP.CaseEffectAttachment = 2 -- which attachment to put the case effect on
+SWEP.CaseEffectAttachment = 3 -- which attachment to put the case effect on
 
 SWEP.O_Hook_Override_MuzzleEffectAttachment = function(wep, data)
     local shot = wep:GetNthShot()
@@ -194,8 +187,8 @@ SWEP.HoldtypeSights = "rpg"
 
 SWEP.AnimShoot = ACT_HL2MP_GESTURE_RANGE_ATTACK_AR2
 
-SWEP.ActivePos = Vector(-0.5, 1, 1)
-SWEP.ActiveAng = Angle(-4.5, 1, 0)
+SWEP.ActivePos = Vector(0, 0, 1)
+SWEP.ActiveAng = Angle(0, 0, 0)
 
 SWEP.HolsterPos = Vector(3, -3, -0.5)
 SWEP.HolsterAng = Angle(-10, 30, -10)
@@ -203,14 +196,30 @@ SWEP.HolsterAng = Angle(-10, 30, -10)
 SWEP.BarrelOffsetSighted = Vector(0, 0, -1)
 SWEP.BarrelOffsetHip = Vector(2, 0, -2)
 
-SWEP.CustomizePos = Vector(6.824, -2, -1)
+SWEP.CustomizePos = Vector(1.824, -4, 0.897)
 SWEP.CustomizeAng = Angle(12.149, 30.547, 0)
 
-SWEP.BarrelLength = 30
+SWEP.BarrelLength = 0
 SWEP.AttachmentElements = {
-	["brute"] = {
+	["brutal"] = {
         VMSkin = 1,
         WMSkin = 1,
+    },
+	["schism"] = {
+        VMSkin = 2,
+        WMSkin = 2,
+    },
+	["ultra"] = {
+        VMSkin = 3,
+        WMSkin = 3,
+    },
+	["zealot"] = {
+        VMSkin = 4,
+        WMSkin = 4,
+    },
+	["mcc"] = {
+        VMSkin = 5,
+        WMSkin = 5,
     },
 }
 
@@ -276,8 +285,8 @@ SWEP.Attachments = {
         },
     },
 	{
-        PrintName = "Conversion",
-        Slot = {"h3pr"},
+        PrintName = "Skin",
+        Slot = {"skin_hcepr","skin_halouniversal"},
         DefaultAttName = "Factory Default",
         FreeSlot = true
     },
@@ -291,40 +300,20 @@ SWEP.Attachments = {
 
 SWEP.Animations = {
     ["idle"] = {
-        Source = "idle_raw",
-		Time = 89/30,
+        Source = "idle",
     },
 	["fire_iron"] = {
         Source = "fire",
     },
     ["draw"] = {
-        Source = "ready",
+        Source = "draw",
         Time = 20/30,
-		SoundTable = {
-            {
-                s = "suburb.h3pr.draw",
-                p = 100,
-                v = 1,
-                t = 0,
-                c = CHAN_STATIC,
-
-                e = "", -- effect name
-                att = nil, -- attachment, defaults to shell attachment
-                mag = 100,
-                ind = 0,
-                bg = 0,
-            },
-        },
         LHIK = true,
         LHIKIn = 0,
         LHIKOut = 0.25,
     },
-	["holster"] = {
-        Source = "put_away",
-        Time = 5/30,
-    },
     ["fire"] = {
-        Source = {"fire_1 var1","fire_1 var2","fire_1 var3"},
+        Source = "fire",
     },
     ["misfire"] = {
         Source = "misfire",
@@ -338,7 +327,7 @@ SWEP.Animations = {
         Time = 0.6,
     },
 	["bash"] = {
-        Source = "melee_strike_1",
+        Source = "melee",
 		Time = 33/30,
         LHIK = true,
         LHIKIn = 0,
@@ -348,21 +337,6 @@ SWEP.Animations = {
         Source = "oh_start",
         TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2,
         Time = 59/30,
-		SoundTable = {
-            {
-                s = "suburb.h3pr.oh",
-                p = 100,
-                v = 1,
-                t = 0,
-                c = CHAN_STATIC,
-
-                e = "arc9ce_halo_2_impact_plasma_rifle", -- effect name
-                att = 3, -- attachment, defaults to shell attachment
-                mag = 100,
-                ind = 0,
-                bg = 0,
-            },
-        },
         LHIK = true,
         LHIKIn = 0.5,
         LHIKOut = 0,
@@ -377,36 +351,22 @@ SWEP.Animations = {
     ["exit_vent"] = {
         Source = "oh_exit",
         Time = 35/30,
-		SoundTable = {
-            {
-                s = "suburb.h3pr.oh_exit",
-                p = 100,
-                v = 1,
-                t = 0,
-                c = CHAN_STATIC,
-				-- ???
-                -- e = "effect_arc9_halo3_impact_plasmarifle",
-                -- att = 2,
-                -- mag = 100,
-                -- ind = 0,
-                -- bg = 0,
-            },
-        },
         LHIK = true,
         LHIKIn = 0,
         LHIKOut = 0.5,
     },
 }
 
+SWEP.Rarity = "Legendary"
 -- nZombies Stuff
 SWEP.NZWonderWeapon		= false	-- Is this a Wonder-Weapon? If true, only one player can have it at a time. Cheats aren't stopped, though.
 --SWEP.NZRePaPText		= "your text here"	-- When RePaPing, what should be shown? Example: Press E to your text here for 2000 points.
-SWEP.NZPaPName				= "Hunter Cannon"
+SWEP.NZPaPName				= "The Vaporizer"
 --SWEP.NZPaPReplacement 	= ""	-- If Pack-a-Punched, replace this gun with the entity class shown here.
 SWEP.NZPreventBox		= false	-- If true, this gun won't be placed in random boxes GENERATED. Users can still place it in manually.
 SWEP.NZTotalBlackList	= false	-- if true, this gun can't be placed in the box, even manually, and can't be bought off a wall, even if placed manually. Only code can give this gun.
 
-SWEP.Primary.MaxAmmo = 10
+SWEP.Primary.MaxAmmo = 1
 -- Max Ammo function
 
 function SWEP:NZMaxAmmo()
@@ -421,10 +381,15 @@ end
 -- PaP Function
 function SWEP:OnPaP()
 self.Ispackapunched = 1
-self.PrintName = "Hunter Cannon"
-self.Primary.MaxAmmo = 10
-self.Delay = 60 / 400
-self.ShootEntity = "hunter_beam"
+self.PrintName = "The Vaporizer"
+self.Primary.MaxAmmo = 200
+self.Delay_Accel        = 0.15
+self.Delay_Decel        = 0.6
+self.Delay_Min      = 0.1555555
+self.Delay_Max      = 0.07
+self.Heat_Accel         = 0.07
+self.Heat_Decel         = 0.4
+self.BatteryConsumption     = 1/800
 return true
 end
 
@@ -622,4 +587,122 @@ function SWEP:DoDrawCrosshair(x, y)
     self:GetBuff_Hook("Hook_PostDrawCrosshair", w2s)
 
     return true
+end
+
+function SWEP:MeleeAttack(melee2)
+    local reach = 32 + self:GetBuff_Add("Add_MeleeRange") + self.MeleeRange
+    local dmg = self:GetBuff_Override("Override_MeleeDamage", self.MeleeDamage) or 20
+
+    if melee2 then
+        reach = 32 + self:GetBuff_Add("Add_MeleeRange") + self.Melee2Range
+        dmg = self:GetBuff_Override("Override_MeleeDamage", self.Melee2Damage) or 20
+    end
+
+    dmg = dmg * self:GetBuff_Mult("Mult_MeleeDamage")
+
+    self:GetOwner():LagCompensation(true)
+
+    local filter = {self:GetOwner()}
+
+    table.Add(filter, self.Shields)
+
+    local tr = util.TraceLine({
+        start = self:GetOwner():GetShootPos(),
+        endpos = self:GetOwner():GetShootPos() + self:GetOwner():GetAimVector() * reach,
+        filter = filter,
+        mask = MASK_SHOT_HULL
+    })
+
+    if (!IsValid(tr.Entity)) then
+        tr = util.TraceHull({
+            start = self:GetOwner():GetShootPos(),
+            endpos = self:GetOwner():GetShootPos() + self:GetOwner():GetAimVector() * reach,
+            filter = filter,
+            mins = Vector(-16, -16, -8),
+            maxs = Vector(16, 16, 8),
+            mask = MASK_SHOT_HULL
+        })
+    end
+
+    -- Backstab damage if applicable
+    local backstab = tr.Hit and self:CanBackstab(melee2, tr.Entity)
+    if backstab then
+        if melee2 then
+            local bs_dmg = self:GetBuff_Override("Override_Melee2DamageBackstab", self.Melee2DamageBackstab)
+            if bs_dmg then
+                dmg = bs_dmg * self:GetBuff_Mult("Mult_MeleeDamage")
+            else
+                dmg = dmg * self:GetBuff("BackstabMultiplier") * self:GetBuff_Mult("Mult_MeleeDamage")
+            end
+        else
+            local bs_dmg = self:GetBuff_Override("Override_MeleeDamageBackstab", self.MeleeDamageBackstab)
+            if bs_dmg then
+                dmg = bs_dmg * self:GetBuff_Mult("Mult_MeleeDamage")
+            else
+                dmg = dmg * self:GetBuff("BackstabMultiplier") * self:GetBuff_Mult("Mult_MeleeDamage")
+            end
+        end
+    end
+
+    -- We need the second part for single player because SWEP:Think is ran shared in SP
+    if !(game.SinglePlayer() and CLIENT) then
+        if tr.Hit then
+            if tr.Entity:IsNPC() or tr.Entity:IsNextBot() or tr.Entity:IsPlayer() then
+                self:MyEmitSound(self.MeleeHitNPCSound, 75, 100, 1, CHAN_USER_BASE + 2)
+                self:MyEmitSound(self.WeaponHitSound, 75, 100, 1, CHAN_USER_BASE + 2)
+            else
+                self:MyEmitSound(self.MeleeHitSound, 75, 100, 1, CHAN_USER_BASE + 2)
+				self:MyEmitSound(self.WeaponHitSound, 75, 100, 1, CHAN_USER_BASE + 2)
+            end
+
+            if tr.MatType == MAT_FLESH or tr.MatType == MAT_ALIENFLESH or tr.MatType == MAT_ANTLION or tr.MatType == MAT_BLOODYFLESH then
+                local fx = EffectData()
+                fx:SetOrigin(tr.HitPos)
+
+                util.Effect("BloodImpact", fx)
+            end
+        else
+            self:MyEmitSound(self.MeleeMissSound, 75, 100, 1, CHAN_USER_BASE + 3)
+        end
+    end
+
+    if SERVER and IsValid(tr.Entity) and (tr.Entity:IsNPC() or tr.Entity:IsPlayer() or tr.Entity:Health() > 0) then
+        local dmginfo = DamageInfo()
+
+        local attacker = self:GetOwner()
+        if !IsValid(attacker) then attacker = self end
+        dmginfo:SetAttacker(attacker)
+
+        local relspeed = (tr.Entity:GetVelocity() - self:GetOwner():GetAbsVelocity()):Length()
+
+        relspeed = relspeed / 225
+
+        relspeed = math.Clamp(relspeed, 1, 1.5)
+
+        dmginfo:SetInflictor(self)
+        dmginfo:SetDamage(dmg * relspeed)
+        dmginfo:SetDamageType(self:GetBuff_Override("Override_MeleeDamageType") or self.MeleeDamageType or DMG_CLUB)
+
+        dmginfo:SetDamageForce(self:GetOwner():GetRight() * -4912 + self:GetOwner():GetForward() * 9989)
+
+        SuppressHostEvents(NULL)
+        tr.Entity:TakeDamageInfo(dmginfo)
+        SuppressHostEvents(self:GetOwner())
+
+        if tr.Entity:GetClass() == "func_breakable_surf" then
+            tr.Entity:Fire("Shatter", "0.5 0.5 256")
+        end
+
+    end
+
+    if SERVER and IsValid(tr.Entity) then
+        local phys = tr.Entity:GetPhysicsObject()
+        if IsValid(phys) then
+            phys:ApplyForceOffset(self:GetOwner():GetAimVector() * 80 * phys:GetMass(), tr.HitPos)
+        end
+    end
+
+    self:GetBuff_Hook("Hook_PostBash", {tr = tr, dmg = dmg})
+
+    self:GetOwner():LagCompensation(false)
 end

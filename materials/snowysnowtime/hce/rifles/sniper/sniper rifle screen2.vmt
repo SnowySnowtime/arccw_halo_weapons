@@ -1,0 +1,23 @@
+"UnlitGeneric"
+{
+	"$basetexture" "snowysnowtime/hce/rifles/sniper/sr_decal"
+	"$color2" "[0.2 0.2 0.2]"
+	"$translucent" 1
+	"$additive" "1"
+	"$decal" "1"
+	"Proxies" 
+    {
+        UniformNoise
+        {
+            resultVar    $alpha
+            minVal    .0
+            maxVal    .3
+        }
+        "TextureScroll"
+        {
+            "texturescrollvar" "$basetexturetransform"
+            "texturescrollrate" 0.45
+            "texturescrollangle" 0
+        }
+    }
+}

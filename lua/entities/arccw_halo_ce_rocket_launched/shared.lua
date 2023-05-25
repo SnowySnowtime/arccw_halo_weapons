@@ -6,7 +6,7 @@ ENT.Information = ""
 ENT.Spawnable = false
 ENT.AdminSpawnable = false
 
-ENT.Model = "models/snowysnowtime/projectiles/rocket_ce_proj.mdl"
+ENT.Model = "models/snowysnowtime/suburb/projectiles/rocket_projectile.mdl"
 ENT.FuseTime = 5
 ENT.ArmTime = 0.01
 
@@ -146,7 +146,7 @@ function ENT:Detonate()
         if self:WaterLevel() >= 1 then
             util.Effect( "WaterSurfaceExplosion", effectdata )
         else
-            util.Effect( "astw2_halo_ce_explosion_rocket", effectdata)
+            util.Effect( "arc9_halo_ce_explosion_rocket", effectdata)
 	sound.Play( "hce/grenade_expl_" .. math.random(1,2) .. ".wav",  self:GetPos(), 100, 100 )
         end
 

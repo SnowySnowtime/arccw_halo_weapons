@@ -1,111 +1,57 @@
-
-TRACER_FLAG_USEATTACHMENT	= 0x0002;
-SOUND_FROM_WORLD			= 0;
-CHAN_STATIC					= 6;
-
-EFFECT.Speed				= 4000;
-EFFECT.Length				= -256;
-//EFFECT.WhizSound			= Sound( "nomad/whiz.wav" );		-- by Robinhood76 (http:--www.freesound.org/people/Robinhood76/sounds/96556/)
-EFFECT.WhizDistance			= 72;
-
-local MaterialMain			= Material( "effects/halo3/trail_ar" );
-local MaterialFront			= Material( "effects/halo3/8pt_ringed_star_flare" );
-
-function EFFECT:GetTracerOrigin( data )
-
-	-- this is almost a direct port of GetTracerOrigin in fx_tracer.cpp
-	local start = data:GetStart();
-	
-	-- use attachment?
-	if( bit.band( data:GetFlags(), TRACER_FLAG_USEATTACHMENT ) == TRACER_FLAG_USEATTACHMENT ) then
-
-		local entity = data:GetEntity();
-		
-		if( not IsValid( entity ) ) then return start; end
-		if( not game.SinglePlayer() and entity:IsEFlagSet( EFL_DORMANT ) ) then return start; end
-		
-		if( entity:IsWeapon() and entity:IsCarriedByLocalPlayer() ) then
-			-- can't be done, can't call the real function
-			-- local origin = weapon:GetTracerOrigin();
-			-- if( origin ) then
-			-- 	return origin, angle, entity;
-			-- end
-			
-			-- use the view model
-			local pl = entity:GetOwner();
-			if( IsValid( pl ) ) then
-				local vm = pl:GetViewModel();
-				if( IsValid( vm ) and not LocalPlayer():ShouldDrawLocalPlayer() ) then
-					entity = vm;
-				else
-					-- HACK: fix the model in multiplayer
-					if( entity.WorldModel ) then
-						entity:SetModel( entity.WorldModel );
-					end
-				end
-			end
-		end
-
-		local attachment = entity:GetAttachment( data:GetAttachment() );
-		if( attachment ) then
-			start = attachment.Pos;
-		end
-
-	end
-	
-	return start;
-
-end
-
+local Tracer = Material( "effects/arc9ce/halo3/trail/wispy_trail" )
+local Tracer2  = Material( "effects/arc9ce/halo3/trail/flaming_trail" )
+local Tracer3  = Material( "effects/arc9ce/halo3/trail/flaming_trail" )
+local Width = 16
+local Width2 = 8
+local Width3 = 1
 
 function EFFECT:Init( data )
 
-	self.StartPos = self:GetTracerOrigin( data );
-	self.EndPos = data:GetOrigin();
-	
-	self.Entity:SetRenderBoundsWS( self.StartPos, self.EndPos );
+	self.Position = data:GetStart()
+	self.EndPos = data:GetOrigin()
+	self.WeaponEnt = data:GetEntity()
+	self.Attachment = data:GetAttachment()
+	self.StartPos = self:GetTracerShootPos( self.Position, self.WeaponEnt, self.Attachment )
+	self:SetRenderBoundsWS( self.StartPos, self.EndPos )
 
-	local diff = ( self.EndPos - self.StartPos );
+	self.Dir = ( self.EndPos - self.StartPos ):GetNormalized()
+	self.Dist = self.StartPos:Distance( self.EndPos )
 	
-	self.Normal = diff:GetNormal();
-	self.StartTime = 0;
-	self.LifeTime = ( diff:Length() + self.Length ) / self.Speed;
-	
-	-- whiz by sound
-	local weapon = data:GetEntity();
-	if( IsValid( weapon ) and ( not weapon:IsWeapon() or not weapon:IsCarriedByLocalPlayer() ) ) then
-
-		local dist, pos, time = util.DistanceToLine( self.StartPos, self.EndPos, EyePos() );
-	end
+	self.LifeTime = 1.4
+	self.LifeTime2 = 0.9
+	self.LifeTime3 = 2.5
+	self.DieTime = CurTime() + self.LifeTime
+	self.DieTime2 = CurTime() + self.LifeTime2
+	self.DieTime3 = CurTime() + self.LifeTime3
 
 end
-
 
 function EFFECT:Think()
 
-	self.LifeTime = self.LifeTime - FrameTime();
-	self.StartTime = self.StartTime + FrameTime(); 
-
-	return self.LifeTime > 0;
+	if ( CurTime() == self.DieTime ) then return false end
+	return true
 
 end
 
-
 function EFFECT:Render()
 
-	local endDistance = self.Speed * self.StartTime;
-	local startDistance = endDistance - self.Length;
+	local r = 255
+	local g = 255
+	local b = 255
 	
-	startDistance = math.max( 0, startDistance );
-	endDistance = math.max( 0, endDistance );
+	local v = ( self.DieTime - CurTime() ) / self.LifeTime
+	
+	local v2 = ( self.DieTime2 - CurTime() ) / self.LifeTime2
+	
+	local v3 = ( self.DieTime3 - CurTime() ) / self.LifeTime3
 
-	local startPos = self.StartPos + self.Normal * startDistance;
-	local endPos = self.StartPos + self.Normal * endDistance;
+	render.SetMaterial( Tracer )
+	render.DrawBeam( self.StartPos, self.EndPos, (v * Width)*3/2, 0, (self.Dist/20)*math.Rand(-0.1,0.1), Color( 255, 255, 255, v * 155 ) )
 	
-	render.SetMaterial( MaterialFront );
-	render.DrawSprite( endPos, 0, 0, color_white );
+	render.SetMaterial( Tracer2 )
+	render.DrawBeam( self.StartPos, self.EndPos, (v2 * Width2)*2/2, 0, (self.Dist/1)*math.Rand(-0.1,0.1), Color( 255, 255, 255, (v2 * 100)*3/2.5 ) )
+	
+	render.SetMaterial( Tracer3 )
+	render.DrawBeam( self.StartPos, self.EndPos, (v3 * Width3)*2/2, 0, (self.Dist/1)*math.Rand(-0.1,0.1), Color( 255, 255, 255, v3 * 25 ) )
 
-	render.SetMaterial( MaterialMain );
-	render.DrawBeam( startPos, endPos, 6, 0, 1, color_white );
-	
 end

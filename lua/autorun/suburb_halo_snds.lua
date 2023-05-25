@@ -572,7 +572,7 @@ sound.Add(
     channel = CHAN_ITEM,
     volume = 1.0,
 	pitch = {99.4,101.5},
-    soundlevel = 80,
+    soundlevel = 40,
     sound = {"vuth/m90ce/pump.wav"}
 })
 
@@ -583,6 +583,24 @@ sound.Add(
     volume = 1.0,
     soundlevel = 80,
     sound = "hce/shotgun_deploy.wav"
+})
+
+sound.Add(
+{
+    name = "suburb.m90.melee",
+    channel = CHAN_STATIC,
+    volume = 1.0,
+    soundlevel = 80,
+    sound = "vuth/m90ce/melee.wav"
+})
+
+sound.Add(
+{
+    name = "suburb.m90.fidget",
+    channel = CHAN_STATIC,
+    volume = 1.0,
+    soundlevel = 80,
+    sound = "vuth/m90ce/pose0.wav"
 })
 
 sound.Add(
@@ -613,11 +631,7 @@ sound.Add(
     soundlevel = 80,
     sound = {")vuth/m90ce/loop0.wav",
 	")*vuth/m90ce/loop1.wav",
-	")*vuth/m90ce/loop2.wav",
-	")*vuth/m90ce/loop3.wav",
-	")*vuth/m90ce/loop4.wav",
-	")*vuth/m90ce/loop5.wav",
-	")*vuth/m90ce/loop6.wav"}	
+	")*vuth/m90ce/loop2.wav"}	
 })
 
 sound.Add(
@@ -641,7 +655,7 @@ sound.Add(
 	-- SRS99C --
 sound.Add(
 {
-    name = "suburb.cesr.fire",
+    name = "suburb.sr.fire",
     channel = CHAN_STATIC,
     volume = 1.0,
     soundlevel = 100,
@@ -650,7 +664,7 @@ sound.Add(
 
 sound.Add(
 {
-    name = "suburb.h3sr.fire", -- " HD " sound as well
+    name = "suburb.sr.firehd", -- " HD " sound as well
     channel = CHAN_STATIC,
     volume = 1.0,
     soundlevel = 100,
@@ -659,38 +673,47 @@ sound.Add(
 
 sound.Add(
 {
-    name = "suburb.cesr.reload",
+    name = "suburb.sr.reload",
     channel = CHAN_STATIC,
     volume = 1.0,
     soundlevel = 80,
-    sound = "hce/sr_reload.wav"
+    sound = "vuth/srs99c/reload_full.wav"
 })
 
 sound.Add(
 {
-    name = "suburb.cesr.reloade",
+    name = "suburb.sr.reloade",
     channel = CHAN_STATIC,
     volume = 1.0,
     soundlevel = 80,
-    sound = "hce/sniper_reload.wav"
+    sound = "vuth/srs99c/reload_empty.wav"
 })
 
 sound.Add(
 {
-    name = "suburb.cesr.deploy",
+    name = "suburb.sr.draw",
     channel = CHAN_STATIC,
     volume = 1.0,
     soundlevel = 80,
-    sound = "hce/sr_deploy.wav"
+    sound = "vuth/srs99c/ready.wav"
 })
 
 sound.Add(
 {
-    name = "suburb.cesr.posing",
+    name = "suburb.sr.fidget",
     channel = CHAN_STATIC,
     volume = 1.0,
     soundlevel = 80,
-    sound = "hce/sniper_posing.wav"
+    sound = "vuth/srs99c/pose.wav"
+})
+
+sound.Add(
+{
+    name = "suburb.sr.melee",
+    channel = CHAN_STATIC,
+    volume = 1.0,
+    soundlevel = 80,
+    sound = {"vuth/srs99c/melee0.wav","vuth/srs99c/melee1.wav"}
 })
 
 	-- SPNKR CE --
@@ -698,7 +721,7 @@ sound.Add(
 sound.Add(
 {
     name = "suburb.cerl.spin_start",
-    channel = CHAN_STATIC,
+    channel = CHAN_WEAPON,
     volume = 1.0,
     soundlevel = 80,
     sound = "shared/rocket_spin_start.wav"
@@ -707,7 +730,7 @@ sound.Add(
 sound.Add(
 {
     name = "suburb.cerl.spin",
-    channel = CHAN_STATIC,
+    channel = CHAN_WEAPON,
     volume = 1.0,
     soundlevel = 80,
     sound = "shared/rocket_spin.wav"
@@ -716,7 +739,7 @@ sound.Add(
 sound.Add(
 {
     name = "suburb.cerl.spin_end",
-    channel = CHAN_STATIC,
+    channel = CHAN_WEAPON,
     volume = 1.0,
     soundlevel = 80,
     sound = "shared/rocket_spin_end.wav"
@@ -754,11 +777,29 @@ sound.Add(
 
 sound.Add(
 {
-    name = "suburb.cerl.deploy",
+    name = "suburb.cerl.draw",
     channel = CHAN_STATIC,
     volume = 1.0,
     soundlevel = 80,
     sound = "hce/rocket_fire.wav"
+})
+
+sound.Add(
+{
+    name = "suburb.cerl.melee",
+    channel = CHAN_STATIC,
+    volume = 1.0,
+    soundlevel = 80,
+    sound = "hce/rocket_melee3.wav"
+})
+
+sound.Add(
+{
+    name = "suburb.cerl.meleehit",
+    channel = CHAN_STATIC,
+    volume = 1.0,
+    soundlevel = 80,
+    sound = "shared/rocketshake.wav"
 })
 
 sound.Add(

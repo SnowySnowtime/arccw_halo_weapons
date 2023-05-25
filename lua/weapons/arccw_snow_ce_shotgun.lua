@@ -1,4 +1,4 @@
-SWEP.Base = "arccw_base"
+SWEP.Base = "arccw_snow_halo_subbase"
 SWEP.Spawnable = true -- this obviously has to be set to true
 SWEP.Category = "ArcCW - Halo" -- Not the final name but idk what to name it ~Snowy
 SWEP.UC_CategoryPack = "1Halo: Combat Evolved"
@@ -98,7 +98,7 @@ function SWEP:ArcCW_Halo_Setup()
     end
 end
 
-DEFINE_BASECLASS("arccw_base")
+DEFINE_BASECLASS("arccw_snow_halo_subbase")
 function SWEP:Initialize()
     BaseClass.Initialize(self)
 

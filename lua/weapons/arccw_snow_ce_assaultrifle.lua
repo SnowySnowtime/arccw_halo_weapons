@@ -24,6 +24,7 @@ SWEP.Trivia_Calibre = "7.62x51mm M118 FMJ-AP"
 SWEP.Trivia_Mechanism = "Automatic"
 SWEP.Trivia_Country = "never heard of her"
 SWEP.Trivia_Year = "Assault Rifle"
+SWEP.AmmoRefreshVisualTime = 0.75 -- This is a negative value intrinsically. Do not make negative here.
 
 SWEP.Slot = 2
 

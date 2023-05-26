@@ -1,0 +1,29 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "snowysnowtime/hce/rifles/assaultrifle/bolt"
+	"$bumpmap" "snowysnowtime/hce/rifles/assaultrifle/bolt_n"
+	"$phong" "1" 
+	"$phongexponenttexture" "snowysnowtime/hce/rifles/assaultrifle/bolt_exp"
+	"$alphatest" "1"
+	"$phongboost" "2"
+	"$phongalbedotint" "1"
+	"$phongfresnelranges" "[4 0.5 8]"
+	"$phongdisablehalflambert" "1"
+	"$rimlight"	1
+	"$rimlightpower"	10
+	"$rimmask"	1
+	"$envmap" "snowysnowtime/envmaps/cube"
+	"$envmaptint" "[ 1 1 1 ]"
+	"$cubemaptint"	"[ 1 1 1 ]"
+	"$basetexturealphaenvmapmask"	"1"
+	"$envmapfresnel"	"0.15"
+	"$cubemappower"	0.03
+
+	Proxies
+	{
+		drc_ReflectionTint
+		{
+			resultVar $envmaptint
+		}
+	}
+}

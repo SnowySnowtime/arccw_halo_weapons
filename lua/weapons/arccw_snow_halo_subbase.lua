@@ -247,8 +247,8 @@ function SWEP:MeleeAttack(melee2)
             start = self:GetOwner():GetShootPos(),
             endpos = self:GetOwner():GetShootPos() + self:GetOwner():GetAimVector() * reach,
             filter = filter,
-            mins = Vector(-16, -16, -8),
-            maxs = Vector(16, 16, 8),
+            mins = Vector(-8, -8, -4),
+            maxs = Vector(8, 8, 4),
             mask = MASK_SHOT_HULL
         })
     end

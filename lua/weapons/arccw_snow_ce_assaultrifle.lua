@@ -31,7 +31,7 @@ SWEP.Slot = 2
 SWEP.UseHands = true
 
 SWEP.ViewModel = "models/snowysnowtime/suburb/hce/rifles/c_fp_cear.mdl"
-SWEP.WorldModel = "models/snowysnowtime/suburb/hce/rifles/c_fp_cear.mdl"
+SWEP.WorldModel = "models/snowysnowtime/suburb/hce/rifles/wm_assaultrifle_ce.mdl"
 SWEP.ViewModelFOV = 70
 
 --  You will need this for the journey ahead

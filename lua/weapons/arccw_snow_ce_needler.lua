@@ -4,7 +4,7 @@ SWEP.Category = "ArcCW - Halo" -- Not the final name but idk what to name it ~Sn
 SWEP.UC_CategoryPack = "1Halo: Combat Evolved"
 SWEP.AdminOnly = false
 -- Custom Crosshair Malarkey, cry at the amount of stuff for it!
-SWEP.CrosshairMat = "snowysnowtime/reticles/uc/ret_smg"
+SWEP.CrosshairMat = "snowysnowtime/reticles/uc/ret_ne"
 SWEP.CrosshairMatOutline = "snowysnowtime/reticles/uc/ret_smg_o"
 SWEP.SizeX = 127 -- Microadjustments for different crosshair sizes/types.
 SWEP.SizeY = 127
@@ -17,7 +17,7 @@ SWEP.FixOutlineY = 63
 SWEP.Precise = false -- Enables the center dot.
 
 SWEP.PrintName = "Needler"
-SWEP.Trivia_Class = "M90 Mk.I"
+SWEP.Trivia_Class = "Type-33 GML"
 SWEP.Trivia_Desc = "The MA5B was in service to some extent during the Insurrection, being considered a standard weapon in September of 2525, and played a significant role in the Covenant War that followed. MA5Bs were employed by various SPARTAN-IIs during Operation: SILENT STORM and the ensuing Netherop engagement in 2526. In 2531, the marine compliment of the UNSC Spirit of Fire made use of the MA5B on Harvest, Arcadia and Etran Harborage, while members of Blue Team deployed with it on their mission to the decommissioned Platform 966A the same year, and again during the Battle of Jericho VII in 2535. The MA5B saw particularly heavy use in 2552. On Reach, it was wielded by Orbital Drop Shock Troopers sent to engage John-117 during the live-fire test of MJOLNIR Mark V and Cortana, and by the Spartans of Red Team during the defense of Orbital Defense Generators. John-117 and the marine compliment of the UNSC Pillar of Autumn utilized the MA5B throughout the Battle of Halo Alpha, and in the skirmish over Threshold that followed. Spartan personnel during the Onyx conflict also made use of the weapon."
 SWEP.Trivia_Manufacturer = "Misriah Armory"
 SWEP.Trivia_Calibre = "7.62x51mm M118 FMJ-AP"
@@ -29,7 +29,7 @@ SWEP.Slot = 2
 
 SWEP.UseHands = true
 
-SWEP.ViewModel = "models/snowysnowtime/suburb/hce/rifles/c_fp_cear.mdl"
+SWEP.ViewModel = "models/snowysnowtime/suburb/hce/pistols/needler_ce.mdl"
 SWEP.WorldModel = "models/snowysnowtime/suburb/hce/rifles/c_fp_cear.mdl"
 SWEP.ViewModelFOV = 70
 
@@ -107,7 +107,7 @@ end
 
 SWEP.MeleeSwingSound = ""
 SWEP.MeleeMissSound = ""
-SWEP.WeaponHitSound = "suburb.shared.meleehitweapon"
+SWEP.WeaponHitSound = "suburb.ndlr.meleehit"
 SWEP.MeleeHitSound = "suburb.shared.meleeworld"
 SWEP.MeleeHitNPCSound = "suburb.shared.meleeslap"
 SWEP.MeleeDamage = 25
@@ -128,11 +128,11 @@ SWEP.MuzzleVelocity = 905 -- projectile or phys bullet muzzle velocity
 SWEP.TracerNum = 1 -- tracer every X
 SWEP.Tracer 	= "effect_arc9_halo3_tracer_br"
 
-SWEP.Primary.ClipSize = 60 -- DefaultClip is automatically set.
-SWEP.ExtendedClipSize = 75
-SWEP.ReducedClipSize = 48
+SWEP.Primary.ClipSize = 20 -- DefaultClip is automatically set.
+SWEP.ExtendedClipSize = 20
+SWEP.ReducedClipSize = 20
 
-SWEP.Delay = 60 / 900 -- 60 / RPM.
+SWEP.Delay = 1 / 10 -- 1(second) / Halo Delay (RPS)
 SWEP.Num = 1 -- number of shots per trigger pull.
 SWEP.Firemodes = {
     {
@@ -154,11 +154,11 @@ SWEP.MagID = "hs338" -- the magazine pool this gun draws from
 SWEP.ShootVol = 140 -- volume of shoot sound
 SWEP.ShootPitch = 100 -- pitch of shoot sound
 
-SWEP.ShootSound = "suburb.cear.fire"
+SWEP.ShootSound = "suburb.ndlr.fire"
 SWEP.ShootSoundSilenced = "suburb.cear.fire_sup"
 SWEP.DistantShootSound = "ar_lod"
 
-SWEP.MuzzleEffect = "arc9ce_halo_ce_muzzle_assault_rifle"
+SWEP.MuzzleEffect = "arc9ce_halo_ce_muzzle_needler"
 SWEP.ShellModel = "models/shells/shell_338mag.mdl"
 SWEP.ShellPitch = 80
 SWEP.ShellScale = 1.5
@@ -253,47 +253,29 @@ SWEP.Attachments = {
 SWEP.Animations = {
     ["idle"] = {
         Source = "idle",
-        Time = 60/30
     },
 	["exit_inspect"] = {
 		Source = "fidget",
 	},
-	["fire_iron"] = {
-        Source = "fire",
-    },
     ["draw"] = {
         Source = "draw",
-        Time = 28/30,
         LHIK = true,
         LHIKIn = 0,
         LHIKOut = 0.25,
-    },
-	["holster"] = {
-        Source = "draw",
-        Time = 10/30,
-        LHIK = true,
-        LHIKIn = 0,
-        LHIKOut = 0.25,
-    },
-    ["fire"] = {
-        Source = "fire",
-        Time = 20/30,
     },
 	["bash"] = {
         Source = "melee",
-		Time = 36/30,
         LHIK = true,
         LHIKIn = 0,
         LHIKOut = 0.2,
     },
     ["reload"] = {
         Source = "reload",
-        Time = 86/30,
         TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2,
 		SoundTable = {
 			-- The Main Shit
             {
-                s = "arccw.cear.reload0", -- sound; can be string or table
+                s = "suburb.ndlr.reload0", -- sound; can be string or table
                 p = 100, -- pitch
                 v = 0, -- volume
                 t = 0.125, -- time at which to play relative to Animations.Time
@@ -308,176 +290,10 @@ SWEP.Animations = {
                 bg = 0,
             },
 			{
-                s = "arccw.cear.reload1", -- sound; can be string or table
+                s = "suburb.ndlr.reload1", -- sound; can be string or table
                 p = 100, -- pitch
                 v = 0, -- volume
-                t = 0.9, -- time at which to play relative to Animations.Time
-                c = CHAN_STATIC, -- channel to play the sound
-
-                -- Can also play an effect at the same time
-                e = "", -- effect name
-                att = nil, -- attachment, defaults to shell attachment
-                mag = 100, -- magnitude
-                -- also capable of modifying bodygroups
-                ind = 0,
-                bg = 0,
-            },
-			{
-                s = "arccw.cear.reload2", -- sound; can be string or table
-                p = 100, -- pitch
-                v = 0, -- volume
-                t = 1.45, -- time at which to play relative to Animations.Time
-                c = CHAN_STATIC, -- channel to play the sound
-
-                -- Can also play an effect at the same time
-                e = "", -- effect name
-                att = nil, -- attachment, defaults to shell attachment
-                mag = 100, -- magnitude
-                -- also capable of modifying bodygroups
-                ind = 0,
-                bg = 0,
-            },
-			{
-                s = "arccw.cear.reload3", -- sound; can be string or table
-                p = 100, -- pitch
-                v = 0, -- volume
-                t = 1.625, -- time at which to play relative to Animations.Time
-                c = CHAN_STATIC, -- channel to play the sound
-
-                -- Can also play an effect at the same time
-                e = "", -- effect name
-                att = nil, -- attachment, defaults to shell attachment
-                mag = 100, -- magnitude
-                -- also capable of modifying bodygroups
-                ind = 0,
-                bg = 0,
-            },
-			{
-                s = "arccw.cear.reload4", -- sound; can be string or table
-                p = 100, -- pitch
-                v = 0, -- volume
-                t = 2.1, -- time at which to play relative to Animations.Time
-                c = CHAN_STATIC, -- channel to play the sound
-
-                -- Can also play an effect at the same time
-                e = "", -- effect name
-                att = nil, -- attachment, defaults to shell attachment
-                mag = 100, -- magnitude
-                -- also capable of modifying bodygroups
-                ind = 0,
-                bg = 0,
-            },
-			-- Foley
-			{
-                s = "arccw.cear.foley0", -- sound; can be string or table
-                p = 100, -- pitch
-                v = 100, -- volume
-                t = 0, -- time at which to play relative to Animations.Time
-                c = CHAN_STATIC, -- channel to play the sound
-
-                -- Can also play an effect at the same time
-                e = "", -- effect name
-                att = nil, -- attachment, defaults to shell attachment
-                mag = 100, -- magnitude
-                -- also capable of modifying bodygroups
-                ind = 0,
-                bg = 0,
-            },
-			{
-                s = "arccw.cear.foley3", -- sound; can be string or table
-                p = 100, -- pitch
-                v = 100, -- volume
-                t = 0.1, -- time at which to play relative to Animations.Time
-                c = CHAN_STATIC, -- channel to play the sound
-
-                -- Can also play an effect at the same time
-                e = "", -- effect name
-                att = nil, -- attachment, defaults to shell attachment
-                mag = 100, -- magnitude
-                -- also capable of modifying bodygroups
-                ind = 0,
-                bg = 0,
-            },
-			{
-                s = "arccw.cear.foley1", -- sound; can be string or table
-                p = 100, -- pitch
-                v = 100, -- volume
-                t = 0.8, -- time at which to play relative to Animations.Time
-                c = CHAN_STATIC, -- channel to play the sound
-
-                -- Can also play an effect at the same time
-                e = "", -- effect name
-                att = nil, -- attachment, defaults to shell attachment
-                mag = 100, -- magnitude
-                -- also capable of modifying bodygroups
-                ind = 0,
-                bg = 0,
-            },
-			{
-                s = "arccw.cear.foley2", -- sound; can be string or table
-                p = 100, -- pitch
-                v = 100, -- volume
-                t = 1, -- time at which to play relative to Animations.Time
-                c = CHAN_STATIC, -- channel to play the sound
-
-                -- Can also play an effect at the same time
-                e = "", -- effect name
-                att = nil, -- attachment, defaults to shell attachment
-                mag = 100, -- magnitude
-                -- also capable of modifying bodygroups
-                ind = 0,
-                bg = 0,
-            },
-			{
-                s = "arccw.cear.foley4", -- sound; can be string or table
-                p = 100, -- pitch
-                v = 100, -- volume
-                t = 1.35, -- time at which to play relative to Animations.Time
-                c = CHAN_STATIC, -- channel to play the sound
-
-                -- Can also play an effect at the same time
-                e = "", -- effect name
-                att = nil, -- attachment, defaults to shell attachment
-                mag = 100, -- magnitude
-                -- also capable of modifying bodygroups
-                ind = 0,
-                bg = 0,
-            },
-			{
-                s = "arccw.cear.foley7", -- sound; can be string or table
-                p = 100, -- pitch
-                v = 100, -- volume
-                t = 2.1, -- time at which to play relative to Animations.Time
-                c = CHAN_STATIC, -- channel to play the sound
-
-                -- Can also play an effect at the same time
-                e = "", -- effect name
-                att = nil, -- attachment, defaults to shell attachment
-                mag = 100, -- magnitude
-                -- also capable of modifying bodygroups
-                ind = 0,
-                bg = 0,
-            },
-			{
-                s = "arccw.cear.foley8", -- sound; can be string or table
-                p = 100, -- pitch
-                v = 100, -- volume
-                t = 2.2, -- time at which to play relative to Animations.Time
-                c = CHAN_STATIC, -- channel to play the sound
-
-                -- Can also play an effect at the same time
-                e = "", -- effect name
-                att = nil, -- attachment, defaults to shell attachment
-                mag = 100, -- magnitude
-                -- also capable of modifying bodygroups
-                ind = 0,
-                bg = 0,
-            },
-			{
-                s = "arccw.cear.foley0", -- sound; can be string or table
-                p = 100, -- pitch
-                v = 100, -- volume
-                t = 2.2, -- time at which to play relative to Animations.Time
+                t = 1.3575, -- time at which to play relative to Animations.Time
                 c = CHAN_STATIC, -- channel to play the sound
 
                 -- Can also play an effect at the same time
@@ -496,12 +312,11 @@ SWEP.Animations = {
     },
     ["reload_empty"] = {
         Source = "reload",
-        Time = 86/30,
         TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2,
 		SoundTable = {
 			-- The Main Shit
             {
-                s = "arccw.cear.reload0", -- sound; can be string or table
+                s = "suburb.ndlr.reload0", -- sound; can be string or table
                 p = 100, -- pitch
                 v = 0, -- volume
                 t = 0.125, -- time at which to play relative to Animations.Time
@@ -516,176 +331,10 @@ SWEP.Animations = {
                 bg = 0,
             },
 			{
-                s = "arccw.cear.reload1", -- sound; can be string or table
+                s = "suburb.ndlr.reload1", -- sound; can be string or table
                 p = 100, -- pitch
                 v = 0, -- volume
-                t = 0.9, -- time at which to play relative to Animations.Time
-                c = CHAN_STATIC, -- channel to play the sound
-
-                -- Can also play an effect at the same time
-                e = "", -- effect name
-                att = nil, -- attachment, defaults to shell attachment
-                mag = 100, -- magnitude
-                -- also capable of modifying bodygroups
-                ind = 0,
-                bg = 0,
-            },
-			{
-                s = "arccw.cear.reload2", -- sound; can be string or table
-                p = 100, -- pitch
-                v = 0, -- volume
-                t = 1.45, -- time at which to play relative to Animations.Time
-                c = CHAN_STATIC, -- channel to play the sound
-
-                -- Can also play an effect at the same time
-                e = "", -- effect name
-                att = nil, -- attachment, defaults to shell attachment
-                mag = 100, -- magnitude
-                -- also capable of modifying bodygroups
-                ind = 0,
-                bg = 0,
-            },
-			{
-                s = "arccw.cear.reload3", -- sound; can be string or table
-                p = 100, -- pitch
-                v = 0, -- volume
-                t = 1.625, -- time at which to play relative to Animations.Time
-                c = CHAN_STATIC, -- channel to play the sound
-
-                -- Can also play an effect at the same time
-                e = "", -- effect name
-                att = nil, -- attachment, defaults to shell attachment
-                mag = 100, -- magnitude
-                -- also capable of modifying bodygroups
-                ind = 0,
-                bg = 0,
-            },
-			{
-                s = "arccw.cear.reload4", -- sound; can be string or table
-                p = 100, -- pitch
-                v = 0, -- volume
-                t = 2.1, -- time at which to play relative to Animations.Time
-                c = CHAN_STATIC, -- channel to play the sound
-
-                -- Can also play an effect at the same time
-                e = "", -- effect name
-                att = nil, -- attachment, defaults to shell attachment
-                mag = 100, -- magnitude
-                -- also capable of modifying bodygroups
-                ind = 0,
-                bg = 0,
-            },
-			-- Foley
-			{
-                s = "arccw.cear.foley0", -- sound; can be string or table
-                p = 100, -- pitch
-                v = 100, -- volume
-                t = 0, -- time at which to play relative to Animations.Time
-                c = CHAN_STATIC, -- channel to play the sound
-
-                -- Can also play an effect at the same time
-                e = "", -- effect name
-                att = nil, -- attachment, defaults to shell attachment
-                mag = 100, -- magnitude
-                -- also capable of modifying bodygroups
-                ind = 0,
-                bg = 0,
-            },
-			{
-                s = "arccw.cear.foley3", -- sound; can be string or table
-                p = 100, -- pitch
-                v = 100, -- volume
-                t = 0.1, -- time at which to play relative to Animations.Time
-                c = CHAN_STATIC, -- channel to play the sound
-
-                -- Can also play an effect at the same time
-                e = "", -- effect name
-                att = nil, -- attachment, defaults to shell attachment
-                mag = 100, -- magnitude
-                -- also capable of modifying bodygroups
-                ind = 0,
-                bg = 0,
-            },
-			{
-                s = "arccw.cear.foley1", -- sound; can be string or table
-                p = 100, -- pitch
-                v = 100, -- volume
-                t = 0.8, -- time at which to play relative to Animations.Time
-                c = CHAN_STATIC, -- channel to play the sound
-
-                -- Can also play an effect at the same time
-                e = "", -- effect name
-                att = nil, -- attachment, defaults to shell attachment
-                mag = 100, -- magnitude
-                -- also capable of modifying bodygroups
-                ind = 0,
-                bg = 0,
-            },
-			{
-                s = "arccw.cear.foley2", -- sound; can be string or table
-                p = 100, -- pitch
-                v = 100, -- volume
-                t = 1, -- time at which to play relative to Animations.Time
-                c = CHAN_STATIC, -- channel to play the sound
-
-                -- Can also play an effect at the same time
-                e = "", -- effect name
-                att = nil, -- attachment, defaults to shell attachment
-                mag = 100, -- magnitude
-                -- also capable of modifying bodygroups
-                ind = 0,
-                bg = 0,
-            },
-			{
-                s = "arccw.cear.foley4", -- sound; can be string or table
-                p = 100, -- pitch
-                v = 100, -- volume
-                t = 1.35, -- time at which to play relative to Animations.Time
-                c = CHAN_STATIC, -- channel to play the sound
-
-                -- Can also play an effect at the same time
-                e = "", -- effect name
-                att = nil, -- attachment, defaults to shell attachment
-                mag = 100, -- magnitude
-                -- also capable of modifying bodygroups
-                ind = 0,
-                bg = 0,
-            },
-			{
-                s = "arccw.cear.foley7", -- sound; can be string or table
-                p = 100, -- pitch
-                v = 100, -- volume
-                t = 2.1, -- time at which to play relative to Animations.Time
-                c = CHAN_STATIC, -- channel to play the sound
-
-                -- Can also play an effect at the same time
-                e = "", -- effect name
-                att = nil, -- attachment, defaults to shell attachment
-                mag = 100, -- magnitude
-                -- also capable of modifying bodygroups
-                ind = 0,
-                bg = 0,
-            },
-			{
-                s = "arccw.cear.foley8", -- sound; can be string or table
-                p = 100, -- pitch
-                v = 100, -- volume
-                t = 2.2, -- time at which to play relative to Animations.Time
-                c = CHAN_STATIC, -- channel to play the sound
-
-                -- Can also play an effect at the same time
-                e = "", -- effect name
-                att = nil, -- attachment, defaults to shell attachment
-                mag = 100, -- magnitude
-                -- also capable of modifying bodygroups
-                ind = 0,
-                bg = 0,
-            },
-			{
-                s = "arccw.cear.foley0", -- sound; can be string or table
-                p = 100, -- pitch
-                v = 100, -- volume
-                t = 2.2, -- time at which to play relative to Animations.Time
+                t = 1.3575, -- time at which to play relative to Animations.Time
                 c = CHAN_STATIC, -- channel to play the sound
 
                 -- Can also play an effect at the same time
@@ -702,4 +351,340 @@ SWEP.Animations = {
         LHIKIn = 0.5,
         LHIKOut = 0.5,
     },
+	["fire"] = {
+        Source = "fire",
+    },
 }
+
+SWEP.Hook_ModifyRPM = function(wep, delay)
+    local max = math.min(7, wep:GetCapacity())
+
+    local delta = wep.BurstCount * 1.1 / max
+
+    local mult = Lerp(delta, 0.5, 1)
+
+    return delay / mult
+end
+-- JANK HILL
+if CLIENT then
+    ArcCW.LastWeapon = nil
+end
+
+local vec1 = Vector(1, 1, 1)
+local vec0 = vec1 * 0
+local ang0 = Angle(0, 0, 0)
+
+local lastUBGL = 0
+function SWEP:Think()
+    if IsValid(self:GetOwner()) and self:GetClass() == "arccw_base" then
+        self:Remove()
+        return
+    end
+
+    local owner = self:GetOwner()
+
+    if !IsValid(owner) or owner:IsNPC() then return end
+
+    if self:GetState() == ArcCW.STATE_DISABLE and !self:GetPriorityAnim() then
+        self:SetState(ArcCW.STATE_IDLE)
+    end
+
+    for i, v in ipairs(self.EventTable) do
+        for ed, bz in pairs(v) do
+            if ed <= CurTime() then
+                if bz.AnimKey and (bz.AnimKey != self.LastAnimKey or bz.StartTime != self.LastAnimStartTime) then
+                    continue
+                end
+                self:PlayEvent(bz)
+                self.EventTable[i][ed] = nil
+                --print(CurTime(), "Event completed at " .. i, ed)
+                if table.IsEmpty(v) and i != 1 then self.EventTable[i] = nil --[[print(CurTime(), "No more events at " .. i .. ", killing")]] end
+            end
+        end
+    end
+
+    if CLIENT and (!game.SinglePlayer() and IsFirstTimePredicted() or true)
+            and self:GetOwner() == LocalPlayer() and ArcCW.InvHUD
+            and !ArcCW.Inv_Hidden and ArcCW.Inv_Fade == 0 then
+        ArcCW.InvHUD:Remove()
+        ArcCW.Inv_Fade = 0.01
+    end
+
+    local vm = owner:GetViewModel()
+
+    self.BurstCount = self:GetBurstCount()
+
+    local sg = self:GetShotgunReloading()
+    if (sg == 2 or sg == 4) and owner:KeyPressed(IN_ATTACK) then
+        self:SetShotgunReloading(sg + 1)
+    elseif (sg >= 2) and self:GetReloadingREAL() <= CurTime() then
+        self:ReloadInsert((sg >= 4) and true or false)
+    end
+
+    self:InBipod()
+
+    if self:GetNeedCycle() and !self.Throwing and !self:GetReloading() and self:GetWeaponOpDelay() < CurTime() and self:GetNextPrimaryFire() < CurTime() and -- Adding this delays bolting if the RPM is too low, but removing it may reintroduce the double pump bug. Increasing the RPM allows you to shoot twice on many multiplayer servers. Sure would be convenient if everything just worked nicely
+            (!GetConVar("arccw_clicktocycle"):GetBool() and (self:GetCurrentFiremode().Mode == 2 or !owner:KeyDown(IN_ATTACK))
+            or GetConVar("arccw_clicktocycle"):GetBool() and (self:GetCurrentFiremode().Mode == 2 or owner:KeyPressed(IN_ATTACK))) then
+        local anim = self:SelectAnimation("cycle")
+        anim = self:GetBuff_Hook("Hook_SelectCycleAnimation", anim) or anim
+        local mult = self:GetBuff_Mult("Mult_CycleTime")
+        local p = self:PlayAnimation(anim, mult, true, 0, true)
+        if p then
+            self:SetNeedCycle(false)
+            self:SetPriorityAnim(CurTime() + self:GetAnimKeyTime(anim, true) * mult)
+        end
+    end
+
+    if self:GetGrenadePrimed() and !(owner:KeyDown(IN_ATTACK) or owner:KeyDown(IN_ATTACK2)) and (!game.SinglePlayer() or SERVER) then
+        self:Throw()
+    end
+
+    if self:GetGrenadePrimed() and self.GrenadePrimeTime > 0 and self.isCooked then
+        local heldtime = (CurTime() - self.GrenadePrimeTime)
+
+        local ft = self:GetBuff_Override("Override_FuseTime") or self.FuseTime
+
+        if ft and (heldtime >= ft) and (!game.SinglePlayer() or SERVER) then
+            self:Throw()
+        end
+    end
+
+    if IsFirstTimePredicted() and self:GetNextPrimaryFire() < CurTime() and owner:KeyReleased(IN_USE) then
+        if self:InBipod() then
+            self:ExitBipod()
+        else
+            self:EnterBipod()
+        end
+    end
+
+    if ((game.SinglePlayer() and SERVER) or (!game.SinglePlayer() and true)) and self:GetBuff_Override("Override_TriggerDelay", self.TriggerDelay) then
+        if owner:KeyReleased(IN_ATTACK) and self:GetBuff_Override("Override_TriggerCharge", self.TriggerCharge) and self:GetTriggerDelta(true) >= 1 then
+            self:PrimaryAttack()
+        else
+            self:DoTriggerDelay()
+        end
+    end
+
+    if self:GetCurrentFiremode().RunawayBurst then
+
+        if self:GetBurstCount() > 0 and ((game.SinglePlayer() and SERVER) or (!game.SinglePlayer() and true)) then
+            self:PrimaryAttack()
+        end
+
+        if self:Clip1() < self:GetBuff("AmmoPerShot") or self:GetBurstCount() == self:GetBurstLength() then
+            self:SetBurstCount(0)
+            if !self:GetCurrentFiremode().AutoBurst then
+                self.Primary.Automatic = false
+            end
+        end
+    end
+
+    if owner:KeyReleased(IN_ATTACK) then
+
+        if !self:GetCurrentFiremode().RunawayBurst then
+            self:SetBurstCount(0)
+            self.LastTriggerTime = -1 -- Cannot fire again until trigger released
+            self.LastTriggerDuration = 0
+        end
+
+        if self:GetCurrentFiremode().Mode < 0 and !self:GetCurrentFiremode().RunawayBurst then
+            local postburst = self:GetCurrentFiremode().PostBurstDelay or 0
+
+            if (CurTime() + postburst) > self:GetWeaponOpDelay() then
+                --self:SetNextPrimaryFire(CurTime() + postburst)
+                self:SetWeaponOpDelay(CurTime() + postburst * self:GetBuff_Mult("Mult_PostBurstDelay") + self:GetBuff_Add("Add_PostBurstDelay"))
+            end
+        end
+    end
+
+    if owner and owner:GetInfoNum("arccw_automaticreload", 0) == 1 and self:Clip1() == 0 and !self:GetReloading() and CurTime() > self:GetNextPrimaryFire() + 0.2 then
+        self:Reload()
+    end
+
+    if (!(self:GetBuff_Override("Override_ReloadInSights") or self.ReloadInSights) and (self:GetReloading() or owner:KeyDown(IN_RELOAD))) then
+        if !(self:GetBuff_Override("Override_ReloadInSights") or self.ReloadInSights) and self:GetReloading() then
+            self:ExitSights()
+        end
+    end
+
+
+    if self:GetBuff_Hook("Hook_ShouldNotSight") and (self.Sighted or self:GetState() == ArcCW.STATE_SIGHTS) then
+        self:ExitSights()
+    elseif self:GetHolster_Time() > 0 then
+        self:ExitSights()
+    else
+
+        -- no it really doesn't, past me
+        local sighted = self:GetState() == ArcCW.STATE_SIGHTS
+        local toggle = owner:GetInfoNum("arccw_toggleads", 0) >= 1
+        local suitzoom = owner:KeyDown(IN_ZOOM)
+        local sp_cl = game.SinglePlayer() and CLIENT
+
+        -- if in singleplayer, client realm should be completely ignored
+        if toggle and !sp_cl then
+            if owner:KeyPressed(IN_ATTACK2) then
+                if sighted then
+                    self:ExitSights()
+                elseif !suitzoom then
+                    self:EnterSights()
+                end
+            elseif suitzoom and sighted then
+                self:ExitSights()
+            end
+        elseif !toggle then
+            if (owner:KeyDown(IN_ATTACK2) and !suitzoom) and !sighted then
+                self:EnterSights()
+            elseif (!owner:KeyDown(IN_ATTACK2) or suitzoom) and sighted then
+                self:ExitSights()
+            end
+        end
+
+    end
+
+    if (!game.SinglePlayer() and IsFirstTimePredicted()) or (game.SinglePlayer() and true) then
+        if self:InSprint() and (self:GetState() != ArcCW.STATE_SPRINT) then
+            self:EnterSprint()
+        elseif !self:InSprint() and (self:GetState() == ArcCW.STATE_SPRINT) then
+            self:ExitSprint()
+        end
+    end
+
+    if game.SinglePlayer() or IsFirstTimePredicted() then
+        self:SetSightDelta(math.Approach(self:GetSightDelta(), self:GetState() == ArcCW.STATE_SIGHTS and 0 or 1, FrameTime() / self:GetSightTime()))
+        self:SetSprintDelta(math.Approach(self:GetSprintDelta(), self:GetState() == ArcCW.STATE_SPRINT and 1 or 0, FrameTime() / self:GetSprintTime()))
+    end
+
+    if CLIENT and (game.SinglePlayer() or IsFirstTimePredicted()) then
+        self:ProcessRecoil()
+    end
+
+    if CLIENT and IsValid(vm) then
+		local param = self:Clip1() + 1
+		vm:SetPoseParameter( "ammo", param )
+		print(param)
+
+        for i = 1, vm:GetBoneCount() do
+            vm:ManipulateBoneScale(i, vec1)
+        end
+
+        for i, k in pairs(self:GetBuff_Override("Override_CaseBones", self.CaseBones) or {}) do
+            if !isnumber(i) then continue end
+            for _, b in pairs(istable(k) and k or {k}) do
+                local bone = vm:LookupBone(b)
+
+                if !bone then continue end
+
+                if self:GetVisualClip() >= i then
+                    vm:ManipulateBoneScale(bone, vec1)
+                else
+                    vm:ManipulateBoneScale(bone, vec0)
+                end
+            end
+        end
+
+        for i, k in pairs(self:GetBuff_Override("Override_BulletBones", self.BulletBones) or {}) do
+            if !isnumber(i) then continue end
+            for _, b in pairs(istable(k) and k or {k}) do
+                local bone = vm:LookupBone(b)
+
+                if !bone then continue end
+
+                if self:GetVisualBullets() >= i then
+                    vm:ManipulateBoneScale(bone, vec1)
+                else
+                    vm:ManipulateBoneScale(bone, vec0)
+                end
+            end
+        end
+
+        for i, k in pairs(self:GetBuff_Override("Override_StripperClipBones", self.StripperClipBones) or {}) do
+            if !isnumber(i) then continue end
+            for _, b in pairs(istable(k) and k or {k}) do
+                local bone = vm:LookupBone(b)
+
+                if !bone then continue end
+
+                if self:GetVisualLoadAmount() >= i then
+                    vm:ManipulateBoneScale(bone, vec1)
+                else
+                    vm:ManipulateBoneScale(bone, vec0)
+                end
+            end
+        end
+    end
+
+    self:DoHeat()
+
+    self:ThinkFreeAim()
+
+    -- if CLIENT then
+        -- if !IsValid(ArcCW.InvHUD) then
+        --     gui.EnableScreenClicker(false)
+        -- end
+
+        -- if self:GetState() != ArcCW.STATE_CUSTOMIZE then
+        --     self:CloseCustomizeHUD()
+        -- else
+        --     self:OpenCustomizeHUD()
+        -- end
+    -- end
+
+    for i, k in pairs(self.Attachments) do
+        if !k.Installed then continue end
+        local atttbl = ArcCW.AttachmentTable[k.Installed]
+
+        if atttbl.DamagePerSecond then
+            local dmg = atttbl.DamagePerSecond * FrameTime()
+
+            self:DamageAttachment(i, dmg)
+        end
+    end
+
+    if CLIENT then
+        self:DoOurViewPunch()
+    end
+
+    if self.Throwing and self:Clip1() == 0 and self:Ammo1() > 0 then
+        self:SetClip1(1)
+        owner:SetAmmo(self:Ammo1() - 1, self.Primary.Ammo)
+    end
+
+    -- self:RefreshBGs()
+
+    if self:GetMagUpIn() != 0 and CurTime() > self:GetMagUpIn() then
+        self:ReloadTimed()
+        self:SetMagUpIn( 0 )
+    end
+
+    if self:HasBottomlessClip() and self:Clip1() != ArcCW.BottomlessMagicNumber then
+        self:Unload()
+        self:SetClip1(ArcCW.BottomlessMagicNumber)
+    elseif !self:HasBottomlessClip() and self:Clip1() == ArcCW.BottomlessMagicNumber then
+        self:SetClip1(0)
+    end
+
+    -- Performing traces in rendering contexts seem to cause flickering with c_hands that have QC attachments(?)
+    -- Since we need to run the trace every tick anyways, do it here instead
+    if CLIENT then
+        self:BarrelHitWall()
+    end
+
+    self:GetBuff_Hook("Hook_Think")
+
+    -- Running this only serverside in SP breaks animation processing and causes CheckpointAnimation to !reset.
+    --if SERVER or !game.SinglePlayer() then
+        self:ProcessTimers()
+    --end
+
+    -- Only reset to idle if we don't need cycle. empty idle animation usually doesn't play nice
+    if self:GetNextIdle() != 0 and self:GetNextIdle() <= CurTime() and !self:GetNeedCycle()
+            and self:GetHolster_Time() == 0 and self:GetShotgunReloading() == 0 then
+        self:SetNextIdle(0)
+        self:PlayIdleAnimation(true)
+    end
+
+    if self:GetUBGLDebounce() and !self:GetOwner():KeyDown(IN_RELOAD) then
+        self:SetUBGLDebounce( false )
+    end
+end

@@ -135,7 +135,7 @@ SWEP.Primary.ClipSize = 2 -- DefaultClip is automatically set.
 SWEP.ExtendedClipSize = 2
 SWEP.ReducedClipSize = 2
 
-SWEP.Delay = 60 / 30 -- 60 / RPM.
+SWEP.Delay = 1 / 0.5 -- 1(second) / Halo Delay (RPS)
 SWEP.Num = 1 -- number of shots per trigger pull.
 SWEP.Firemodes = {
     {

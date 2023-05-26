@@ -1031,3 +1031,68 @@ sound.Add(
     soundlevel = 80,
     sound = {"snow/plasma_rifle/plasrifle_oh_exit.wav"}
 })
+
+-- NEEDLER
+
+sound.Add(
+{
+    name = "suburb.ndlr.fire",
+    channel = CHAN_STATIC,
+    volume = 1.0,
+    soundlevel = 100,
+    sound = {"hce/needler_fire1.wav","hce/needler_fire2.wav","hce/needler_fire3.wav"}
+})
+
+sound.Add(
+{
+    name = "suburb.ndlr.reload0",
+    channel = CHAN_STATIC,
+    volume = 1.0,
+    soundlevel = 80,
+    sound = {"hce/needler_reload0.wav"}
+})
+
+sound.Add(
+{
+    name = "suburb.ndlr.reload1",
+    channel = CHAN_STATIC,
+    volume = 1.0,
+    soundlevel = 80,
+    sound = {"hce/needler_reload1.wav"}
+})
+
+sound.Add(
+{
+    name = "suburb.ndlr.draw",
+    channel = CHAN_STATIC,
+    volume = 1.0,
+    soundlevel = 100,
+    sound = {"hce/needler_deploy.wav"}
+})
+
+sound.Add(
+{
+    name = "suburb.ndlr.fidget",
+    channel = CHAN_STATIC,
+    volume = 1.0,
+    soundlevel = 100,
+    sound = {"hce/needler_fidget.wav"}
+})
+
+sound.Add(
+{
+    name = "suburb.ndlr.melee",
+    channel = CHAN_STATIC,
+    volume = 1.0,
+    soundlevel = 100,
+    sound = {"hce/needler_melee1.wav","hce/needler_melee2.wav"}
+})
+
+sound.Add(
+{
+    name = "suburb.ndlr.meleehit",
+    channel = CHAN_STATIC,
+    volume = 1.0,
+    soundlevel = 100,
+    sound = {"shared/needleshake.wav"}
+})

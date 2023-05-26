@@ -1,0 +1,36 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "snowysnowtime/hce/pistols/needler/needle plasma mask"
+	"$bumpmap" "snowysnowtime/hce/pistols/needler/needler_n"
+	"$detail" "snowysnowtime/hce/pistols/needler/shield_noise"
+	"$color2" "[2 2 2]"
+	"$detailscale" "1"
+	"$detailblendfactor" "1"
+	"$detailblendmode" "0"
+	"$detail" "bitch"
+	"$selfillum" "1"
+	"$selfillummask" "snowysnowtime/hce/pistols/needler/needle plasma mask"
+	"$nocull" "1"
+	"$additive" "1"
+	"$angle" 0.0
+	"$scale" "[1 1]"
+	"$center" "[11.5623751 11.7575421]"
+
+	Proxies
+	{
+		LinearRamp
+		{
+			"rate" -5
+			"initialValue" 0.0
+			"resultVar" "$angle"
+		}
+        "TextureTransform"
+		{
+			"translateVar" "[0 0]"
+            "rotateVar" "$angle"
+            "centerVar" "$center"
+			"scaleVar"	"$scale"
+            "resultVar" "$detailtexturetransform"
+        }
+	}
+}

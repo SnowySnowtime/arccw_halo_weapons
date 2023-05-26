@@ -1,0 +1,26 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "snowysnowtime/hce/pistols/needler/needler"
+	"$bumpmap" "snowysnowtime/hce/pistols/needler/needler_n"
+	"$selfillum" "1"
+	"$selfillummask" "snowysnowtime/hce/pistols/needler/illum"
+	"$phong" "1" 
+	"$phongexponenttexture" "snowysnowtime/hce/pistols/needler/needler_exp"
+	"$phongalbedotint" "1"
+	"$phongfresnelranges" "[4 0.5 8]"
+	"$rimlight"	1
+	"$rimlightpower"	10
+	"$rimmask"	1
+	"$envmap" "snowysnowtime/envmaps/cubemap plasma rifle"
+	"$envmaptint" "[ 1 1 1 ]"
+	"$cubemaptint"	"[ 0.913726 0.329412 0.933333 ]"
+	"$cubemappower"	0.03
+
+	Proxies
+	{
+		drc_ReflectionTint
+		{
+			resultVar $envmaptint
+		}
+	}
+}

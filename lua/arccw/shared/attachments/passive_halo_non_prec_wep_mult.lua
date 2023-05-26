@@ -15,5 +15,7 @@ att.Hook_BulletHit = function(wep, data)
 
     if data.tr.HitGroup == HITGROUP_HEAD then
         data.damage = data.damage * 0.6
+	elseif data.tr.HitGroup == HITGROUP_LEFTARM or data.tr.HitGroup == HITGROUP_RIGHTARM or data.tr.HitGroup == HITGROUP_LEFTLEG or data.tr.HitGroup == HITGROUP_RIGHTLEG then
+		data.damage = data.damage * 4
     end
 end

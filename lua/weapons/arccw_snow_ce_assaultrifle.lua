@@ -43,8 +43,8 @@ SWEP.ViewModelFOV = 70
 	SWEP.VisualRecoilMult = 24
 	SWEP.Damage = 25
 	SWEP.DamageMin = 15
-	SWEP.AccuracyMOA = 70
-	SWEP.HipDispersion = 360
+	SWEP.AccuracyMOA = 50
+	SWEP.HipDispersion = 280
 	SWEP.JumpDispersion = 0
 	SWEP.ChamberSize = 0
 	SWEP.Sway = 0
@@ -59,7 +59,7 @@ local balance = {
         Damage = 25,
         DamageMin = 15,
         AccuracyMOA = 70,
-        HipDispersion = 360,
+        HipDispersion = 280,
         JumpDispersion = 0,
         ChamberSize = 0,
     },
@@ -69,8 +69,8 @@ local balance = {
         RecoilSide = 0,
 		MaxRecoilBlowback = 0,
 		RecoilPunchBack = 2,
-        Damage = 10,
-        DamageMin = 10,
+        Damage = 11,
+        DamageMin = 5,
         JumpDispersion = 0,
         HipDispersion = 0,
         MoveDispersion = 0,
@@ -133,7 +133,9 @@ SWEP.Primary.ClipSize = 60 -- DefaultClip is automatically set.
 SWEP.ExtendedClipSize = 75
 SWEP.ReducedClipSize = 48
 
-SWEP.Delay = 60 / 900 -- 60 / RPM.
+SWEP.HaloDelay = 15
+
+SWEP.Delay = 1 / 15 -- 1(second) / Halo Delay (RPS)
 SWEP.Num = 1 -- number of shots per trigger pull.
 SWEP.Firemodes = {
     {

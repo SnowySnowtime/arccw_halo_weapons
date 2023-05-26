@@ -70,8 +70,8 @@ local balance = {
         RecoilSide = 0,
 		MaxRecoilBlowback = 0,
 		RecoilPunchBack = 2,
-        Damage = 10,
-        DamageMin = 10,
+        Damage = 20,
+        DamageMin = 20,
         JumpDispersion = 0,
         HipDispersion = 0,
         MoveDispersion = 0,
@@ -133,7 +133,7 @@ SWEP.Primary.ClipSize = 12 -- DefaultClip is automatically set.
 SWEP.ExtendedClipSize = 18
 SWEP.ReducedClipSize = 8
 
-SWEP.Delay = 60 / 210 -- 60 / RPM.
+SWEP.Delay = 1 / 3.5 -- 1(second) / Halo Delay (RPS)
 SWEP.Num = 1 -- number of shots per trigger pull.
 SWEP.Firemodes = {
     {
@@ -246,7 +246,7 @@ SWEP.Attachments = {
 	{
         PrintName = "Passive",
         Slot = {"halo_passive"},
-		Installed = "passive_halo_non_prec_wep_mult",
+		Installed = "passive_halo_prec_wep_mult",
 		Integral = true
     },
 }

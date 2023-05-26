@@ -1007,6 +1007,26 @@ sound.Add(
 
 sound.Add(
 {
+    name = "suburb.frg.fire",
+    channel = CHAN_STATIC,
+    volume = 0.7,
+	pitch = {99.4,101.5},
+    soundlevel = 100,
+    sound =  { "hce/fuelrodcannon_fire.wav" }
+})
+
+sound.Add(
+{
+    name = "suburb.frg.explode",
+    channel = CHAN_STATIC,
+    volume = 1,
+	pitch = {99.4,101.5},
+    soundlevel = 190,
+    sound =  { "hce/fuelrod_expl_2.wav","hce/fuelrod_expl_3.wav" }
+})
+
+sound.Add(
+{
     name = "suburb.h3pr.fire_ext",
     channel = CHAN_STATIC,
     volume = 0.6,

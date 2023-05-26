@@ -1,0 +1,9 @@
+"UnlitGeneric"
+{
+	"$vertexcolor" 		1 
+	"$vertexalpha" 		1 
+	"$nolod" 			1 
+	"$additive"			1 
+	$basetexture	 "snowysnowtime/reticles/uc/fr_ce"
+}
+

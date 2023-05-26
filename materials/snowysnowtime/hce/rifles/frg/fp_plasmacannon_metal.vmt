@@ -1,0 +1,26 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "snowysnowtime/hce/rifles/frg/frg_metal"
+	"$bumpmap" "snowysnowtime/hce/rifles/frg/frg_metal_n"
+	"$detail" "snowysnowtime/hce/rifles/frg/detail banshee"
+	"$detailscale" "22"
+	"$detailblendmode" "0"
+	"$detailblendfactor" "1"
+	"$phong" "1" 
+	"$phongboost" "0.5"
+	"$phongexponenttexture" "snowysnowtime/hce/rifles/frg/frg_metal_exp"
+	"$phongalbedotint" "1"
+	"$phongfresnelranges" "[4 0.5 8]"
+	"$envmap" "snowysnowtime/envmaps/pistol"
+	"$envmaptint" "[ 1 1 1 ]"
+	"$cubemaptint"	"[ 1 1 1 ]"
+	"$cubemappower"	0.1
+
+	Proxies
+	{
+		drc_ReflectionTint
+		{
+			resultVar $envmaptint
+		}
+	}
+}

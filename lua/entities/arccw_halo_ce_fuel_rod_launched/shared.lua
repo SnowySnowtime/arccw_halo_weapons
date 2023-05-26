@@ -6,7 +6,7 @@ ENT.Information = ""
 ENT.Spawnable = false
 ENT.AdminSpawnable = false
 
-ENT.Model = "models/snowysnowtime/projectiles/plasma_projectile.mdl"
+ENT.Model = "models/snowysnowtime/suburb/projectiles/pp_projectile.mdl"
 ENT.FuseTime = 5
 ENT.ArmTime = 0.01
 
@@ -142,8 +142,8 @@ function ENT:Detonate()
         if self:WaterLevel() >= 1 then
             util.Effect( "WaterSurfaceExplosion", effectdata )
         else
-            util.Effect( "astw2_halo_ce_explosion_fuelrod", effectdata)
-	sound.Play( "fuelrod_expl",  self:GetPos(), 100, 100 )
+            util.Effect( "arc9_halo_ce_explosion_fuelrod", effectdata)
+		sound.Play( "suburb.frg.explode",  self:GetPos(), 100, 100 )
         end
 
         local attacker = self

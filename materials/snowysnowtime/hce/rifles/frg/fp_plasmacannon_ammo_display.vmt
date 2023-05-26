@@ -1,0 +1,13 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "snowysnowtime/hce/rifles/frg/frg_ammo"
+	"$selfillum" "1"
+
+	Proxies
+	{
+		drc_ReflectionTint
+		{
+			resultVar $envmaptint
+		}
+	}
+}

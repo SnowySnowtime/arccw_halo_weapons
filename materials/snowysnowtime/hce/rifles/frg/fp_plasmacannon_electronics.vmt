@@ -1,0 +1,6 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "snowysnowtime/hce/rifles/frg/frg_electronics"
+	"$bumpmap" "snowysnowtime/hce/rifles/frg/frg_n"
+	"$selfillum" "1"
+}

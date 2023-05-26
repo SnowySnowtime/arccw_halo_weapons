@@ -11,13 +11,13 @@ SWEP.FixX = 128
 SWEP.FixY = 126
 SWEP.Precise = true -- Enables the center dot.
 
-SWEP.PrintName = "Plasma Rifle"
-SWEP.Trivia_Class = "Type-25 Directed Energy Rifle"
+SWEP.PrintName = "Fuel Rod Gun"
+SWEP.Trivia_Class = "Type-33 LAAW"
 SWEP.Trivia_Desc = "This is a Type-25 Directed Energy Rifle"
-SWEP.Trivia_Manufacturer = "Iruiru Armory"
-SWEP.Trivia_Calibre = "Plasma"
-SWEP.Trivia_Mechanism = "Automatic"
-SWEP.Trivia_Year = "Type-25 Directed Energy Rifle"
+SWEP.Trivia_Manufacturer = "Merchants of Qikost"
+SWEP.Trivia_Calibre = "Class-2 Fuel Rods"
+SWEP.Trivia_Mechanism = "Semi-Automatic"
+SWEP.Trivia_Year = "Zasqi-pattern flak launcher "
 
 SWEP.Slot = 2
 

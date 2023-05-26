@@ -8,7 +8,16 @@ SWEP.Category = "ArcCW - Firearms"
 SWEP.AdminOnly = false
 SWEP.ArcCW_Halo         = true
 SWEP.ShouldReloadWhenEmpty = false
-SWEP.AmmoRefreshVisualTime = 0 -- This is a negative value intrinsically. Do not make negative here.
+SWEP.AmmoRefreshVisualTime = 0 -- This is a negative value intrinsically. Do not make negative here. (It makes the clip refresh sooner without allowing the user to fire sooner.)
+-- SWEP.CrosshairMat = "snowysnowtime/reticles/uc/ret_pr"
+-- SWEP.SizeX = 127 -- Microadjustments for different crosshair sizes/types.
+-- SWEP.SizeY = 127
+-- SWEP.FixX = 62
+-- SWEP.FixY = 61
+
+
+DEFINE_BASECLASS("arccw_base")
+-- something in here is bound to break in a future update, but i really wanted this shit.
 
 SWEP.Hook_PostFireBullets = function(wep)
     if wep:Clip1() <= 0 && wep.ShouldReloadWhenEmpty == true then
@@ -181,10 +190,6 @@ function SWEP:DoDrawCrosshair(x, y)
     end
 	
 	-- Main Crosshair Shit
-	surface.SetTexture(surface.GetTextureID(self.CrosshairMatOutline))
-	surface.SetDrawColor(outlineClr.r, outlineClr.g, outlineClr.b, outlineClr.a * self.CrosshairDelta * self.CrosshairDelta / 1.75)
-	surface.DrawTexturedRect(x - p_w / 2 - self.FixX, y - p_w / 2 - self.FixY, self.SizeX, self.SizeY)
-	
 	surface.SetTexture(surface.GetTextureID(self.CrosshairMat))
 	surface.SetDrawColor(clr.r, clr.g, clr.b, clr.a * self.CrosshairDelta)
 	surface.DrawTexturedRect(x - p_w / 2 - self.FixX, y - p_w / 2 - self.FixY, self.SizeX, self.SizeY)

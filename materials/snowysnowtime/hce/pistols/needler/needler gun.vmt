@@ -7,14 +7,13 @@
 	"$phong" "1" 
 	"$phongexponenttexture" "snowysnowtime/hce/pistols/needler/needler_exp"
 	"$phongalbedotint" "1"
-	"$phongfresnelranges" "[4 0.5 8]"
-	"$rimlight"	1
-	"$rimlightpower"	10
-	"$rimmask"	1
+	"$phongfresnelranges" "[0.5 0.7 0.3]"
 	"$envmap" "snowysnowtime/envmaps/cubemap plasma rifle"
 	"$envmaptint" "[ 1 1 1 ]"
-	"$cubemaptint"	"[ 0.913726 0.329412 0.933333 ]"
-	"$cubemappower"	0.03
+	"$cubemaptint"	"[ 0 0.415686 0]"
+	"$basetexturealphaenvmapmask"	"1"
+	"$envmapfresnel"	"1.5"
+	"$cubemappower"	1
 
 	Proxies
 	{

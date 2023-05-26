@@ -1,4 +1,4 @@
-SWEP.Base						= "arccw_base"
+SWEP.Base						= "arccw_snow_halo_subbase"
 SWEP.PrintName					= "ArcCW Halo Plasma Sub-Base"
 SWEP.Spawnable					= false
 
@@ -214,7 +214,7 @@ SWEP.BottomlessClip = false
 SWEP.InfiniteAmmo = false -- weapon can reload for free
 SWEP.AmmoPerShot = 0
 
-DEFINE_BASECLASS("arccw_base")
+DEFINE_BASECLASS("arccw_snow_halo_subbase")
 
 function SWEP:SetupDataTables()
 	BaseClass.SetupDataTables( self )

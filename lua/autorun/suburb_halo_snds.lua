@@ -987,6 +987,26 @@ sound.Add(
 
 sound.Add(
 {
+    name = "suburb.pr.fire",
+    channel = CHAN_STATIC,
+    volume = 0.7,
+	pitch = {99.4,101.5},
+    soundlevel = 100,
+    sound =  { "hce/plasma_fire_1.wav","hce/plasma_fire_2.wav","hce/plasma_fire_3.wav","hce/plasma_fire_4.wav","hce/plasma_fire_5.wav" }
+})
+
+sound.Add(
+{
+    name = "suburb.pp.fire_charged",
+    channel = CHAN_STATIC,
+    volume = 0.7,
+	pitch = {99.4,101.5},
+    soundlevel = 100,
+    sound =  { "hce/ppistol_chargefire.wav" }
+})
+
+sound.Add(
+{
     name = "suburb.h3pr.fire_ext",
     channel = CHAN_STATIC,
     volume = 0.6,
@@ -1016,6 +1036,69 @@ sound.Add(
 
 sound.Add(
 {
+    name = "suburb.pr.draw",
+    channel = CHAN_STATIC,
+    volume = 1.0,
+    soundlevel = 80,
+    sound = {"hce/prifle_deploy.wav"}
+})
+
+sound.Add(
+{
+    name = "suburb.pp.draw",
+    channel = CHAN_STATIC,
+    volume = 1.0,
+    soundlevel = 80,
+    sound = {"hce/ppistol_deploy.wav"}
+})
+
+sound.Add(
+{
+    name = "suburb.pr.melee",
+    channel = CHAN_STATIC,
+    volume = 1.0,
+    soundlevel = 80,
+    sound = {"hce/prifle_melee.wav"}
+})
+
+sound.Add(
+{
+    name = "suburb.pp.melee",
+    channel = CHAN_STATIC,
+    volume = 1.0,
+    soundlevel = 80,
+    sound = {"hce/ppistol_melee.wav"}
+})
+
+sound.Add(
+{
+    name = "suburb.pr.fidget",
+    channel = CHAN_STATIC,
+    volume = 1.0,
+    soundlevel = 80,
+    sound = {"hce/plasmarifle_fidget.wav"}
+})
+
+sound.Add(
+{
+    name = "suburb.pp.fidget",
+    channel = CHAN_STATIC,
+    volume = 1.0,
+    soundlevel = 80,
+    sound = {"hce/plasmapistol_fidget.wav"}
+})
+
+sound.Add(
+{
+    name = "suburb.pr.meleehit",
+    channel = CHAN_STATIC,
+    volume = 1.0,
+    soundlevel = 100,
+    sound = {"shared/plasmashake.wav"}
+})
+
+sound.Add(
+{
     name = "suburb.h3pr.oh",
     channel = CHAN_WEAPON,
     volume = 1.0,
@@ -1025,11 +1108,47 @@ sound.Add(
 
 sound.Add(
 {
+    name = "suburb.pr.oh",
+    channel = CHAN_WEAPON,
+    volume = 1.0,
+    soundlevel = 80,
+    sound = {"hce/plasmar_overheatenter.wav"}
+})
+
+sound.Add(
+{
+    name = "suburb.pp.oh",
+    channel = CHAN_WEAPON,
+    volume = 1.0,
+    soundlevel = 80,
+    sound = {"hce/plasmap_overheat.wav"}
+})
+
+sound.Add(
+{
     name = "suburb.h3pr.oh_exit",
     channel = CHAN_WEAPON,
     volume = 1.0,
     soundlevel = 80,
     sound = {"snow/plasma_rifle/plasrifle_oh_exit.wav"}
+})
+
+sound.Add(
+{
+    name = "suburb.pr.oh_exit",
+    channel = CHAN_WEAPON,
+    volume = 1.0,
+    soundlevel = 80,
+    sound = {"hce/plasmar_overheatexit.wav"}
+})
+
+sound.Add(
+{
+    name = "suburb.pp.oh_exit",
+    channel = CHAN_WEAPON,
+    volume = 1.0,
+    soundlevel = 80,
+    sound = {"hce/plasmap_overheatexit.wav"}
 })
 
 -- NEEDLER

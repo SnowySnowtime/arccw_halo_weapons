@@ -1,15 +1,9 @@
-$modelname "pistol_ce.mdl"
-$include _bonemerge.qci
+$modelname "plasmapistol_ce.mdl"
+$include "_bonemerge.qci"
 
 $bodygroup "studio"
 {
 	studio "model.smd"
-}
-
-$bodygroup "slide"
-{
-	studio "slide_big.smd"
-	studio "slide_normal.smd"
 }
 
 $bodygroup "arms"
@@ -18,7 +12,7 @@ $bodygroup "arms"
 	studio "cyborg_arms.smd"
 }
 
-$cdmaterials "snowysnowtime/hce/pistols/m6d"
+$cdmaterials "snowysnowtime/hce/pistols/pp"
 
 $surfaceprop "default"
 
@@ -26,14 +20,19 @@ $contents "solid"
 
 $illumposition -2.073 -5.096 -10.058
 
-$attachment "muzzle" "frame gun" 4 0 2.65  rotate 0 0 0
-$attachment "1" "frame gun" 0 0 3.5 rotate 0 90 -180
+$attachment "muzzle" "frame gun" 20 -0.3 -3 rotate 0 0 0
 
 $cbox 0 0 0 0 0 0
 
 $bbox -10.175 -15.883 -17.155 20.363 11.732 -2.96
 
 $sectionframes 30 132
+
+$animation neutral "anims\first-person overcharged-jitter.smd" frames 0 0
+
+$animation "overcharge_jitter_charged" "anims/first-person overcharged.smd" fps 30 presubtract "neutral" 0
+
+$animation "overcharge_jitter_start" "anims/first-person overcharging.smd" fps 30 presubtract "neutral" 0
 
 $sequence "ref" {
 	"anims\ref.smd"
@@ -42,7 +41,43 @@ $sequence "ref" {
 	node "0"
 	rotate -90
 	fps 30
-	loop
+	loop 
+}
+
+$sequence "overcharged_jitter" {
+	"overcharge_jitter_charged"
+	snap
+	hidden
+	predelta
+	fps 45
+}
+
+$sequence "overcharging_jitter" {
+	"overcharge_jitter_start"
+	snap
+	hidden
+	predelta
+	fps 45
+}
+
+$sequence "overcharge_start" {
+	"anims\first-person overcharging.smd"
+	fadein 0.05
+	fadeout 0.2
+	addlayer "overcharging_jitter"
+	node "0"
+	rotate -90
+	fps 30
+}
+
+$sequence "overcharged" {
+	"anims\first-person overcharged-jitter.smd"
+	fadein 0.05
+	fadeout 0.2
+	addlayer "overcharged_jitter"
+	node "0"
+	rotate -90
+	fps 30
 }
 
 $sequence "idle" {
@@ -59,7 +94,7 @@ $sequence "idle" {
 $sequence "fidget" {
 	"anims\first-person posing.smd"
 	activity "ACT_VM_FIDGET" 1
-	{ event 5004 2 "suburb.m6d.fidget" }
+	{ event 5004 2 "suburb.pp.fidget" }
 	fadein 0.05
 	fadeout 0.2
 	node "0"
@@ -78,10 +113,20 @@ $sequence "fire" {
 	fps 30
 }
 
+$sequence "misfire" {
+	"anims\first-person misfire-1.smd"
+	{ event AE_MUZZLEFLASH 0 "" }
+	fadein 0.05
+	fadeout 0.2
+	node "2"
+	rotate -90
+	fps 30
+}
+
 $sequence "draw" {
 	"anims\first-person ready.smd"
 	activity "ACT_VM_DRAW" 1
-	{ event 5004 12 "suburb.m6d.draw" }
+	{ event 5004 5 "suburb.pp.draw" }
 	fadein 0.05
 	fadeout 0.2
 	node "0"
@@ -90,9 +135,18 @@ $sequence "draw" {
 	fps 30
 }
 
-$sequence "reload" {
-	"anims\first-person reload-full.smd"
+$sequence "oh_start" {
+	"anims\first-person overheating.smd"
 	activity "ACT_VM_RELOAD" 1
+	fadein 0.2
+	fadeout 0.2
+	node "0"
+	rotate -90
+	fps 30
+}
+
+$sequence "fire_overcharged" {
+	"anims\first-person fire-2.smd"
 	fadein 0.05
 	fadeout 0.2
 	node "0"
@@ -100,10 +154,20 @@ $sequence "reload" {
 	fps 30
 }
 
-$sequence "reload_empty" {
-	"anims\first-person reload-empty.smd"
-	activity "ACT_VM_RELOAD_EMPTY" 1
-	fadein 0.05
+$sequence "oh_idle" {
+	"anims\first-person overheated.smd"
+	activity "ACT_VM_RELOAD" 1
+	fadein 0.2
+	fadeout 0.2
+	node "0"
+	rotate -90
+	fps 30
+}
+
+$sequence "oh_exit" {
+	"anims\first-person o-h-exit.smd"
+	activity "ACT_VM_RELOAD" 1
+	fadein 0.2
 	fadeout 0.2
 	node "0"
 	rotate -90
@@ -113,7 +177,7 @@ $sequence "reload_empty" {
 $sequence "melee" {
 	"anims\first-person melee.smd"
 	activity "ACT_VM_HITCENTER" 1
-	{ event 5004 0 "suburb.m6d.melee" }
+	{ event 5004 0 "suburb.pp.melee" }
 	fadein 0.05
 	fadeout 0.2
 	rotate -90

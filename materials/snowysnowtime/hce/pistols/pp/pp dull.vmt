@@ -1,0 +1,28 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "snowysnowtime/hce/pistols/pp/pp"
+	"$bumpmap" "snowysnowtime/hce/pistols/pp/pp_n"
+	"$selfillum" "1"
+	"$selfillummask" "snowysnowtime/hce/pistols/pp/illum"
+	"$phong" "1" 
+	"$phongexponenttexture" "snowysnowtime/hce/pistols/pp/pp_exp"
+	"$phongalbedotint" "1"
+	"$phongfresnelranges" "[4 1 8]"
+	"$rimlight"	1
+	"$rimlightboost" 10
+	"$rimmask"	1
+	"$envmap" "snowysnowtime/envmaps/cubemap plasma rifle"
+	"$envmaptint" "[ 1 1 1 ]"
+	"$cubemaptint"	"[ 1 1 1 ]"
+	"$basetexturealphaenvmapmask"	"1"
+	"$envmapfresnel"	"0.15"
+	"$cubemappower"	0.01
+
+	Proxies
+	{
+		drc_ReflectionTint
+		{
+			resultVar $envmaptint
+		}
+	}
+}

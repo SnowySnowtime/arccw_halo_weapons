@@ -1,15 +1,9 @@
-$modelname "pistol_ce.mdl"
+$modelname "plasmarifle_ce.mdl"
 $include _bonemerge.qci
 
 $bodygroup "studio"
 {
 	studio "model.smd"
-}
-
-$bodygroup "slide"
-{
-	studio "slide_big.smd"
-	studio "slide_normal.smd"
 }
 
 $bodygroup "arms"
@@ -18,7 +12,7 @@ $bodygroup "arms"
 	studio "cyborg_arms.smd"
 }
 
-$cdmaterials "snowysnowtime/hce/pistols/m6d"
+$cdmaterials "snowysnowtime/hce/rifles/pr"
 
 $surfaceprop "default"
 
@@ -26,8 +20,10 @@ $contents "solid"
 
 $illumposition -2.073 -5.096 -10.058
 
-$attachment "muzzle" "frame gun" 4 0 2.65  rotate 0 0 0
-$attachment "1" "frame gun" 0 0 3.5 rotate 0 90 -180
+$attachment "muzzle1" "frame gun" 10 0.5 2.75 rotate 0 0 -90
+$attachment "muzzle2" "frame gun" 10 0.5 -1.5 rotate 0 0 90
+$attachment "ventl" "frame gun" 0 0 3.5 rotate 15 90 0
+$attachment "ventr" "frame gun" 0 0 3.5 rotate 15 -90 0
 
 $cbox 0 0 0 0 0 0
 
@@ -59,7 +55,7 @@ $sequence "idle" {
 $sequence "fidget" {
 	"anims\first-person posing.smd"
 	activity "ACT_VM_FIDGET" 1
-	{ event 5004 2 "suburb.m6d.fidget" }
+	{ event 5004 2 "suburb.pr.fidget" }
 	fadein 0.05
 	fadeout 0.2
 	node "0"
@@ -78,10 +74,20 @@ $sequence "fire" {
 	fps 30
 }
 
+$sequence "misfire" {
+	"anims\first-person misfire-1.smd"
+	{ event AE_MUZZLEFLASH 0 "" }
+	fadein 0.05
+	fadeout 0.2
+	node "2"
+	rotate -90
+	fps 30
+}
+
 $sequence "draw" {
 	"anims\first-person ready.smd"
 	activity "ACT_VM_DRAW" 1
-	{ event 5004 12 "suburb.m6d.draw" }
+	{ event 5004 5 "suburb.pr.draw" }
 	fadein 0.05
 	fadeout 0.2
 	node "0"
@@ -90,20 +96,30 @@ $sequence "draw" {
 	fps 30
 }
 
-$sequence "reload" {
-	"anims\first-person reload-full.smd"
+$sequence "oh_start" {
+	"anims\first-person overheating.smd"
 	activity "ACT_VM_RELOAD" 1
-	fadein 0.05
+	fadein 0.2
 	fadeout 0.2
 	node "0"
 	rotate -90
 	fps 30
 }
 
-$sequence "reload_empty" {
-	"anims\first-person reload-empty.smd"
-	activity "ACT_VM_RELOAD_EMPTY" 1
-	fadein 0.05
+$sequence "oh_idle" {
+	"anims\first-person overheated.smd"
+	activity "ACT_VM_RELOAD" 1
+	fadein 0.2
+	fadeout 0.2
+	node "0"
+	rotate -90
+	fps 30
+}
+
+$sequence "oh_exit" {
+	"anims\first-person o-h-exit.smd"
+	activity "ACT_VM_RELOAD" 1
+	fadein 0.2
 	fadeout 0.2
 	node "0"
 	rotate -90
@@ -113,7 +129,7 @@ $sequence "reload_empty" {
 $sequence "melee" {
 	"anims\first-person melee.smd"
 	activity "ACT_VM_HITCENTER" 1
-	{ event 5004 0 "suburb.m6d.melee" }
+	{ event 5004 0 "suburb.pr.melee" }
 	fadein 0.05
 	fadeout 0.2
 	rotate -90

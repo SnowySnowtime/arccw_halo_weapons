@@ -3,6 +3,7 @@
 	"$vertexcolor" 		1 
 	"$vertexalpha" 		1 
 	"$nolod" 			1 
-	$basetexture	 "snowysnowtime/reticles/pp"
+	"$additive" 		1 
+	$basetexture	 "snowysnowtime/reticles/uc/pp"
 }
 

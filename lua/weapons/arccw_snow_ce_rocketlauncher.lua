@@ -18,13 +18,13 @@ SWEP.Precise = false -- Enables the center dot.
 SWEP.ShouldReloadWhenEmpty = true
 
 SWEP.PrintName = "Rocket Launcher"
-SWEP.Trivia_Class = "M40 SSR MAV/AW"
+SWEP.Trivia_Class = "M41 SSR MAV/AW"
 SWEP.Trivia_Desc = "The MA5B was in service to some extent during the Insurrection, being considered a standard weapon in September of 2525, and played a significant role in the Covenant War that followed. MA5Bs were employed by various SPARTAN-IIs during Operation: SILENT STORM and the ensuing Netherop engagement in 2526. In 2531, the marine compliment of the UNSC Spirit of Fire made use of the MA5B on Harvest, Arcadia and Etran Harborage, while members of Blue Team deployed with it on their mission to the decommissioned Platform 966A the same year, and again during the Battle of Jericho VII in 2535. The MA5B saw particularly heavy use in 2552. On Reach, it was wielded by Orbital Drop Shock Troopers sent to engage John-117 during the live-fire test of MJOLNIR Mark V and Cortana, and by the Spartans of Red Team during the defense of Orbital Defense Generators. John-117 and the marine compliment of the UNSC Pillar of Autumn utilized the MA5B throughout the Battle of Halo Alpha, and in the skirmish over Threshold that followed. Spartan personnel during the Onyx conflict also made use of the weapon."
 SWEP.Trivia_Manufacturer = "Misriah Armory"
-SWEP.Trivia_Calibre = "7.62x51mm M118 FMJ-AP"
+SWEP.Trivia_Calibre = "M19 102mm HE SC SSM"
 SWEP.Trivia_Mechanism = "Automatic"
 SWEP.Trivia_Country = "never heard of her"
-SWEP.Trivia_Year = "Assault Rifle"
+SWEP.Trivia_Year = "M41 SSR MAV/AW"
 
 SWEP.Slot = 2
 

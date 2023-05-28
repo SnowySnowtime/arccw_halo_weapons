@@ -62,7 +62,7 @@ SWEP.LungeLength = 64 -- Maximum distance for lunging
 SWEP.MeleeTime = 1.1
 SWEP.MeleeAttackTime = 0.1
 
-SWEP.Range =  100 -- in METRES
+SWEP.Range =  10 -- in METRES
 SWEP.Penetration = 25
 SWEP.DamageType = DMG_BULLET
 SWEP.ShootEntity = nil -- entity to fire, if any

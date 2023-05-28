@@ -32,7 +32,7 @@ SWEP.ViewModel = "models/snowysnowtime/suburb/hce/rifles/plasmarifle_ce.mdl"
 SWEP.WorldModel = "models/snowysnowtime/suburb/hce/rifles/wm_plasmarifle_ce.mdl"
 SWEP.ViewModelFOV = 70
 
-SWEP.Range =  700 -- in METRES
+SWEP.Range =  20 -- in METRES
 SWEP.Penetration = 0
 SWEP.DamageType = DMG_BULLET
 SWEP.MuzzleVelocity = 126 -- projectile or phys bullet muzzle velocity -- IN M/S

@@ -61,7 +61,7 @@ SWEP.Lunge = false -- Whether to allow the bash/melee to lunge a short distance
 SWEP.LungeLength = 64 -- Maximum distance for lunging
 SWEP.MeleeTime = 1.5
 
-SWEP.Range =  100 -- in METRES
+SWEP.Range =  20 -- in METRES
 SWEP.Penetration = 25
 SWEP.DamageType = DMG_BULLET
 SWEP.ShootEntity = nil -- entity to fire, if any

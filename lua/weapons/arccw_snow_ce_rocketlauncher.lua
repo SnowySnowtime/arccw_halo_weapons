@@ -26,7 +26,7 @@ SWEP.Trivia_Mechanism = "Automatic"
 SWEP.Trivia_Country = "never heard of her"
 SWEP.Trivia_Year = "M41 SSR MAV/AW"
 
-SWEP.Slot = 2
+SWEP.Slot = 4
 
 SWEP.UseHands = true
 
@@ -45,6 +45,7 @@ SWEP.DamageMin = 15
 SWEP.AccuracyMOA = 0
 SWEP.HipDispersion = 0
 SWEP.JumpDispersion = 0
+SWEP.MoveDispersion = 0
 SWEP.ChamberSize = 0
 SWEP.Sway = 0
 

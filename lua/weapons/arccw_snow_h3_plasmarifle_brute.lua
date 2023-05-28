@@ -15,7 +15,7 @@ SWEP.FixOutlineX = 64
 SWEP.FixOutlineY = 63
 SWEP.Precise = false -- Enables the center dot.
 
-SWEP.PrintName = "Brute Plasma Rifle"
+SWEP.PrintName = "Brute Plasma Rifle (WIP)"
 SWEP.Trivia_Class = "Type-25 Brute Directed Energy Rifle"
 SWEP.Trivia_Desc = "This is a Type-25 Directed Energy Rifle"
 SWEP.Trivia_Manufacturer = "Iruiru Armory"

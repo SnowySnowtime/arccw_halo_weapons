@@ -19,7 +19,7 @@ SWEP.Trivia_Calibre = "Class-2 Fuel Rods"
 SWEP.Trivia_Mechanism = "Semi-Automatic"
 SWEP.Trivia_Year = "Zasqi-pattern flak launcher "
 
-SWEP.Slot = 2
+SWEP.Slot = 4
 
 SWEP.UseHands = true
 
@@ -50,6 +50,7 @@ SWEP.DamageMin = 5
 SWEP.AccuracyMOA = 50
 SWEP.HipDispersion = 0
 SWEP.JumpDispersion = 0
+SWEP.MoveDispersion = 0
 SWEP.ChamberSize = 0
 SWEP.Sway = 0
 

@@ -45,6 +45,7 @@ SWEP.DamageMin = 20
 SWEP.AccuracyMOA = 2
 SWEP.HipDispersion = 2
 SWEP.JumpDispersion = 0
+SWEP.MoveDispersion = 0
 SWEP.ChamberSize = 0
 SWEP.Sway = 0
 

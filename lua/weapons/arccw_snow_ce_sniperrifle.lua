@@ -42,8 +42,9 @@ SWEP.VisualRecoilMult = 32
 SWEP.Damage = 99
 SWEP.DamageMin = 99
 SWEP.AccuracyMOA = 0.1
-SWEP.HipDispersion = 50
+SWEP.HipDispersion = 1
 SWEP.JumpDispersion = 0
+SWEP.MoveDispersion = 0
 SWEP.ChamberSize = 0
 SWEP.Sway = 0
 

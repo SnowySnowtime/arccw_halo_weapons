@@ -25,7 +25,7 @@ SWEP.Trivia_Mechanism = "Automatic"
 SWEP.Trivia_Country = "never heard of her"
 SWEP.Trivia_Year = "M90 CAWS"
 
-SWEP.Slot = 2
+SWEP.Slot = 3
 
 SWEP.UseHands = true
 
@@ -40,10 +40,11 @@ SWEP.MaxRecoilBlowback = 200
 SWEP.RecoilPunchBack = 20
 SWEP.VisualRecoilMult = 24
 SWEP.Damage = 12
-SWEP.DamageMin = 1
+SWEP.DamageMin = 2
 SWEP.AccuracyMOA = 100
 SWEP.HipDispersion = 0
 SWEP.JumpDispersion = 0
+SWEP.MoveDispersion = 0
 SWEP.ChamberSize = 0
 SWEP.Sway = 0
 
@@ -62,7 +63,7 @@ SWEP.MeleeTime = 1.5
 SWEP.MeleeAttackTime = 0.14
 
 SWEP.Range =  20 -- in METRES
-SWEP.Penetration = 25
+SWEP.Penetration = 0
 SWEP.DamageType = DMG_BULLET
 SWEP.ShootEntity = nil -- entity to fire, if any
 SWEP.MuzzleVelocity = 905 -- projectile or phys bullet muzzle velocity

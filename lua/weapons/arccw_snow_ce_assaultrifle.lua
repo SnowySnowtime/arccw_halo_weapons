@@ -177,15 +177,15 @@ SWEP.Attachments = {
         FreeSlot = true,
         Bone = "frame gun", -- relevant bone any attachments will be mostly referring to
         Offset = {
-            vpos = Vector(9.5, -0.6, 5.25), -- offset that the attachment will be relative to the bone
+            vpos = Vector(5, -0.6, 5.25), -- offset that the attachment will be relative to the bone
             vang = Angle(0, 0, 10),
-            wpos = Vector(6, 2.4, -3.5),
-            wang = Angle(-10.393, 0, 180)
+            wpos = Vector(8, 1.7, -6.5),
+            wang = Angle(0, 0, 180)
         },
     },
 	{
         PrintName = "Skin",
-        Slot = {"skin_hcear","skin_halouniversal"},
+        Slot = {"skin_arce","skin_halouniversal"},
         DefaultAttName = "Factory Default",
         FreeSlot = true
     },

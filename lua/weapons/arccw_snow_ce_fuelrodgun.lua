@@ -128,9 +128,9 @@ SWEP.O_Hook_Override_MuzzleEffectAttachment = function(wep, data)
     end
 end
 
-SWEP.SightTime = 0.35
-SWEP.SpeedMult = 0.85
-SWEP.SightedSpeedMult = 0.25
+SWEP.SightTime = 0.025
+SWEP.SpeedMult = 1
+SWEP.SightedSpeedMult = 1
 
 SWEP.RejectAttachments = {
     ["ammo_cerberus"] = true, -- fuck cerberus
@@ -149,9 +149,10 @@ SWEP.ProceduralIronFire = false
 SWEP.CaseBones = {}
 
 SWEP.IronSightStruct = {
-    Pos = Vector(-3.375, -3, 0),
-    Ang = Angle(0.792, 0.017, 0),
-    Magnification = 1.1,
+    Pos = Vector(0, -30, 0),
+    Ang = Angle(0, 0, 5),
+    Magnification = 2,
+	CrosshairInSights = true,
 }
 
 SWEP.HoldtypeHolstered = "passive"
@@ -185,24 +186,31 @@ SWEP.ExtraSightDist = 15
 SWEP.Attachments = {
     {
         PrintName = "Skull",
-        Slot = {"perk","go_perk"}
+        Slot = {"skull_halo"},
+		FreeSlot = true
     },
     {
         PrintName = "Charm",
         Slot = "charm",
         FreeSlot = true,
-        Bone = "gun", -- relevant bone any attachments will be mostly referring to
+        Bone = "frame gun", -- relevant bone any attachments will be mostly referring to
         Offset = {
-            vpos = Vector(3.5, -1.5, 4.7), -- offset that the attachment will be relative to the bone
+            vpos = Vector(3, -2.5, -1.25), -- offset that the attachment will be relative to the bone
             vang = Angle(0, 0, 10),
-            wpos = Vector(6, 2.4, -3.5),
+            wpos = Vector(3, 4.3, -6),
             wang = Angle(-10.393, 0, 180)
         },
     },
 	{
-        PrintName = "Passive",
-        Slot = {"halo_passive"},
-		Installed = "passive_halo_non_prec_wep_mult",
+        PrintName = "Skin",
+        Slot = {"skin_frg","skin_halouniversal"},
+        DefaultAttName = "Factory Default",
+        FreeSlot = true
+    },
+	{
+        PrintName = "optichidden",
+        Slot = {"m6dslot"},
+		Installed = "2doptic_pistol_ce",
 		Integral = true
     },
 }

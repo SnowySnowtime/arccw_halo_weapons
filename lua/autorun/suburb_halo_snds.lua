@@ -187,6 +187,24 @@ PrecacheParticleSystem( "arc9ce_halo_3_laser_beam_red" )
 PrecacheParticleSystem( "arc9ce_halo_3_laser_beam_monitor" )
 
 --Sounds
+
+sound.Add( {
+	name = "suburb.zoomin",
+	channel = CHAN_AUTO,
+	volume = 1,
+	level = 56,
+	pitch = { 98.5, 101.5 },
+	sound = { "hce/zoom_in.wav" }
+} )
+
+sound.Add( {
+	name = "suburb.zoomout",
+	channel = CHAN_AUTO,
+	volume = 1,
+	level = 56,
+	pitch = { 98.5, 101.5 },
+	sound = { "hce/zoom_out.wav" }
+} )
 	-- Halo CE --
 		-- Halo Assault Rifle
 sound.Add( {

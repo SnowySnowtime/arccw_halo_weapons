@@ -110,9 +110,9 @@ SWEP.ShellScale = 1.5
 SWEP.MuzzleEffectAttachment = 1 -- which attachment to put the muzzle on
 SWEP.CaseEffectAttachment = 4 -- which attachment to put the case effect on
 
-SWEP.SightTime = 0.35
-SWEP.SpeedMult = 0.85
-SWEP.SightedSpeedMult = 0.25
+SWEP.SightTime = 0.025
+SWEP.SpeedMult = 1
+SWEP.SightedSpeedMult = 1
 
 SWEP.BulletBones = { -- the bone that represents bullets in gun/mag
     -- [0] = "bulletchamber",
@@ -125,9 +125,9 @@ SWEP.ProceduralIronFire = false
 SWEP.CaseBones = {}
 
 SWEP.IronSightStruct = {
-    Pos = Vector(0, -2, 1),
+    Pos = Vector(0, -50, 0),
     Ang = Angle(0, 0, 5),
-    Magnification = 1.2,
+    Magnification = 5,
 	CrosshairInSights = true,
 }
 
@@ -174,15 +174,15 @@ SWEP.Attachments = {
         FreeSlot = true,
         Bone = "frame gun", -- relevant bone any attachments will be mostly referring to
         Offset = {
-            vpos = Vector(9.5, -0.6, 5.25), -- offset that the attachment will be relative to the bone
-            vang = Angle(0, 0, 10),
-            wpos = Vector(6, 2.4, -3.5),
+            vpos = Vector(1.5, -0.8, 0.5), -- offset that the attachment will be relative to the bone
+            vang = Angle(0, 0, 0),
+            wpos = Vector(10, 1.6, -5.7),
             wang = Angle(-10.393, 0, 180)
         },
     },
 	{
         PrintName = "Skin",
-        Slot = {"skin_hcear","skin_halouniversal"},
+        Slot = {"skin_srce","skin_halouniversal"},
         DefaultAttName = "Factory Default",
         FreeSlot = true
     },
@@ -192,6 +192,12 @@ SWEP.Attachments = {
 		Installed = "passive_halo_prec_wep_mult",
 		Integral = true
     },
+	{
+		PrintName = "optichidden",
+        Slot = {"srslot"},
+		Installed = "2doptic_sniper_ce",
+		Integral = true
+	},
 }
 
 SWEP.Animations = {

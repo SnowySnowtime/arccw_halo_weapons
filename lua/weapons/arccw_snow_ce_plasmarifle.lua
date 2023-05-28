@@ -188,19 +188,26 @@ SWEP.ExtraSightDist = 15
 SWEP.Attachments = {
     {
         PrintName = "Skull",
-        Slot = {"perk","go_perk"}
+        Slot = {"skull_halo"},
+		FreeSlot = true
     },
     {
         PrintName = "Charm",
         Slot = "charm",
         FreeSlot = true,
-        Bone = "gun", -- relevant bone any attachments will be mostly referring to
+        Bone = "frame gun", -- relevant bone any attachments will be mostly referring to
         Offset = {
-            vpos = Vector(3.5, -1.5, 4.7), -- offset that the attachment will be relative to the bone
+            vpos = Vector(6.5, -1.6, 3.5), -- offset that the attachment will be relative to the bone
             vang = Angle(0, 0, 10),
-            wpos = Vector(6, 2.4, -3.5),
+            wpos = Vector(10, 2.9, -5.25),
             wang = Angle(-10.393, 0, 180)
         },
+    },
+	{
+        PrintName = "Skin",
+        Slot = {"skin_prce","skin_halouniversal"},
+        DefaultAttName = "Factory Default",
+        FreeSlot = true
     },
 	{
         PrintName = "Passive",

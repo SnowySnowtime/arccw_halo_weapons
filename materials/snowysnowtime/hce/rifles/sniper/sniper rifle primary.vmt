@@ -1,9 +1,9 @@
 "VertexLitGeneric"
 {
-	"$basetexture" "snowysnowtime/hce/rifles/sniper/sr"
-	"$bumpmap" "snowysnowtime/hce/rifles/sniper/sr_n"
+	"$basetexture" "snowysnowtime/hce/rifles/sniper/sr_bolt"
+	"$bumpmap" "snowysnowtime/hce/rifles/sniper/sr_bolt_n"
 	"$phong" "1" 
-	"$phongexponenttexture" "snowysnowtime/hce/rifles/sniper/sr_exp"
+	"$phongexponenttexture" "snowysnowtime/hce/rifles/sniper/sr_bolt_exp"
 	"$phongalbedotint" "1"
 	"$phongfresnelranges" "[4 0.5 8]"
 	"$phongdisablehalflambert" "1"
@@ -16,6 +16,7 @@
 	"$basetexturealphaenvmapmask"	"1"
 	"$envmapfresnel"	"0.15"
 	"$cubemappower"	0.01
+	"$alphatest" "1"
 
 	Proxies
 	{

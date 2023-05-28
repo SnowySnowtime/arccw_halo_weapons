@@ -1,0 +1,7 @@
+$definebone "frame gun" "ValveBiped.Bip01_R_Hand" -0.012509 -0.640440 0.010073 12.233681 -1.397673 179.634476 -0.000000 0.000000 0.000000 -0.000001 -0.000000 0.000000
+
+// Stuff down here NEVER changes.
+
+$definebone "ValveBiped.Bip01_R_Hand" "" -0.000911 -0.640609 0.006417 12.238894 -1.350920 -179.929092 0.000000 0.000000 0.000000 -0.000000 0.000000 0.000000
+
+$bonemerge "ValveBiped.Bip01_R_Hand"

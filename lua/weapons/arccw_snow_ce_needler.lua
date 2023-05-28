@@ -31,80 +31,22 @@ SWEP.Slot = 2
 SWEP.UseHands = true
 
 SWEP.ViewModel = "models/snowysnowtime/suburb/hce/pistols/needler_ce.mdl"
-SWEP.WorldModel = "models/snowysnowtime/suburb/hce/rifles/c_fp_cear.mdl"
+SWEP.WorldModel = "models/snowysnowtime/suburb/hce/pistols/wm_pistol_needler.mdl"
 SWEP.ViewModelFOV = 70
 
---  You will need this for the journey ahead
---  Probably should set this to your first mode
-	SWEP.Recoil = 0.2
-	SWEP.RecoilSide = 0.2
-	SWEP.RecoilPunch = 1
-	SWEP.MaxRecoilBlowback = 1
-	SWEP.RecoilPunchBack = 2
-	SWEP.VisualRecoilMult = 24
-	SWEP.Damage = 25
-	SWEP.DamageMin = 15
-	SWEP.AccuracyMOA = 70
-	SWEP.HipDispersion = 360
-	SWEP.JumpDispersion = 0
-	SWEP.ChamberSize = 0
-	SWEP.Sway = 0
-
-local balance = {
-    [0] = {
-        -- HaloCW
-        Recoil = 0.2,
-        RecoilSide = 0.2,
-		MaxRecoilBlowback = 14,
-		RecoilPunchBack = 12,
-        Damage = 25,
-        DamageMin = 15,
-        AccuracyMOA = 70,
-        HipDispersion = 360,
-        JumpDispersion = 0,
-        ChamberSize = 0,
-    },
-    [1] = {
-        -- halo purist
-        Recoil = 0,
-        RecoilSide = 0,
-		MaxRecoilBlowback = 0,
-		RecoilPunchBack = 2,
-        Damage = 10,
-        DamageMin = 10,
-        JumpDispersion = 0,
-        HipDispersion = 0,
-        MoveDispersion = 0,
-        ChamberSize = 0,
-    },
-    [2] = {
-        -- arccw
-        Recoil = 0.2,
-        RecoilSide = 0.2,
-		MaxRecoilBlowback = 1,
-		RecoilPunchBack = 2,
-        Damage = 30,
-        DamageMin = 10,
-        AccuracyMOA = 70,
-        HipDispersion = 360,
-        MoveDispersion = 120,
-        ChamberSize = 1,
-    }
-}
-
-function SWEP:ArcCW_Halo_Setup()
-    local val = GetConVar("arccw_ce_bal"):GetInt()
-    for i, v in pairs(balance[val]) do
-        self[i] = v
-    end
-end
-
-DEFINE_BASECLASS("arccw_snow_halo_subbase")
-function SWEP:Initialize()
-    BaseClass.Initialize(self)
-
-    self:ArcCW_Halo_Setup()
-end
+SWEP.Recoil = 0
+SWEP.RecoilSide = 0
+SWEP.RecoilPunch = 1
+SWEP.MaxRecoilBlowback = 1
+SWEP.RecoilPunchBack = 2
+SWEP.VisualRecoilMult = 24
+SWEP.Damage = 16
+SWEP.DamageMin = 7
+SWEP.AccuracyMOA = 10
+SWEP.HipDispersion = 0
+SWEP.JumpDispersion = 0
+SWEP.ChamberSize = 0
+SWEP.Sway = 0
 
 SWEP.MeleeSwingSound = ""
 SWEP.MeleeMissSound = ""
@@ -127,7 +69,7 @@ SWEP.MuzzleVelocity = 905 -- projectile or phys bullet muzzle velocity
 -- IN M/S
 
 SWEP.TracerNum = 1 -- tracer every X
-SWEP.Tracer 	= "effect_arc9_halo3_tracer_br"
+SWEP.Tracer 	= "effect_arc9_halo_ce_tracer_ne"
 
 SWEP.Primary.ClipSize = 20 -- DefaultClip is automatically set.
 SWEP.ExtendedClipSize = 20
@@ -160,6 +102,7 @@ SWEP.ShootSoundSilenced = "suburb.cear.fire_sup"
 SWEP.DistantShootSound = "ar_lod"
 
 SWEP.MuzzleEffect = "arc9ce_halo_ce_muzzle_needler"
+SWEP.MuzzleFlashColor = Color(255, 70, 255)
 SWEP.ShellModel = "models/shells/shell_338mag.mdl"
 SWEP.ShellPitch = 80
 SWEP.ShellScale = 1.5
@@ -189,7 +132,7 @@ SWEP.IronSightStruct = {
 }
 
 SWEP.HoldtypeHolstered = "passive"
-SWEP.HoldtypeActive = "ar2"
+SWEP.HoldtypeActive = "pistol"
 SWEP.HoldtypeSights = "rpg"
 
 SWEP.AnimShoot = ACT_HL2MP_GESTURE_RANGE_ATTACK_AR2

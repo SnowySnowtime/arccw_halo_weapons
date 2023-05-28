@@ -3,13 +3,13 @@ TRACER_FLAG_USEATTACHMENT	= 0x0002;
 SOUND_FROM_WORLD			= 0;
 CHAN_STATIC					= 6;
 
-EFFECT.Speed				= 4000;
-EFFECT.Length				= 48;
+EFFECT.Speed				= 7000;
+EFFECT.Length				= 400;
 //EFFECT.WhizSound			= Sound( "nomad/whiz.wav" );		-- by Robinhood76 (http:--www.freesound.org/people/Robinhood76/sounds/96556/)
 EFFECT.WhizDistance			= 72;
 
-local MaterialMain			= Material( "effects/halo_reach/trail_green" );
-local MaterialFront			= Material( "effects/halo_reach/plasma_bolt_green" );
+local MaterialMain			= Material( "effects/arc9ce/halo3/trail_plasmapistol" );
+local MaterialFront			= Material( "effects/arc9ce/halo3/muzzle_plasmapistol" );
 
 function EFFECT:GetTracerOrigin( data )
 

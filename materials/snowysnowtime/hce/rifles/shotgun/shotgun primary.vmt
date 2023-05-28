@@ -1,21 +1,18 @@
 "VertexLitGeneric"
 {
-	"$basetexture" "snowysnowtime/hce/rifles/shotgun/sg"
-	"$bumpmap" "snowysnowtime/hce/rifles/shotgun/sg_n"
+	"$basetexture" "snowysnowtime/hce/rifles/shotgun/sg_bolt"
+	"$bumpmap" "snowysnowtime/hce/rifles/shotgun/sg_bolt_n"
 	"$selfillum" "1"
 	"$selfillummask" "snowysnowtime/hce/rifles/shotgun/illum"
 	"$phong" "1" 
-	"$phongexponenttexture" "snowysnowtime/hce/rifles/shotgun/sg_exp"
+	"$phongexponenttexture" "snowysnowtime/hce/rifles/shotgun/sg_bolt_exp"
 	"$phongalbedotint" "1"
 	"$phongfresnelranges" "[4 0.5 8]"
-	"$phongdisablehalflambert" "1"
-	"$rimlight"	1
-	"$rimlightpower"	10
-	"$rimmask"	1
 	"$envmap" "snowysnowtime/envmaps/pistol"
 	"$envmaptint" "[ 1 1 1 ]"
 	"$cubemaptint"	"[ 1 1 1 ]"
-	"$basetexturealphaenvmapmask"	"1"
+	"$normalmapalphaenvmapmask"	"1"
+	"$alphatest" "1"
 	"$envmapfresnel"	"0.15"
 	"$cubemappower"	0.03
 

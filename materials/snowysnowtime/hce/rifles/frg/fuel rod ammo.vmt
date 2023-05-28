@@ -1,0 +1,6 @@
+"UnLitGeneric"
+{
+	"$basetexture" "snowysnowtime/hce/rifles/frg/w_frm"
+	"$bumpmap" "snowysnowtime/hce/rifles/frg/w_frm_n"
+	"$selfillum" "1"
+}

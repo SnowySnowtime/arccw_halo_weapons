@@ -30,71 +30,22 @@ SWEP.Slot = 3
 SWEP.UseHands = true
 
 SWEP.ViewModel = "models/snowysnowtime/suburb/hce/rifles/sniper_ce.mdl"
-SWEP.WorldModel = "models/snowysnowtime/suburb/hce/rifles/c_fp_cear.mdl"
+SWEP.WorldModel = "models/snowysnowtime/suburb/hce/rifles/wm_snipperrifle_ce.mdl"
 SWEP.ViewModelFOV = 70
 
---  You will need this for the journey ahead
---  Probably should set this to your first mode
---  You will need this for the journey ahead
---  Probably should set this to your first mode
-	SWEP.Recoil = 0.2
-	SWEP.RecoilSide = 0.2
-	SWEP.Damage = 99
-	SWEP.DamageMin = 99
-	SWEP.AccuracyMOA = 0.005
-	SWEP.HipDispersion = 10
-	SWEP.JumpDispersion = 0
-	SWEP.ChamberSize = 0
-
-local balance = {
-    [0] = {
-        -- HaloCW
-        Recoil = 1,
-        RecoilSide = 1,
-        Damage = 100,
-        DamageMin = 100,
-        AccuracyMOA = 0.005,
-        HipDispersion = 700,
-        JumpDispersion = 0,
-        ChamberSize = 0,
-    },
-    [1] = {
-        -- halo purist
-        Recoil = 0,
-        RecoilSide = 0,
-        Damage = 100,
-        DamageMin = 100,
-        JumpDispersion = 0,
-        HipDispersion = 0,
-        MoveDispersion = 0,
-        ChamberSize = 0,
-    },
-    [2] = {
-        -- arccw
-        Recoil = 0.2,
-        RecoilSide = 0.2,
-        Damage = 100,
-        DamageMin = 100,
-        AccuracyMOA = 0.005,
-        HipDispersion = 700,
-        MoveDispersion = 120,
-        ChamberSize = 1,
-    }
-}
-
-function SWEP:ArcCW_Halo_Setup()
-    local val = GetConVar("arccw_ce_bal"):GetInt()
-    for i, v in pairs(balance[val]) do
-        self[i] = v
-    end
-end
-
-DEFINE_BASECLASS("arccw_base")
-function SWEP:Initialize()
-    BaseClass.Initialize(self)
-
-    self:ArcCW_Halo_Setup()
-end
+SWEP.Recoil = 0
+SWEP.RecoilSide = 0
+SWEP.RecoilPunch = 5
+SWEP.MaxRecoilBlowback = 1
+SWEP.RecoilPunchBack = 2
+SWEP.VisualRecoilMult = 32
+SWEP.Damage = 99
+SWEP.DamageMin = 99
+SWEP.AccuracyMOA = 0.1
+SWEP.HipDispersion = 70
+SWEP.JumpDispersion = 0
+SWEP.ChamberSize = 0
+SWEP.Sway = 0
 
 SWEP.MeleeSwingSound = ""
 SWEP.MeleeMissSound = ""
@@ -111,7 +62,7 @@ SWEP.MeleeTime = 1.5
 SWEP.MeleeAttackTime = 0.2
 
 SWEP.Range =  100 -- in METRES
-SWEP.Penetration = 25
+SWEP.Penetration = 0
 SWEP.DamageType = DMG_BULLET
 SWEP.ShootEntity = nil -- entity to fire, if any
 SWEP.MuzzleVelocity = 905 -- projectile or phys bullet muzzle velocity

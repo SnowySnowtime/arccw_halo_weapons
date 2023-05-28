@@ -1,4 +1,4 @@
-att.PrintName = "halo precision weapon multiplier"
+att.PrintName = "halo_prec_m6d"
 att.Icon = Material("entities/tfa_hce_snow_objectiveflag.png", "smooth mips")
 att.Description = "applies headshot damage based on the weapon type"
 att.Desc_Pros = {

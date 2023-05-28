@@ -1,4 +1,4 @@
-att.PrintName = "halo non precision weapon multiplier"
+att.PrintName = "non_prec lol"
 att.Icon = Material("entities/tfa_hce_snow_objectiveflag.png", "smooth mips")
 att.Description = "Further triples headshot damage."
 att.Desc_Pros = {
@@ -14,7 +14,7 @@ att.Hook_BulletHit = function(wep, data)
     if CLIENT then return end
 
     if data.tr.HitGroup == HITGROUP_HEAD then
-        data.damage = data.damage * 0.6
+        data.damage = data.damage * 0.5
 	elseif data.tr.HitGroup == HITGROUP_LEFTARM or data.tr.HitGroup == HITGROUP_RIGHTARM or data.tr.HitGroup == HITGROUP_LEFTLEG or data.tr.HitGroup == HITGROUP_RIGHTLEG then
 		data.damage = data.damage * 4
     end

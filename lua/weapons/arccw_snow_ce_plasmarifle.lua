@@ -23,11 +23,6 @@ SWEP.Slot = 2
 
 SWEP.UseHands = true
 
-SWEP.MeleeSwingSound = ""
-SWEP.MeleeMissSound = ""
-SWEP.MeleeHitSound = "hceworld"
-SWEP.MeleeHitNPCSound = "hceslap"
-
 SWEP.ViewModel = "models/snowysnowtime/suburb/hce/rifles/plasmarifle_ce.mdl"
 SWEP.WorldModel = "models/snowysnowtime/suburb/hce/rifles/wm_plasmarifle_ce.mdl"
 SWEP.ViewModelFOV = 70

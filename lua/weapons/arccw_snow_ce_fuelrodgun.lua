@@ -153,6 +153,8 @@ SWEP.IronSightStruct = {
     Ang = Angle(0, 0, 5),
     Magnification = 2,
 	CrosshairInSights = true,
+	SwitchToSound = "suburb.zoomin",
+    SwitchFromSound = "suburb.zoomout",
 }
 
 SWEP.HoldtypeHolstered = "passive"

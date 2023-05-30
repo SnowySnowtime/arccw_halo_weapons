@@ -205,9 +205,10 @@ SWEP.ProceduralIronFire = false
 SWEP.CaseBones = {}
 
 SWEP.IronSightStruct = {
-    Pos = Vector(-3.375, -3, 0),
-    Ang = Angle(0.792, 0.017, 0),
+    Pos = Vector(0, 0.2, 1),
+    Ang = Angle(0, 0, 5),
     Magnification = 1.1,
+	CrosshairInSights = true,
 }
 
 SWEP.HoldtypeHolstered = "passive"
@@ -228,7 +229,7 @@ SWEP.BarrelOffsetHip = Vector(2, 0, -2)
 SWEP.CustomizePos = Vector(1.824, -4, 0.897)
 SWEP.CustomizeAng = Angle(12.149, 30.547, 0)
 
-SWEP.BarrelLength = 30
+SWEP.BarrelLength = 0
 SWEP.AttachmentElements = {
 	["brute"] = {
         VMSkin = 1,

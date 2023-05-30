@@ -184,9 +184,9 @@ SWEP.ShellScale = 1.5
 SWEP.MuzzleEffectAttachment = 1 -- which attachment to put the muzzle on
 SWEP.CaseEffectAttachment = 2 -- which attachment to put the case effect on
 
-SWEP.SightTime = 0.35
-SWEP.SpeedMult = 0.85
-SWEP.SightedSpeedMult = 0.25
+SWEP.SightTime = 0.01
+SWEP.SpeedMult = 1
+SWEP.SightedSpeedMult = 1
 
 SWEP.RejectAttachments = {
     ["ammo_cerberus"] = true, -- fuck cerberus

@@ -131,9 +131,9 @@ SWEP.O_Hook_Override_MuzzleEffectAttachment = function(wep, data)
     end
 end
 
-SWEP.SightTime = 0.35
-SWEP.SpeedMult = 0.85
-SWEP.SightedSpeedMult = 0.25
+SWEP.SightTime = 0.01
+SWEP.SpeedMult = 1
+SWEP.SightedSpeedMult = 1
 
 SWEP.RejectAttachments = {
     ["ammo_cerberus"] = true, -- fuck cerberus

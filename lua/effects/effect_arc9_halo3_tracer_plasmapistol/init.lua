@@ -4,7 +4,7 @@ SOUND_FROM_WORLD			= 0;
 CHAN_STATIC					= 6;
 
 EFFECT.Speed				= 7000;
-EFFECT.Length				= 400;
+EFFECT.Length				= -512;
 //EFFECT.WhizSound			= Sound( "nomad/whiz.wav" );		-- by Robinhood76 (http:--www.freesound.org/people/Robinhood76/sounds/96556/)
 EFFECT.WhizDistance			= 72;
 
@@ -94,7 +94,7 @@ end
 function EFFECT:Render()
 
 	local endDistance = self.Speed * self.StartTime;
-	local startDistance = endDistance - 2* self.Length;
+	local startDistance = endDistance - self.Length;
 	
 	startDistance = math.max( 0, startDistance );
 	endDistance = math.max( 0, endDistance );
@@ -103,9 +103,9 @@ function EFFECT:Render()
 	local endPos = self.StartPos + self.Normal * endDistance;
 	
 	render.SetMaterial( MaterialFront );
-	render.DrawSprite( endPos, 10, 10, color_white );
+	render.DrawSprite( startPos, 15, 15, color_white );
 
 	render.SetMaterial( MaterialMain );
-	render.DrawBeam( startPos, endPos, 15, 0, 1, color_white );
+	render.DrawBeam( startPos, endPos, 25, 0, -1, color_white );
 	
 end
